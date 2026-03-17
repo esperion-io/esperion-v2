@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI for Trades NZ — Never Miss a Call Again | AI Tools NZ</title>
+  <meta name="description" content="AI phone answering for NZ tradies. Every call answered, every lead captured, every quote followed up — while you're on the tools. Auckland based. Set up in 5 days." />
+  <meta name="keywords" content="AI for trade businesses NZ, AI phone answering for tradies, AI for plumbers NZ, automated call answering for tradies, AI for electricians NZ, missed calls tradies, AI for builders NZ" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://trade.aitools.co.nz" />
+  <meta property="og:title" content="AI for Trades NZ — Stop Losing $15,000 a Month to Missed Calls" />
+  <meta property="og:description" content="Every call answered. Every lead captured. Every quote followed up. While you focus on the job." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://trade.aitools.co.nz" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: { emerald: { DEFAULT: '#10B981', dark: '#059669' }, amber: { DEFAULT: '#D97706' }, ink: '#0F172A', wash: '#F8FAF9' },
+        fontFamily: { heading: ['Outfit','sans-serif'], body: ['"DM Sans"','sans-serif'] }
+      }}
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:#fff;color:#111827;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    h1,h2,h3,h4,h5,h6{font-family:'Outfit',sans-serif}
+
+    /* NAV */
+    .nav-wrap{position:sticky;top:80px;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid #E5E7EB;transition:box-shadow 150ms ease}
+    .nav-wrap.scrolled{box-shadow:0 2px 16px rgba(0,0,0,0.06)}
+
+    /* BUTTONS */
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;background:#10B981;color:#fff;font-family:'Outfit',sans-serif;font-weight:700;font-size:1rem;padding:.9rem 2rem;border-radius:6px;border:none;cursor:pointer;transition:background 150ms,transform 120ms,box-shadow 150ms;text-decoration:none;line-height:1.2;letter-spacing:.01em}
+    .btn-primary:hover,.btn-primary:focus-visible{background:#059669;transform:translateY(-2px);box-shadow:0 6px 24px rgba(16,185,129,0.25);outline:none}
+    .btn-primary:focus-visible{outline:3px solid #10B981;outline-offset:3px}
+    .btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#10B981;font-family:'Outfit',sans-serif;font-weight:700;font-size:1rem;padding:.85rem 1.9rem;border-radius:6px;border:2px solid #10B981;cursor:pointer;transition:background 150ms,border-color 150ms,box-shadow 150ms;text-decoration:none;line-height:1.2}
+    .btn-outline:hover,.btn-outline:focus-visible{background:rgba(16,185,129,0.06);border-color:#059669;box-shadow:0 4px 16px rgba(16,185,129,0.15);outline:none}
+
+    /* HERO */
+    .hero-section{background:radial-gradient(ellipse at top,rgba(16,185,129,0.05),transparent 60%),#fff;position:relative;overflow:hidden;padding:5rem 1.5rem 7rem}
+
+    /* ANGLED DIVIDERS — light-to-light transitions */
+    .divider-white-to-alt{height:60px;background:#fff;clip-path:polygon(0 0,100% 0,100% 30%,0 100%);margin-bottom:-2px}
+    .divider-alt-to-white{height:60px;background:#F8FAF9;clip-path:polygon(0 0,100% 40%,100% 100%,0 100%);margin-bottom:-2px}
+    .divider-white-to-dark{height:60px;background:#fff;clip-path:polygon(0 0,100% 0,100% 30%,0 100%);margin-bottom:-2px}
+
+    /* SECTION CHIP */
+    .section-chip{display:inline-flex;align-items:center;gap:6px;font-family:'Outfit',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#10B981;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);padding:4px 12px;border-radius:4px;margin-bottom:1rem}
+
+    /* STAT CALLOUT */
+    .stat-callout{border-left:4px solid #10B981;padding-left:1.25rem}
+    .stat-callout .stat-num{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(2.5rem,7vw,4rem);color:#D97706;line-height:1}
+    .stat-callout .stat-label{font-family:'DM Sans',sans-serif;font-size:.9rem;color:#6B7280;margin-top:4px}
+
+    /* ANIMATIONS */
+    .cost-step{opacity:0;transform:translateY(16px);transition:opacity 400ms ease,transform 400ms ease}
+    .cost-step.visible{opacity:1;transform:translateY(0)}
+    .flow-step{opacity:0;transform:translateX(-16px);transition:opacity 350ms ease,transform 350ms ease}
+    .flow-step.visible{opacity:1;transform:translateX(0)}
+    .fade-in{opacity:0;transform:translateY(20px);transition:opacity 500ms ease,transform 500ms ease}
+    .fade-in.visible{opacity:1;transform:translateY(0)}
+
+    /* CARDS */
+    .card-light{background:#fff;border:1px solid #E5E7EB;border-left:4px solid #10B981;border-radius:8px;padding:1.75rem;transition:box-shadow 150ms;box-shadow:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04)}
+    .card-light:hover{box-shadow:0 6px 20px rgba(16,185,129,0.1)}
+
+    /* ICON BADGE */
+    .icon-badge{width:52px;height:52px;background:#10B981;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+    /* TIMELINE */
+    .timeline-step{display:flex;gap:1.25rem;align-items:flex-start}
+    .timeline-num{flex-shrink:0;width:48px;height:48px;background:#10B981;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:1.1rem;color:#fff;position:relative;z-index:1}
+    .timeline-connector{width:2px;min-height:32px;background:linear-gradient(to bottom,#10B981,rgba(16,185,129,0.15));margin:0 23px}
+
+    /* CALCULATOR — LIGHT THEME */
+    .calc-wrap{background:#fff;border:1px solid #E5E7EB;border-top:4px solid #10B981;border-radius:8px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .calc-header{background:#F8FAF9;border-bottom:1px solid #E5E7EB;padding:1rem 2rem;display:flex;align-items:center;gap:10px}
+    .calc-dot{width:10px;height:10px;border-radius:50%}
+    input[type="range"]{-webkit-appearance:none;width:100%;height:8px;border-radius:4px;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.25);outline:none;cursor:pointer}
+    input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:4px;background:#10B981;cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(16,185,129,0.35)}
+    input[type="range"]::-moz-range-thumb{width:26px;height:26px;border-radius:4px;background:#10B981;cursor:pointer;border:3px solid #fff}
+    input[type="range"]:focus{outline:none}
+    input[type="range"]:focus::-webkit-slider-thumb{box-shadow:0 0 0 3px rgba(16,185,129,0.25)}
+    select.calc-select{width:100%;padding:10px 14px;border-radius:6px;border:1px solid #D1D5DB;background:#fff;color:#111827;font-family:'DM Sans',sans-serif;font-size:.95rem;cursor:pointer;outline:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236B7280' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-color:#fff}
+    select.calc-select option{background:#fff;color:#111827}
+    select.calc-select:focus{border-color:#10B981;box-shadow:0 0 0 3px rgba(16,185,129,0.1);outline:none}
+    .result-big{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(2.5rem,8vw,4rem);color:#D97706;line-height:1;transition:all 200ms}
+    .result-money{font-family:'Outfit',sans-serif;font-weight:700;font-size:1.5rem;color:#D97706;line-height:1}
+    .result-stat{font-family:'Outfit',sans-serif;font-weight:700;font-size:1.5rem;color:#111827;line-height:1}
+    .calc-label{font-family:'DM Sans',sans-serif;font-size:.875rem;font-weight:600;color:#6B7280;display:block;margin-bottom:8px}
+
+    /* NUMBERS */
+    .numbers-big{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3rem);color:#10B981;line-height:1}
+    .numbers-big-money{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3rem);color:#D97706;line-height:1}
+
+    /* PRICING CARD */
+    .pricing-card{background:#fff;border:1px solid #E5E7EB;border-top:5px solid #10B981;border-radius:12px;padding:2.5rem;position:relative;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .pricing-badge{position:absolute;top:-14px;right:2rem;background:#10B981;color:#fff;font-family:'Outfit',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;padding:4px 14px;border-radius:4px}
+
+    /* FAQ */
+    .faq-item{border-bottom:1px solid #E5E7EB}
+    .faq-trigger{width:100%;text-align:left;padding:1.25rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;background:none;border:none;cursor:pointer;font-family:'Outfit',sans-serif;font-weight:600;font-size:1rem;color:#111827;transition:color 150ms}
+    .faq-trigger:hover{color:#10B981}
+    .faq-trigger:focus-visible{outline:3px solid #10B981;outline-offset:2px;border-radius:4px}
+    .faq-icon{width:24px;height:24px;flex-shrink:0;color:#10B981;transition:transform 200ms}
+    .faq-item.open .faq-icon{transform:rotate(45deg)}
+    .faq-answer{display:none;padding-bottom:1.25rem;font-size:.95rem;line-height:1.75;color:#6B7280}
+    .faq-item.open .faq-answer{display:block}
+
+    /* MOBILE MENU */
+    .mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-top:1px solid #E5E7EB;padding:1rem;box-shadow:0 8px 24px rgba(0,0,0,0.08)}
+    .mobile-menu.open{display:block}
+
+    /* MISC */
+    .guarantee-box{background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.2);border-left:4px solid #10B981;border-radius:8px;padding:1.25rem 1.5rem}
+    .trust-badge{display:flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:.875rem;font-weight:600;color:#6B7280}
+    .how-step-num{width:60px;height:60px;background:#10B981;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:1.5rem;color:#fff;flex-shrink:0}
+
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+    .pulse-dot{animation:pulse 2s infinite}
+
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+      .fade-in,.cost-step,.flow-step{opacity:1!important;transform:none!important}
+    }
+
+    /* PRICING GRID */
+    @media(max-width:768px){
+      .pricing-grid{grid-template-columns:1fr !important;}
+    }
+    .pricing-card-popular{border-top-color:#D97706 !important;transform:scale(1.03);box-shadow:0 8px 30px rgba(0,0,0,0.1);}
+  </style>
+
+<!-- ═══ MARCH MADNESS PROMO — REMOVE AFTER MARCH 2026 ═══ -->
+<style>
+  @keyframes marchShimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+  .promo-banner {
+    position: fixed;
+    top: 40px;
+    left: 0; right: 0;
+    background: linear-gradient(135deg, #DC2626 0%, #F59E0B 50%, #DC2626 100%);
+    background-size: 200% auto;
+    animation: marchShimmer 3s linear infinite;
+    color: #fff;
+    text-align: center;
+    padding: 10px 16px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    z-index: 199;
+    margin: 0;
+  }
+  .promo-banner a { color: #fff; text-decoration: underline; }
+  .price-original {
+    text-decoration: line-through;
+    opacity: 0.5;
+    font-size: 0.75em;
+    margin-right: 4px;
+  }
+  .price-promo {
+    color: #DC2626;
+    font-weight: 800;
+  }
+  .march-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #DC2626, #F59E0B);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+</style>
+<!-- ═══ END MARCH MADNESS PROMO STYLES ═══ -->
+</head>
+<body style="padding-top:80px;">
+<!-- ═══ ECOSYSTEM BAR ═══ -->
+<div id="ecosystem-bar">
+  <div class="eco-inner">
+    <a href="https://aitools.co.nz" class="eco-brand">
+      <svg class="eco-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="3" fill="#10B981"/>
+        <circle cx="12" cy="3" r="1.5" fill="#10B981" opacity="0.6"/>
+        <circle cx="21" cy="7.5" r="1.5" fill="#10B981" opacity="0.6"/>
+        <circle cx="21" cy="16.5" r="1.5" fill="#10B981" opacity="0.6"/>
+        <circle cx="12" cy="21" r="1.5" fill="#10B981" opacity="0.6"/>
+        <circle cx="3" cy="16.5" r="1.5" fill="#10B981" opacity="0.6"/>
+        <circle cx="3" cy="7.5" r="1.5" fill="#10B981" opacity="0.6"/>
+        <line x1="12" y1="9" x2="12" y2="4.5" stroke="#10B981" stroke-width="0.7" opacity="0.4"/>
+        <line x1="14.6" y1="10.5" x2="19.5" y2="8" stroke="#10B981" stroke-width="0.7" opacity="0.4"/>
+        <line x1="14.6" y1="13.5" x2="19.5" y2="16" stroke="#10B981" stroke-width="0.7" opacity="0.4"/>
+        <line x1="12" y1="15" x2="12" y2="19.5" stroke="#10B981" stroke-width="0.7" opacity="0.4"/>
+        <line x1="9.4" y1="13.5" x2="4.5" y2="16" stroke="#10B981" stroke-width="0.7" opacity="0.4"/>
+        <line x1="9.4" y1="10.5" x2="4.5" y2="8" stroke="#10B981" stroke-width="0.7" opacity="0.4"/>
+      </svg>
+      AI Tools NZ
+    </a>
+    <nav id="eco-nav-links" class="eco-links">
+      <a href="https://aitools.co.nz" data-eco="business" class="eco-link">Business</a>
+      <a href="https://realestate.aitools.co.nz" data-eco="realestate" class="eco-link">Real Estate</a>
+      <a href="https://trade.aitools.co.nz" data-eco="trades" class="eco-link">Trades</a>
+      <a href="https://student.aitools.co.nz" data-eco="students" class="eco-link">Students</a>
+    </nav>
+    <button id="eco-mobile-toggle" class="eco-mobile-btn" aria-label="Toggle ecosystem navigation">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+  </div>
+  <div class="eco-glow"></div>
+  <div id="eco-mobile-menu" class="eco-mobile-menu">
+    <a href="https://aitools.co.nz" class="eco-mobile-link">Business</a>
+    <a href="https://realestate.aitools.co.nz" class="eco-mobile-link">Real Estate</a>
+    <a href="https://trade.aitools.co.nz" class="eco-mobile-link">Trades</a>
+    <a href="https://student.aitools.co.nz" class="eco-mobile-link">Students</a>
+  </div>
+</div>
+<style>
+  @keyframes ecoGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  @keyframes ecoPulse {
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 0.35; }
+  }
+  #ecosystem-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 40px;
+    z-index: 200;
+    background: linear-gradient(135deg, #0a0a1a 0%, #111127 25%, #0d0d20 50%, #111127 75%, #0a0a1a 100%);
+    background-size: 300% 300%;
+    animation: ecoGradient 8s ease infinite;
+    display: flex;
+    align-items: center;
+    overflow: visible;
+  }
+  .eco-glow {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(16,185,129,0.5) 30%, rgba(16,185,129,0.8) 50%, rgba(16,185,129,0.5) 70%, transparent 100%);
+    animation: ecoPulse 3s ease-in-out infinite;
+  }
+  .eco-inner {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+  }
+  .eco-brand {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: text-shadow 0.3s;
+  }
+  .eco-brand:hover { text-shadow: 0 0 12px rgba(16,185,129,0.5); }
+  .eco-icon { filter: drop-shadow(0 0 4px rgba(16,185,129,0.4)); }
+  .eco-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .eco-link {
+    color: rgba(255,255,255,0.45);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s, text-shadow 0.2s;
+  }
+  .eco-link:hover {
+    color: rgba(255,255,255,0.9);
+    text-shadow: 0 0 10px rgba(16,185,129,0.4);
+  }
+  .eco-link.active {
+    color: #fff;
+    border-bottom-color: #10B981;
+    text-shadow: 0 0 8px rgba(16,185,129,0.3);
+  }
+  .eco-mobile-btn {
+    display: none;
+    background: none;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    color: rgba(255,255,255,0.7);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 4px 10px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .eco-mobile-btn:hover { border-color: rgba(16,185,129,0.5); color: #fff; }
+  .eco-mobile-menu {
+    display: none;
+    position: absolute;
+    top: 40px; left: 0; right: 0;
+    background: linear-gradient(180deg, #111127 0%, #0a0a1a 100%);
+    padding: 8px 24px 12px;
+    z-index: 201;
+    border-bottom: 1px solid rgba(16,185,129,0.2);
+  }
+  .eco-mobile-link {
+    display: block;
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: color 0.2s, padding-left 0.2s;
+  }
+  .eco-mobile-link:last-child { border-bottom: none; }
+  .eco-mobile-link:hover { color: #fff; padding-left: 8px; }
+  @media (max-width: 640px) {
+    .eco-links { display: none !important; }
+    .eco-mobile-btn { display: flex; align-items: center; gap: 4px; }
+  }
+</style>
+<script>
+(function(){
+  var btn=document.getElementById('eco-mobile-toggle');
+  var menu=document.getElementById('eco-mobile-menu');
+  if(btn&&menu){btn.addEventListener('click',function(){
+    var open=menu.style.display!=='block';
+    menu.style.display=open?'block':'none';
+    btn.querySelector('svg').style.transform=open?'rotate(180deg)':'';
+  })}
+  var host=window.location.hostname;
+  var map={'aitools.co.nz':'business','realestate.aitools.co.nz':'realestate','trade.aitools.co.nz':'trades','student.aitools.co.nz':'students'};
+  var active=map[host]||'trades';
+  if(active){
+    var el=document.querySelector('[data-eco="'+active+'"]');
+    if(el) el.classList.add('active');
+  }
+})();
+</script>
+<!-- ═══ END ECOSYSTEM BAR ═══ -->
+<!-- ═══ MARCH MADNESS BANNER — REMOVE AFTER MARCH 2026 ═══ -->
+<div class="promo-banner">
+  🔥 MARCH MADNESS — All plans <strong>50% OFF</strong> this month only! <a href="javascript:void(0)" onclick="openCalendly(event)">Book now →</a>
+</div>
+<!-- ═══ END MARCH MADNESS BANNER ═══ -->
+
+<!-- ============================================================ NAV ============================================================ -->
+<nav class="nav-wrap" id="main-nav" role="navigation" aria-label="Main navigation">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+    <a href="/" class="flex items-center gap-3" style="text-decoration:none;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;background:#10B981;border-radius:6px;flex-shrink:0;">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="3" y="9" width="4" height="10" rx="1" fill="white"/><rect x="9.5" y="5" width="3" height="14" rx="1" fill="white"/><rect x="15" y="2" width="4" height="17" rx="1" fill="rgba(255,255,255,0.6)"/></svg>
+      </span>
+      <span style="font-family:'Outfit',sans-serif;font-weight:800;font-size:1.15rem;color:#111827;letter-spacing:-0.02em;">AI for Trades</span>
+    </a>
+    <div class="hidden md:flex items-center gap-6">
+      <a href="#problem" style="font-family:'DM Sans',sans-serif;font-size:.875rem;font-weight:600;color:#6B7280;text-decoration:none;" onmouseover="this.style.color='#10B981'" onmouseout="this.style.color='#6B7280'">The Problem</a>
+      <a href="#solution" style="font-family:'DM Sans',sans-serif;font-size:.875rem;font-weight:600;color:#6B7280;text-decoration:none;" onmouseover="this.style.color='#10B981'" onmouseout="this.style.color='#6B7280'">How It Works</a>
+      <a href="#calculator" style="font-family:'DM Sans',sans-serif;font-size:.875rem;font-weight:600;color:#6B7280;text-decoration:none;" onmouseover="this.style.color='#10B981'" onmouseout="this.style.color='#6B7280'">Calculator</a>
+      <a href="#pricing" style="font-family:'DM Sans',sans-serif;font-size:.875rem;font-weight:600;color:#6B7280;text-decoration:none;" onmouseover="this.style.color='#10B981'" onmouseout="this.style.color='#6B7280'">Pricing</a>
+      <a href="https://calendly.com/hello-esperion/30min" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding:.55rem 1.25rem;font-size:.875rem;">Book Free Demo</a>
+    </div>
+    <button class="md:hidden p-2" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation" style="color:#374151;">
+      <svg id="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg id="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="display:none;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu" role="menu">
+    <div class="flex flex-col gap-2 max-w-6xl mx-auto px-2">
+      <a href="#problem" style="font-family:'DM Sans',sans-serif;padding:10px 8px;font-weight:600;color:#374151;text-decoration:none;" onclick="closeMobileMenu()">The Problem</a>
+      <a href="#solution" style="font-family:'DM Sans',sans-serif;padding:10px 8px;font-weight:600;color:#374151;text-decoration:none;" onclick="closeMobileMenu()">How It Works</a>
+      <a href="#calculator" style="font-family:'DM Sans',sans-serif;padding:10px 8px;font-weight:600;color:#374151;text-decoration:none;" onclick="closeMobileMenu()">Calculator</a>
+      <a href="#pricing" style="font-family:'DM Sans',sans-serif;padding:10px 8px;font-weight:600;color:#374151;text-decoration:none;" onclick="closeMobileMenu()">Pricing</a>
+      <a href="https://calendly.com/hello-esperion/30min" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-top:8px;justify-content:center;" onclick="closeMobileMenu()">Book Free Demo</a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ============================================================ HERO — light, clean, subtle emerald wash ============================================================ -->
+<section class="hero-section" aria-labelledby="hero-heading">
+  <div class="relative z-10 max-w-6xl mx-auto" style="padding:0 1.5rem;">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:1.5rem;padding:6px 14px;border-radius:4px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);">
+          <span class="pulse-dot" style="width:7px;height:7px;background:#10B981;border-radius:50%;flex-shrink:0;"></span>
+          <span style="font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:700;color:#10B981;letter-spacing:.1em;text-transform:uppercase;">Auckland Based · For NZ Tradies</span>
+        </div>
+        <h1 id="hero-heading" style="font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(2.25rem,5.5vw,3.75rem);line-height:1.05;color:#111827;margin-bottom:1.5rem;letter-spacing:-0.02em;">
+          You're On The Tools.<br>Your Phone's Ringing.<br>
+          <span style="color:#10B981;">Nobody's Answering.</span>
+        </h1>
+        <div class="stat-callout" style="margin-bottom:2rem;">
+          <div class="stat-num">$15,000</div>
+          <div class="stat-label">walking out the door every month.</div>
+        </div>
+        <p style="font-family:'DM Sans',sans-serif;font-size:1.05rem;color:#6B7280;line-height:1.8;margin-bottom:2.5rem;max-width:520px;">
+          We put AI on your phone line — every call answered, every lead captured, every quote followed up.
+          <strong style="color:#111827;font-weight:600;">While you focus on the job.</strong>
+        </p>
+        <div class="flex flex-wrap gap-4" style="margin-bottom:2.5rem;">
+          <a href="#calculator" class="btn-primary" style="font-size:1.05rem;padding:1rem 2rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            See What You're Losing — Free
+          </a>
+          <a href="#try-demo" class="btn-outline">Try It Live →</a>
+        </div>
+        <div class="flex flex-wrap gap-x-6 gap-y-3" role="list">
+          <div class="trust-badge" role="listitem"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" style="flex-shrink:0;" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Auckland Based</div>
+          <div class="trust-badge" role="listitem"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" style="flex-shrink:0;" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Live in 5 Days</div>
+          <div class="trust-badge" role="listitem"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" style="flex-shrink:0;" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>ROI in 2 Weeks</div>
+          <div class="trust-badge" role="listitem"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" style="flex-shrink:0;" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>Govt Co-Funded</div>
+        </div>
+      </div>
+
+      <!-- Right: stat card — light version -->
+      <div class="hidden lg:block" aria-hidden="true">
+        <div style="position:relative;padding:2rem;">
+          <div style="background:#fff;border:1px solid #E5E7EB;border-left:5px solid #10B981;border-radius:8px;padding:2.5rem;margin-bottom:1rem;box-shadow:0 4px 16px rgba(0,0,0,0.06);">
+            <div style="font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:700;color:#10B981;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.75rem;">Monthly Revenue Leak</div>
+            <div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:3.5rem;color:#D97706;line-height:1;margin-bottom:.5rem;">$15,048</div>
+            <div style="font-family:'DM Sans',sans-serif;font-size:.875rem;color:#9CA3AF;">avg. NZ tradie losing to missed calls</div>
+            <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid #F3F4F6;">
+              <div style="display:flex;gap:1.5rem;">
+                <div>
+                  <div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:1.75rem;color:#111827;">6</div>
+                  <div style="font-family:'DM Sans',sans-serif;font-size:.75rem;color:#9CA3AF;">missed calls/day</div>
+                </div>
+                <div style="width:1px;background:#F3F4F6;"></div>
+                <div>
+                  <div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:1.75rem;color:#D97706;">$380</div>
+                  <div style="font-family:'DM Sans',sans-serif;font-size:.75rem;color:#9CA3AF;">avg job value</div>
+                </div>
+                <div style="width:1px;background:#F3F4F6;"></div>
+                <div>
+                  <div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:1.75rem;color:#111827;">22</div>
+                  <div style="font-family:'DM Sans',sans-serif;font-size:.75rem;color:#9CA3AF;">work days/mo</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.2);border-radius:6px;padding:.875rem 1.25rem;display:flex;align-items:center;gap:10px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span style="font-family:'DM Sans',sans-serif;font-size:.875rem;font-weight:600;color:#10B981;">AI answers every call while you work</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- divider: white → alt -->
+<div class="divider-white-to-alt"></div>
+
+
+<!-- ============================================================ THE PROBLEM — alt (#F8FAF9) ============================================================ -->
+<section style="background:#F8FAF9;padding:5rem 1.5rem 6rem;" id="problem" aria-labelledby="problem-heading">
+  <div class="max-w-6xl mx-auto">
+    <div style="max-width:680px;margin-bottom:3.5rem;">
+      <div class="section-chip">⚠ The Problem</div>
+      <h2 id="problem-heading" style="font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(1.875rem,4vw,3rem);color:#111827;line-height:1.1;margin-bottom:1rem;letter-spacing:-0.02em;">
+        The Missed Call Crisis Is Costing You a Fortune
+      </h2>
+      <p style="font-family:'DM Sans',sans-serif;font-size:1.05rem;line-height:1.8;color:#6B7280;">
+        You're under a house, up a ladder, or knee-deep in a job. Your phone rings. You can't answer.
+        That caller needs a plumber <strong style="color:#111827;">TODAY</strong>. By the time you call back at 5pm,
+        they've already booked your competitor. <strong style="color:#111827;">It happens 5–8 times a day. Every day.</strong>
+      </p>
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+      <div style="background:#fff;border:1px solid #E5E7EB;border-top:4px solid #10B981;border-radius:8px;padding:2.5rem;box-shadow:0 2px 12px rgba(0,0,0,0.04);">
+        <h3 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1.1rem;color:#111827;margin-bottom:2rem;text-align:center;">The Maths That Hurts</h3>
+        <div id="cost-breakdown" style="display:flex;flex-direction:column;gap:1rem;">
+
+          <div class="cost-step" style="display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:#F8FAF9;border:1px solid #E5E7EB;border-left:4px solid #10B981;border-radius:6px;">
+            <div class="icon-badge"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg></div>
+            <div style="flex:1;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:#9CA3AF;font-weight:600;text-transform:uppercase;letter-spacing:.06em;">Missed calls per day</div>
+              <div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:1.75rem;color:#111827;">6 calls</div>
+            </div>
+            <div style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:#9CA3AF;text-align:right;">While on the tools</div>
+          </div>
+
+          <div class="cost-step" style="display:flex;align-items:center;justify-content:center;padding:2px 0;transition-delay:80ms;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#10B981" aria-hidden="true"><path d="M12 16l-6-6h12z"/></svg>
+          </div>
+
+          <div class="cost-step" style="display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:#F8FAF9;border:1px solid #E5E7EB;border-left:4px solid #10B981;border-radius:6px;transition-delay:120ms;">
+            <div class="icon-badge"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+            <div style="flex:1;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:#9CA3AF;font-weight:600;text-transform:uppercase;letter-spacing:.06em;">Average job value</div>
+              <div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:1.75rem;color:#D97706;">$380</div>
+            </div>
+          </div>
+
+          <div class="cost-step" style="display:flex;align-items:center;justify-content:center;padding:2px 0;transition-delay:200ms;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#10B981" aria-hidden="true"><path d="M12 16l-6-6h12z"/></svg>
+          </div>
+
+          <div class="cost-step" style="display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:#F8FAF9;border:1px solid #E5E7EB;border-left:4px solid #10B981;border-radius:6px;transition-delay:280ms;">
+            <div class="icon-badge"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+            <div style="flex:1;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:#9CA3AF;font-weight:600;text-transform:uppercase;letter-spacing:.06em;">Conversion gap</div>
+              <div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:1.75rem;color:#111827;">35% answered → 5% callback</div>
+            </div>
+            <div style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1.1rem;color:#10B981;">−30%</div>
+          </div>
+
+          <div class="cost-step" style="display:flex;align-items:center;justify-content:center;padding:2px 0;transition-delay:360ms;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#10B981" aria-hidden="true"><path d="M12 16l-6-6h12z"/></svg>
+          </div>
+
+          <div class="cost-step" style="display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:#F8FAF9;border:1px solid #E5E7EB;border-left:4px solid #10B981;border-radius:6px;transition-delay:440ms;">
+            <div class="icon-badge"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+            <div style="flex:1;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:#9CA3AF;font-weight:600;text-transform:uppercase;letter-spacing:.06em;">Working days per month</div>
+              <div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:1.75rem;color:#111827;">22 days</div>
+            </div>
+          </div>
+
+          <div class="cost-step" style="display:flex;align-items:center;justify-content:center;padding:2px 0;transition-delay:520ms;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#10B981" aria-hidden="true"><path d="M12 16l-6-6h12z"/></svg>
+          </div>
+
+          <div class="cost-step" style="display:flex;align-items:center;gap:1rem;padding:1.5rem;background:rgba(16,185,129,0.04);border:1px solid rgba(16,185,129,0.2);border-left:4px solid #10B981;border-radius:8px;transition-delay:600ms;">
+            <div class="icon-badge" style="width:56px;height:56px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+            <div>
+              <div style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:#10B981;font-weight:700;text-transform:uppercase;letter-spacing:.06em;">Lost revenue per month</div>
+              <div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:2.75rem;color:#D97706;line-height:1;">$15,048</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:1.5rem;padding:1.25rem;background:#F8FAF9;border:1px solid #E5E7EB;border-radius:6px;text-align:center;">
+          <p style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1.05rem;color:#111827;">
+            That's <span style="color:#D97706;">$180,576 a year</span> going to your competitor.<br>
+            <span style="font-weight:500;font-size:.9rem;color:#9CA3AF;">Because nobody answered the phone.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- divider: alt → white -->
+<div class="divider-alt-to-white"></div>
+
+
+<!-- ============================================================ THE SOLUTION — white, vertical timeline ============================================================ -->
+<section style="background:#fff;padding:5rem 1.5rem 6rem;" id="solution" aria-labelledby="solution-heading">
+  <div class="max-w-6xl mx-auto">
+    <div style="max-width:680px;margin-bottom:3.5rem;">
+      <div class="section-chip">✓ The Fix</div>
+      <h2 id="solution-heading" style="font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(1.875rem,4vw,3rem);color:#111827;line-height:1.1;margin-bottom:1rem;letter-spacing:-0.02em;">
+        Your AI Answers Every Call.<br>Here's Exactly What Happens.
+      </h2>
+      <p style="font-family:'DM Sans',sans-serif;font-size:1.05rem;line-height:1.8;color:#6B7280;">
+        Simple. Straightforward. No tech jargon. Here's what your customers experience:
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+      <!-- Vertical timeline flow -->
+      <div id="flow-steps">
+
+        <div class="flow-step timeline-step" style="margin-bottom:0;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:0;">
+            <div class="timeline-num">1</div>
+            <div class="timeline-connector"></div>
+          </div>
+          <div class="card-light" style="flex:1;margin-bottom:0;margin-left:0;">
+            <h3 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1.05rem;color:#111827;margin-bottom:6px;">Customer Calls Your Number</h3>
+            <p style="font-family:'DM Sans',sans-serif;font-size:.95rem;line-height:1.75;color:#6B7280;">AI answers in 2 rings. Professional greeting with <em>your</em> business name. Sounds like your best receptionist — calm, friendly, on it.</p>
+          </div>
+        </div>
+
+        <div class="flow-step timeline-step" style="margin-bottom:0;transition-delay:80ms;">
+          <div style="display:flex;flex-direction:column;align-items:center;">
+            <div class="timeline-num">2</div>
+            <div class="timeline-connector"></div>
+          </div>
+          <div class="card-light" style="flex:1;margin-left:0;">
+            <h3 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1.05rem;color:#111827;margin-bottom:6px;">AI Qualifies the Job</h3>
+            <p style="font-family:'DM Sans',sans-serif;font-size:.95rem;line-height:1.75;color:#6B7280;">"What kind of issue? When do you need it done? What's the address?" Gathers everything you need before you even pick up.</p>
+          </div>
+        </div>
+
+        <div class="flow-step timeline-step" style="margin-bottom:0;transition-delay:160ms;">
+          <div style="display:flex;flex-direction:column;align-items:center;">
+            <div class="timeline-num">3</div>
+            <div class="timeline-connector"></div>
+          </div>
+          <div class="card-light" style="flex:1;margin-left:0;">
+            <div style="display:inline-block;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.25);border-radius:4px;padding:2px 8px;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:700;color:#10B981;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;">Urgent</div>
+            <h3 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1.05rem;color:#111827;margin-bottom:6px;">Goes Straight to Your Mobile</h3>
+            <p style="font-family:'DM Sans',sans-serif;font-size:.95rem;line-height:1.75;color:#6B7280;">Hot leads — burst pipe, no power, emergency — get forwarded to you immediately. You decide what "urgent" means. We set it up your way.</p>
+          </div>
+        </div>
+
+        <div class="flow-step timeline-step" style="margin-bottom:0;transition-delay:240ms;">
+          <div style="display:flex;flex-direction:column;align-items:center;">
+            <div class="timeline-num">4</div>
+            <div class="timeline-connector"></div>
+          </div>
+          <div class="card-light" style="flex:1;margin-left:0;">
+            <h3 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1.05rem;color:#111827;margin-bottom:6px;">Not Urgent? Booked and Confirmed</h3>
+            <p style="font-family:'DM Sans',sans-serif;font-size:.95rem;line-height:1.75;color:#6B7280;">AI books the job in your calendar, sends the customer an SMS confirmation, and logs everything. You hear about it when it suits you.</p>
+          </div>
+        </div>
+
+        <div class="flow-step timeline-step" style="transition-delay:320ms;">
+          <div style="display:flex;flex-direction:column;align-items:center;">
+            <div class="timeline-num">5</div>
+          </div>
+          <div class="card-light" style="flex:1;margin-left:0;">
+            <h3 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1.05rem;color:#111827;margin-bottom:6px;">After Hours? Covered.</h3>
+            <p style="font-family:'DM Sans',sans-serif;font-size:.95rem;line-height:1.75;color:#6B7280;">24/7 including weekends. Saturday 9pm emergency? Escalated to your mobile. Sunday morning quote request? Handled and logged. Nothing slips through.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary sticky box -->
+      <div class="fade-in">
+        <div style="background:#fff;border:1px solid #E5E7EB;border-top:4px solid #10B981;border-radius:8px;padding:2.25rem;position:sticky;top:80px;box-shadow:0 2px 12px rgba(0,0,0,0.04);">
+          <h3 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1.2rem;color:#111827;margin-bottom:1.5rem;">What You Get Every Call</h3>
+          <div style="display:flex;flex-direction:column;gap:1rem;">
+            <div style="display:flex;align-items:flex-start;gap:12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><p style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#374151;line-height:1.65;">SMS summary of every call — who called, what they need, when they want it done</p></div>
+            <div style="display:flex;align-items:flex-start;gap:12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><p style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#374151;line-height:1.65;">Leads rated by urgency — you know what to call back first</p></div>
+            <div style="display:flex;align-items:flex-start;gap:12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><p style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#374151;line-height:1.65;">Job booked straight into your calendar — no double-handling</p></div>
+            <div style="display:flex;align-items:flex-start;gap:12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><p style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#374151;line-height:1.65;">Customer gets SMS confirmation — they know you're on it</p></div>
+            <div style="display:flex;align-items:flex-start;gap:12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><p style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#374151;line-height:1.65;">Works with ServiceM8, SimPRO, Fergus — no new software to learn</p></div>
+          </div>
+          <div style="margin-top:2rem;padding:1rem 1.25rem;background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.2);border-radius:6px;text-align:center;">
+            <p style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1rem;color:#10B981;">"Nothing falls through the cracks."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- divider: white → alt -->
+<div class="divider-white-to-alt"></div>
+
+
+<!-- ============================================================ TRY IT LIVE — inline demo ============================================================ -->
+<section style="background:#F8FAF9;padding:5rem 1.5rem 6rem;" id="try-demo" aria-labelledby="demo-heading">
+  <div class="max-w-6xl mx-auto">
+    <div style="text-align:center;max-width:640px;margin:0 auto 3rem;">
+      <div class="section-chip" style="display:inline-flex;">◇ See It In Action</div>
+      <h2 id="demo-heading" style="font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(1.875rem,4vw,3rem);color:#111827;line-height:1.1;margin-bottom:1rem;letter-spacing:-0.02em;">
+        This Is What Your Customers Experience
+      </h2>
+      <p style="font-family:'DM Sans',sans-serif;font-size:1.05rem;line-height:1.8;color:#6B7280;">
+        Real AI. No script. No tricks. Go on — try it yourself.
+      </p>
+    </div>
+
+    <div style="max-width:860px;margin:0 auto;">
+      <div class="fade-in" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:1.5rem;">
+        <span style="display:inline-flex;align-items:center;gap:6px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:#6B7280;background:#fff;border:1px solid #E5E7EB;border-radius:20px;padding:6px 14px;">👈 What your customer sees</span>
+        <span style="display:inline-flex;align-items:center;gap:6px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:#6B7280;background:#fff;border:1px solid #E5E7EB;border-radius:20px;padding:6px 14px;">👉 What you see on your end</span>
+      </div>
+      <div class="fade-in" style="display:flex;justify-content:center;">
+        <div id="demo-chat"></div>
+      </div>
+      <div class="fade-in" style="text-align:center;margin-top:1.5rem;">
+        <p style="font-family:'DM Sans',sans-serif;font-size:.95rem;color:#6B7280;line-height:1.7;">
+          <strong style="color:#374151;">Try asking:</strong> "I've got a dripping tap" · "What's your hourly rate?" · "I need someone urgently — burst pipe!"
+        </p>
+      </div>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="fade-in" style="text-align:center;margin-top:3rem;">
+      <p style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1.15rem;color:#111827;margin-bottom:1rem;">
+        Want this answering your phones by Friday?
+      </p>
+      <a href="https://calendly.com/hello-esperion/30min" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:1rem;">
+        Book a Free Call →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- divider: alt → white -->
+<div class="divider-alt-to-white"></div>
+
+<!-- divider: white → alt -->
+<div class="divider-white-to-alt"></div>
+
+
+<!-- ============================================================ WHAT ELSE WE FIX — alt (#F8FAF9) ============================================================ -->
+<section style="background:#F8FAF9;padding:5rem 1.5rem 6rem;" aria-labelledby="extras-heading">
+  <div class="max-w-6xl mx-auto">
+    <div style="max-width:680px;margin-bottom:3.5rem;">
+      <div class="section-chip">Beyond Phone Calls</div>
+      <h2 id="extras-heading" style="font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(1.875rem,4vw,3rem);color:#111827;line-height:1.1;margin-bottom:1rem;letter-spacing:-0.02em;">
+        We Fix the Other Money Leaks Too
+      </h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="card-light fade-in">
+        <div class="icon-badge" style="margin-bottom:1.25rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="section-chip" style="margin-bottom:.75rem;font-size:.7rem;">Quote Follow-Up</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1.2rem;color:#111827;margin-bottom:.75rem;"><span style="color:#D97706;">$9,000/month</span> On The Table</h3>
+        <p style="font-family:'DM Sans',sans-serif;font-size:.95rem;line-height:1.75;color:#6B7280;">You quote $60K of work a month but only follow up half your quotes. We automate 3-touch follow-up: 24hrs, 72hrs, 7 days. <strong style="color:#111827;">Never miss a quote again.</strong></p>
+      </div>
+
+      <div class="card-light fade-in" style="transition-delay:100ms;">
+        <div class="icon-badge" style="margin-bottom:1.25rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+        <div class="section-chip" style="margin-bottom:.75rem;font-size:.7rem;">Invoice Reminders</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1.2rem;color:#111827;margin-bottom:.75rem;">Stop the Cash Flow Bleed</h3>
+        <p style="font-family:'DM Sans',sans-serif;font-size:.95rem;line-height:1.75;color:#6B7280;">Sending invoices 2–4 weeks late? Automated reminders at 7, 14, and 30 days. <strong style="color:#111827;">Money in your account faster.</strong> Less awkward chasing.</p>
+      </div>
+
+      <div class="card-light fade-in" style="transition-delay:200ms;">
+        <div class="icon-badge" style="margin-bottom:1.25rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div>
+        <div class="section-chip" style="margin-bottom:.75rem;font-size:.7rem;">AI Personal Assistant</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1.2rem;color:#111827;margin-bottom:.75rem;">Office Manager for <span style="color:#D97706;">from <span class="price-original">$500</span>$250/month</span></h3>
+        <p style="font-family:'DM Sans',sans-serif;font-size:.95rem;line-height:1.75;color:#6B7280;">Manages your emails, flags urgent messages, tracks job progress. Like having a full-time office manager — <strong style="color:#111827;">without the $4,000/month salary.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- divider: alt → white -->
+<div class="divider-alt-to-white"></div>
+
+
+<!-- ============================================================ ROI CALCULATOR — white, light-themed panel ============================================================ -->
+<section style="background:#fff;padding:5rem 1.5rem 6rem;" id="calculator" aria-labelledby="calc-heading">
+  <div class="max-w-6xl mx-auto">
+    <div style="text-align:center;max-width:640px;margin:0 auto 3rem;">
+      <div class="section-chip" style="display:inline-flex;">Free Calculator</div>
+      <h2 id="calc-heading" style="font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(1.875rem,4vw,3rem);color:#111827;line-height:1.1;margin-bottom:1rem;letter-spacing:-0.02em;">
+        How Much Are You Actually Losing?
+      </h2>
+      <p style="font-family:'DM Sans',sans-serif;font-size:1.05rem;line-height:1.8;color:#6B7280;">
+        Punch in your numbers. We'll show you exactly what missed calls are costing you every month.
+      </p>
+    </div>
+
+    <div class="calc-wrap max-w-5xl mx-auto">
+      <!-- Header bar -->
+      <div class="calc-header">
+        <div class="calc-dot" style="background:#E5E7EB;"></div>
+        <div class="calc-dot" style="background:#E5E7EB;"></div>
+        <div class="calc-dot" style="background:#10B981;"></div>
+        <span style="font-family:'Outfit',sans-serif;font-weight:700;font-size:.875rem;color:#10B981;margin-left:8px;letter-spacing:.08em;text-transform:uppercase;">Tradie ROI Calculator v4.0</span>
+      </div>
+
+      <div style="padding:2.5rem;">
+        <div class="grid lg:grid-cols-2 gap-10">
+          <!-- Inputs -->
+          <div>
+            <h3 style="font-family:'Outfit',sans-serif;font-weight:700;color:#10B981;margin-bottom:2rem;text-transform:uppercase;letter-spacing:.08em;font-size:.875rem;">// Input Parameters</h3>
+            <div style="display:flex;flex-direction:column;gap:2rem;">
+              <div>
+                <label class="calc-label" for="missed-calls">Missed calls per day: <strong style="color:#10B981;" id="calls-display">6</strong></label>
+                <input type="range" id="missed-calls" min="1" max="15" value="6" oninput="updateCalc()" aria-label="Missed calls per day" aria-valuemin="1" aria-valuemax="15" aria-valuenow="6" />
+                <div style="display:flex;justify-content:space-between;font-family:'DM Sans',sans-serif;font-size:.75rem;color:#9CA3AF;margin-top:6px;"><span>1 call</span><span>15 calls</span></div>
+              </div>
+              <div>
+                <label class="calc-label" for="job-value">Average job value: <strong style="color:#D97706;" id="value-display">$380</strong></label>
+                <input type="range" id="job-value" min="100" max="1000" step="10" value="380" oninput="updateCalc()" aria-label="Average job value in dollars" aria-valuemin="100" aria-valuemax="1000" aria-valuenow="380" />
+                <div style="display:flex;justify-content:space-between;font-family:'DM Sans',sans-serif;font-size:.75rem;color:#9CA3AF;margin-top:6px;"><span>$100</span><span>$1,000</span></div>
+              </div>
+              <div>
+                <label class="calc-label" for="trade-type">What trade are you?</label>
+                <select id="trade-type" class="calc-select" onchange="updateCalc()" aria-label="Select your trade">
+                  <option value="plumber">Plumber</option>
+                  <option value="electrician">Electrician</option>
+                  <option value="builder">Builder</option>
+                  <option value="hvac">HVAC Tech</option>
+                  <option value="landscaper">Landscaper</option>
+                  <option value="pest">Pest Control</option>
+                  <option value="other">Other Trade</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Output -->
+          <div style="display:flex;flex-direction:column;justify-content:center;">
+            <h3 style="font-family:'Outfit',sans-serif;font-weight:700;color:#10B981;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:.08em;font-size:.875rem;">// Your Numbers</h3>
+            <div style="background:rgba(16,185,129,0.04);border:1px solid rgba(16,185,129,0.15);border-radius:8px;padding:1.75rem;text-align:center;margin-bottom:1.25rem;">
+              <p style="font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:600;color:#9CA3AF;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em;">You're leaving on the table every month</p>
+              <div class="result-big" id="result-total" aria-live="polite" aria-label="Monthly lost revenue">$15,048</div>
+              <p style="font-family:'DM Sans',sans-serif;font-size:.75rem;color:#9CA3AF;margin-top:6px;">missed calls + quote follow-up gap</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.25rem;">
+              <div style="background:#F8FAF9;border:1px solid #E5E7EB;border-radius:6px;padding:1rem;text-align:center;">
+                <div class="result-stat" id="result-roi" aria-live="polite">24x</div>
+                <div style="font-family:'DM Sans',sans-serif;font-size:.7rem;color:#9CA3AF;margin-top:4px;text-transform:uppercase;letter-spacing:.06em;">Return</div>
+              </div>
+              <div style="background:#F8FAF9;border:1px solid #E5E7EB;border-radius:6px;padding:1rem;text-align:center;">
+                <div class="result-stat" id="result-payback" aria-live="polite">13 days</div>
+                <div style="font-family:'DM Sans',sans-serif;font-size:.7rem;color:#9CA3AF;margin-top:4px;text-transform:uppercase;letter-spacing:.06em;">Payback</div>
+              </div>
+              <div style="background:#F8FAF9;border:1px solid #E5E7EB;border-radius:6px;padding:1rem;text-align:center;">
+                <div class="result-money" id="result-net" aria-live="polite">$14,423</div>
+                <div style="font-family:'DM Sans',sans-serif;font-size:.7rem;color:#9CA3AF;margin-top:4px;text-transform:uppercase;letter-spacing:.06em;">Net gain/mo</div>
+              </div>
+            </div>
+            <p style="font-family:'DM Sans',sans-serif;font-size:.85rem;color:#6B7280;text-align:center;margin-bottom:1.25rem;line-height:1.6;">
+              Our service from <strong style="color:#111827;">from <span style="text-decoration:line-through;opacity:.5;">$500</span> $250/month</strong>. That's a <span id="result-roi-text" style="color:#10B981;font-weight:700;">24:1 return</span>.<br>
+              Pays for itself catching just <strong style="color:#111827;">2 extra jobs a month.</strong>
+            </p>
+            <a href="https://calendly.com/hello-esperion/30min" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width:100%;justify-content:center;font-size:1rem;">
+              Stop Losing Money — Book a Demo
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- divider: white → alt -->
+<div class="divider-white-to-alt"></div>
+
+
+<!-- ============================================================ HOW IT WORKS — alt (#F8FAF9), 3 steps ============================================================ -->
+<section style="background:#F8FAF9;padding:5rem 1.5rem 6rem;" id="how-it-works" aria-labelledby="how-heading">
+  <div class="max-w-6xl mx-auto">
+    <div style="text-align:center;max-width:640px;margin:0 auto 3.5rem;">
+      <div class="section-chip" style="display:inline-flex;">Simple Process</div>
+      <h2 id="how-heading" style="font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(1.875rem,4vw,3rem);color:#111827;line-height:1.1;margin-bottom:1rem;letter-spacing:-0.02em;">
+        Monday We Start.<br>Friday You're Live.
+      </h2>
+      <p style="font-family:'DM Sans',sans-serif;font-size:1.05rem;line-height:1.8;color:#6B7280;">Three steps. No tech headaches. No downtime.</p>
+    </div>
+
+    <div style="max-width:640px;margin:0 auto 3rem;background:#fff;border:1px solid #E5E7EB;border-left:4px solid #10B981;border-radius:6px;padding:1rem 1.5rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.5rem;box-shadow:0 1px 4px rgba(0,0,0,0.04);" class="fade-in">
+      <span style="font-family:'Outfit',sans-serif;font-weight:700;font-size:.9rem;color:#10B981;">Monday: We start</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      <span style="font-family:'DM Sans',sans-serif;font-weight:600;font-size:.9rem;color:#6B7280;">Tue–Thu: Setup &amp; test</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      <span style="font-family:'Outfit',sans-serif;font-weight:700;font-size:.9rem;color:#10B981;">Friday: You're live 🎉</span>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="fade-in" style="background:#fff;border:1px solid #E5E7EB;border-top:4px solid #10B981;border-radius:8px;padding:2rem;box-shadow:0 1px 4px rgba(0,0,0,0.04);">
+        <div class="how-step-num" style="margin-bottom:1.25rem;">1</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1.2rem;color:#111827;margin-bottom:.75rem;">Quick Chat</h3>
+        <p style="font-family:'DM Sans',sans-serif;font-size:.95rem;line-height:1.75;color:#6B7280;margin-bottom:1.25rem;">30-minute call. We learn how your business runs. What calls you get. What software you use. <strong style="color:#111827;">No jargon. No homework.</strong></p>
+        <div style="background:#F8FAF9;border:1px solid #E5E7EB;border-radius:6px;padding:.875rem;text-align:center;">
+          <p style="font-family:'DM Sans',sans-serif;font-size:.85rem;color:#6B7280;font-weight:600;">⏱ 30 minutes of your time</p>
+        </div>
+      </div>
+
+      <div class="fade-in" style="background:#fff;border:1px solid #E5E7EB;border-top:4px solid #10B981;border-radius:8px;padding:2rem;transition-delay:100ms;box-shadow:0 1px 4px rgba(0,0,0,0.04);">
+        <div class="how-step-num" style="margin-bottom:1.25rem;">2</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1.2rem;color:#111827;margin-bottom:.75rem;">We Set It Up in 5 Days</h3>
+        <p style="font-family:'DM Sans',sans-serif;font-size:.95rem;line-height:1.75;color:#6B7280;margin-bottom:1.25rem;">We configure your AI phone system, connect it to your calendar, set up automated follow-ups. You test it. We tweak it. <strong style="color:#111827;">Zero tech required from you.</strong></p>
+        <div style="background:#F8FAF9;border:1px solid #E5E7EB;border-radius:6px;padding:.875rem;text-align:center;">
+          <p style="font-family:'DM Sans',sans-serif;font-size:.85rem;color:#6B7280;font-weight:600;">⚡ 5 days, we do everything</p>
+        </div>
+      </div>
+
+      <!-- Step 3: emerald-tinted for emphasis — no dark needed -->
+      <div class="fade-in" style="background:rgba(16,185,129,0.04);border:1px solid rgba(16,185,129,0.18);border-top:4px solid #10B981;border-radius:8px;padding:2rem;transition-delay:200ms;">
+        <div class="how-step-num" style="margin-bottom:1.25rem;">3</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1.2rem;color:#111827;margin-bottom:.75rem;">You Get Paid More</h3>
+        <p style="font-family:'DM Sans',sans-serif;font-size:.95rem;line-height:1.75;color:#374151;margin-bottom:1.25rem;">Every call answered. Every quote followed up. Every invoice chased. <strong style="color:#10B981;">Watch your revenue climb.</strong></p>
+        <div style="background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);border-radius:6px;padding:.875rem;text-align:center;">
+          <p style="font-family:'DM Sans',sans-serif;font-size:.85rem;color:#10B981;font-weight:600;">💰 ROI in under 2 weeks</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- divider: alt → white -->
+<div class="divider-alt-to-white"></div>
+
+
+<!-- ============================================================ THE NUMBERS — white, emerald for stats, amber for dollars ============================================================ -->
+<section style="background:#fff;padding:5rem 1.5rem 6rem;" aria-labelledby="numbers-heading">
+  <div class="max-w-6xl mx-auto">
+    <div style="text-align:center;margin-bottom:3.5rem;">
+      <div class="section-chip" style="display:inline-flex;">The Numbers</div>
+      <h2 id="numbers-heading" style="font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(1.875rem,4vw,3rem);color:#111827;line-height:1.1;letter-spacing:-0.02em;">Straight-Up Stats</h2>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12" style="align-items:center;">
+      <div class="fade-in" style="text-align:center;padding:2rem 1rem;">
+        <div class="numbers-big">5 Days</div>
+        <p style="font-family:'DM Sans',sans-serif;font-size:.85rem;color:#9CA3AF;margin-top:.5rem;">Average setup time</p>
+      </div>
+      <div class="fade-in" style="text-align:center;padding:2rem 1rem;transition-delay:80ms;">
+        <div class="numbers-big-money"><span style="font-size:1.25rem;font-weight:600;color:#D97706;opacity:.6;">from </span><span class="price-original">$500</span>$250<span style="font-size:1.25rem;font-weight:600;color:#D97706;opacity:.6;">/mo</span></div>
+        <p style="font-family:'DM Sans',sans-serif;font-size:.85rem;color:#9CA3AF;margin-top:.5rem;">Starts from</p>
+      </div>
+      <div class="fade-in" style="text-align:center;padding:2rem 1rem;transition-delay:160ms;">
+        <div class="numbers-big">24/7</div>
+        <p style="font-family:'DM Sans',sans-serif;font-size:.85rem;color:#9CA3AF;margin-top:.5rem;">Every call answered</p>
+      </div>
+      <div class="fade-in" style="text-align:center;padding:2rem 1rem;transition-delay:240ms;">
+        <div class="numbers-big">2 Wks</div>
+        <p style="font-family:'DM Sans',sans-serif;font-size:.85rem;color:#9CA3AF;margin-top:.5rem;">Average ROI payback</p>
+      </div>
+      <div class="fade-in col-span-2 md:col-span-1" style="text-align:center;padding:2rem 1rem;transition-delay:320ms;">
+        <div class="numbers-big-money">$15K</div>
+        <p style="font-family:'DM Sans',sans-serif;font-size:.85rem;color:#9CA3AF;margin-top:.5rem;">Govt co-funding</p>
+      </div>
+    </div>
+
+    <!-- Govt funding callout -->
+    <div style="max-width:640px;margin:0 auto;" class="fade-in">
+      <div style="background:rgba(16,185,129,0.05);border:1px solid rgba(16,185,129,0.18);border-left:4px solid #10B981;border-radius:8px;padding:2rem;">
+        <div style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1.05rem;color:#10B981;margin-bottom:.75rem;">🏛️ NZ Government May Cover Your Setup Cost</div>
+        <p style="font-family:'DM Sans',sans-serif;font-size:.95rem;color:#374151;line-height:1.75;">
+          The <strong style="color:#111827;">Regional Business Partner Network</strong> may co-fund up to $15,000 of your setup cost. We handle all the paperwork. You just sign.
+        </p>
+      </div>
+    </div>
+
+    <!-- Coming soon -->
+    <div style="max-width:640px;margin:1.5rem auto 0;" class="fade-in">
+      <div style="border:1px dashed #E5E7EB;border-radius:8px;padding:1.75rem;text-align:center;">
+        <p style="font-family:'Outfit',sans-serif;font-weight:600;font-size:.95rem;color:#9CA3AF;">📣 Case studies from Auckland tradies — launching March 2026</p>
+        <p style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:#D1D5DB;margin-top:6px;">We're in early rollout. Your story could be first.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- divider: white → alt -->
+<div class="divider-white-to-alt"></div>
+
+
+<!-- ============================================================ PRICING — alt (#F8FAF9), light card ============================================================ -->
+<section style="background:#F8FAF9;padding:5rem 1.5rem 6rem;" id="pricing" aria-labelledby="pricing-heading">
+  <div class="max-w-6xl mx-auto">
+    <div style="text-align:center;max-width:640px;margin:0 auto 3.5rem;">
+      <div class="section-chip" style="display:inline-flex;">Straight Talk</div>
+      <h2 id="pricing-heading" style="font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(1.875rem,4vw,3rem);color:#111827;line-height:1.1;margin-bottom:1rem;letter-spacing:-0.02em;">
+        Less Than the Cost of One Missed Job
+      </h2>
+      <p style="font-family:'DM Sans',sans-serif;font-size:1.05rem;line-height:1.8;color:#6B7280;">No hidden fees. No lock-in. Cancel anytime. Here's the deal:</p>
+    </div>
+
+    <div class="pricing-grid" style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;">
+
+      <!-- STARTER -->
+      <div class="pricing-card fade-in" style="display:flex;flex-direction:column;">
+        <div style="margin-bottom:1.5rem;">
+          <div class="section-chip" style="margin-bottom:.75rem;font-size:.7rem;">Starter</div>
+          <div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:2.25rem;color:#D97706;line-height:1;"><span class="price-original">$500</span><span class="price-promo">$250</span><span style="font-size:1rem;font-weight:500;color:#9CA3AF;">/mo</span></div><span class="march-badge">50% Off</span>
+          <p style="font-family:'DM Sans',sans-serif;font-size:.85rem;color:#9CA3AF;margin-top:6px;">Never miss a call again</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem;flex:1;">
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#374151;">AI answers your calls &amp; messages 24/7</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#374151;">Lead qualification &amp; urgency rating</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#374151;">SMS summaries of every call</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#374151;">Monthly check-in &amp; optimisation</span></div>
+        </div>
+        <a href="https://calendly.com/hello-esperion/30min" target="_blank" rel="noopener noreferrer" class="btn-outline" style="width:100%;justify-content:center;font-size:1rem;padding:.9rem;text-decoration:none;">
+          Get Started
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <!-- GROWTH (Most Popular) -->
+      <div class="pricing-card pricing-card-popular fade-in" style="display:flex;flex-direction:column;transition-delay:100ms;">
+        <div class="pricing-badge">⭐ Most Popular</div>
+        <div style="margin-bottom:1.5rem;">
+          <div class="section-chip" style="margin-bottom:.75rem;font-size:.7rem;">Growth</div>
+          <div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:2.25rem;color:#D97706;line-height:1;"><span class="price-original">$1,000</span><span class="price-promo">$500</span><span style="font-size:1rem;font-weight:500;color:#9CA3AF;">/mo</span></div><span class="march-badge">50% Off</span>
+          <p style="font-family:'DM Sans',sans-serif;font-size:.85rem;color:#9CA3AF;margin-top:6px;">Automate your admin, grow faster</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem;flex:1;">
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#374151;">Everything in Starter</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#374151;">Appointment booking to your calendar</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#374151;">Quote follow-up automation (3-touch)</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#374151;">ServiceM8 / SimPRO / Fergus integration</span></div>
+        </div>
+        <a href="https://calendly.com/hello-esperion/30min" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:.9rem;text-decoration:none;">
+          Start Growing
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <!-- SCALE -->
+      <div class="pricing-card fade-in" style="display:flex;flex-direction:column;transition-delay:200ms;">
+        <div style="margin-bottom:1.5rem;">
+          <div class="section-chip" style="margin-bottom:.75rem;font-size:.7rem;">Scale</div>
+          <div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:2.25rem;color:#D97706;line-height:1;"><span class="price-original">$2,000</span><span class="price-promo">$1,000</span><span style="font-size:1rem;font-weight:500;color:#9CA3AF;">/mo</span></div><span class="march-badge">50% Off</span>
+          <p style="font-family:'DM Sans',sans-serif;font-size:.85rem;color:#9CA3AF;margin-top:6px;">AI runs your office end-to-end</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem;flex:1;">
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#374151;">Everything in Growth</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#374151;">Invoice reminders (7, 14, 30 days)</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#374151;">AI runs your admin end-to-end</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#374151;">Dedicated AI strategy partner</span></div>
+        </div>
+        <a href="https://calendly.com/hello-esperion/30min" target="_blank" rel="noopener noreferrer" class="btn-outline" style="width:100%;justify-content:center;font-size:1rem;padding:.9rem;text-decoration:none;">
+          Scale Up
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- First Month Guarantee (below grid) -->
+    <div style="max-width:1100px;margin:2rem auto 0;">
+      <div class="guarantee-box fade-in">
+        <p style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#374151;line-height:1.65;">
+          <strong style="color:#10B981;">First Month Guarantee:</strong> If we don't answer 90% of your calls within 2 rings, the first month is on us. Zero risk.
+        </p>
+      </div>
+    </div>
+
+    <!-- Govt funding note -->
+    <div style="max-width:1100px;margin:1rem auto 0;">
+      <p style="font-family:'DM Sans',sans-serif;font-size:.85rem;color:#9CA3AF;text-align:center;line-height:1.6;">
+        Setup: $2k–$5k depending on plan. The <strong style="color:#6B7280;">NZ Government's Regional Business Partner Network</strong> may co-fund up to $15K. We handle all the paperwork.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- divider: alt → white -->
+<div class="divider-alt-to-white"></div>
+
+
+<!-- ============================================================ FAQ — white section, light-themed ============================================================ -->
+<section style="background:#fff;padding:5rem 1.5rem 6rem;" aria-labelledby="faq-heading">
+  <div class="max-w-6xl mx-auto">
+    <div style="max-width:680px;margin-bottom:3rem;">
+      <div class="section-chip">Got Questions?</div>
+      <h2 id="faq-heading" style="font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(1.875rem,4vw,3rem);color:#111827;line-height:1.1;letter-spacing:-0.02em;">Straight Answers</h2>
+    </div>
+
+    <div class="max-w-3xl" id="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-trigger" id="faq-1-btn" aria-expanded="false" aria-controls="faq-1-ans" onclick="toggleFaq(this)">
+          What if I'm on a job and a call comes in?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer" id="faq-1-ans">That's literally the point. AI answers. You get an SMS telling you who called, what they need, and how urgent it is. Urgent jobs get forwarded to your mobile immediately. Everything else is handled and logged — you check it when you're back in the van.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" id="faq-2-btn" aria-expanded="false" aria-controls="faq-2-ans" onclick="toggleFaq(this)">
+          Will customers know it's AI?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer" id="faq-2-ans">It sounds professional and natural — like your best receptionist. Most customers just care about getting their problem sorted, not who answers. And when you call back the important ones, you sound even more professional because you already have all the details.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" id="faq-3-btn" aria-expanded="false" aria-controls="faq-3-ans" onclick="toggleFaq(this)">
+          I'm not technical — is this complicated?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer" id="faq-3-ans">Zero tech required from you. We set everything up, configure it to your business, test it, and make sure it's working before you're live. You don't touch a thing. If something needs tweaking later, you call us.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" id="faq-4-btn" aria-expanded="false" aria-controls="faq-4-ans" onclick="toggleFaq(this)">
+          What about emergency after-hours calls?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer" id="faq-4-ans">Urgent calls go straight to your mobile — even at 11pm. We work with you to define what "urgent" means for your trade. Burst pipe at midnight? That goes through. Saturday morning quote enquiry? Handled and logged for Monday.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" id="faq-5-btn" aria-expanded="false" aria-controls="faq-5-ans" onclick="toggleFaq(this)">
+          How much does this actually cost?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer" id="faq-5-ans">Normally from $500/month (Starter) to $2,000/month (Scale). <strong style="color:#DC2626;">March Madness: all plans 50% off — from just $250/mo.</strong> The NZ Government's Regional Business Partner Network may co-fund the setup cost (up to $15K). Even the Starter plan pays for itself by catching just 2 extra jobs a month — most tradies see that in the first week. We handle all the paperwork for the government funding.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" id="faq-6-btn" aria-expanded="false" aria-controls="faq-6-ans" onclick="toggleFaq(this)">
+          Can I try it before I commit?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer" id="faq-6-ans">Book a demo and we'll show you exactly what your customers will experience — live, on the spot. You'll hear your AI answer a call with your business name. No commitment until you're happy with what you see.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" id="faq-7-btn" aria-expanded="false" aria-controls="faq-7-ans" onclick="toggleFaq(this)">
+          Do you work with ServiceM8 / SimPRO / Fergus?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer" id="faq-7-ans">Yes. We integrate with the tools you already use — no new software to learn, no double-handling. Bookings, notes, and job details flow straight into your existing system.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- divider: white → dark (final CTA transition) -->
+<div class="divider-white-to-dark"></div>
+
+
+<!-- ============================================================ FINAL CTA — dark (#0F172A) — ONE dark section for urgency contrast ============================================================ -->
+<section style="background:#0F172A;padding:5rem 1.5rem 6rem;" id="demo" aria-labelledby="cta-heading">
+  <div style="position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;" aria-hidden="true">
+      <div style="position:absolute;top:-20px;right:-60px;width:300px;height:300px;border:1px solid rgba(16,185,129,0.1);transform:rotate(15deg);border-radius:8px;"></div>
+      <div style="position:absolute;bottom:-40px;left:-40px;width:200px;height:200px;border:1px solid rgba(16,185,129,0.07);transform:rotate(-10deg);border-radius:6px;"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto text-center" style="position:relative;z-index:1;padding:0 1rem;">
+      <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:2rem;padding:6px 16px;border-radius:4px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.25);">
+        <span class="pulse-dot" style="width:8px;height:8px;background:#10B981;border-radius:50%;flex-shrink:0;"></span>
+        <span style="font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:700;color:#10B981;letter-spacing:.1em;text-transform:uppercase;">Someone's calling you right now</span>
+      </div>
+
+      <h2 id="cta-heading" style="font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(2rem,4.5vw,3.25rem);color:#F1F5F9;line-height:1.1;margin-bottom:1.5rem;letter-spacing:-0.02em;">
+        Right Now, Someone in Auckland<br>Needs a Tradie.<br>
+        <span style="color:#10B981;">If Nobody Answers, They're Calling<br>Your Competitor.</span>
+      </h2>
+
+      <p style="font-family:'DM Sans',sans-serif;font-size:1.1rem;line-height:1.8;color:rgba(241,245,249,0.6);margin-bottom:3rem;max-width:560px;margin-left:auto;margin-right:auto;">
+        Let's make sure you never miss that call again. Book a free 15-minute demo — we'll show you exactly what your customers experience.
+      </p>
+
+      <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:2.5rem;">
+        <a href="https://calendly.com/hello-esperion/30min" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:1.1rem;padding:1.1rem 2.25rem;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"/></svg>
+          Book Your Free Demo — 15 Minutes
+        </a>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;margin-bottom:2rem;">
+        <a href="tel:+64211234365" style="font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;color:rgba(241,245,249,0.75);text-decoration:none;display:flex;align-items:center;gap:8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          +64 21 123 4365
+        </a>
+        <a href="mailto:hello@trade.aitools.co.nz" style="font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;color:rgba(241,245,249,0.75);text-decoration:none;display:flex;align-items:center;gap:8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          hello@trade.aitools.co.nz
+        </a>
+      </div>
+
+      <p style="font-family:'DM Sans',sans-serif;font-size:.875rem;color:rgba(241,245,249,0.3);font-style:italic;">Auckland based. We get tradies. We <em>are</em> tradies' AI.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ EXPLORE OTHER INDUSTRIES ═══ -->
+<section style="background:#F8FAF9;padding:80px 24px;">
+  <div style="max-width:1100px;margin:0 auto;text-align:center;">
+    <p style="font-family:Outfit,sans-serif;font-weight:700;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:#10B981;margin-bottom:8px;">AI Tools NZ Ecosystem</p>
+    <h2 style="font-family:Outfit,sans-serif;font-weight:800;font-size:2rem;color:#0F172A;margin-bottom:12px;">Explore AI for Other Industries</h2>
+    <p style="font-family:'DM Sans',sans-serif;font-size:1rem;color:#6B7280;margin-bottom:48px;max-width:600px;margin-left:auto;margin-right:auto;">Not in trades? We build AI systems for multiple industries across New Zealand.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;text-align:left;">
+      <a href="https://aitools.co.nz" style="text-decoration:none;background:#fff;border-radius:12px;padding:28px;border:1px solid #E5E7EB;transition:border-color 0.2s,box-shadow 0.2s;" onmouseover="this.style.borderColor='#6366F1';this.style.boxShadow='0 4px 20px rgba(99,102,241,0.1)'" onmouseout="this.style.borderColor='#E5E7EB';this.style.boxShadow='none'">
+        <div style="font-size:1.5rem;margin-bottom:8px;">💼</div>
+        <h3 style="font-family:Outfit,sans-serif;font-weight:700;font-size:1.1rem;color:#0F172A;margin-bottom:6px;">AI for Business</h3>
+        <p style="font-family:'DM Sans',sans-serif;font-size:.875rem;color:#6B7280;line-height:1.6;">General AI implementation for any NZ business. Custom systems in 5 days.</p>
+      </a>
+      <a href="https://realestate.aitools.co.nz" style="text-decoration:none;background:#fff;border-radius:12px;padding:28px;border:1px solid #E5E7EB;transition:border-color 0.2s,box-shadow 0.2s;" onmouseover="this.style.borderColor='#2563EB';this.style.boxShadow='0 4px 20px rgba(37,99,235,0.1)'" onmouseout="this.style.borderColor='#E5E7EB';this.style.boxShadow='none'">
+        <div style="font-size:1.5rem;margin-bottom:8px;">🏠</div>
+        <h3 style="font-family:Outfit,sans-serif;font-weight:700;font-size:1.1rem;color:#0F172A;margin-bottom:6px;">AI for Real Estate</h3>
+        <p style="font-family:'DM Sans',sans-serif;font-size:.875rem;color:#6B7280;line-height:1.6;">Every enquiry answered in 60 seconds. 22-25% conversion rate for NZ agencies.</p>
+      </a>
+      <a href="https://student.aitools.co.nz" style="text-decoration:none;background:#fff;border-radius:12px;padding:28px;border:1px solid #E5E7EB;transition:border-color 0.2s,box-shadow 0.2s;" onmouseover="this.style.borderColor='#8B5CF6';this.style.boxShadow='0 4px 20px rgba(139,92,246,0.1)'" onmouseout="this.style.borderColor='#E5E7EB';this.style.boxShadow='none'">
+        <div style="font-size:1.5rem;margin-bottom:8px;">🎓</div>
+        <h3 style="font-family:Outfit,sans-serif;font-weight:700;font-size:1.1rem;color:#0F172A;margin-bottom:6px;">AI for Students</h3>
+        <p style="font-family:'DM Sans',sans-serif;font-size:.875rem;color:#6B7280;line-height:1.6;">Your AI study and career partner. Built specifically for NZ university life.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ FOOTER — dark (standard, flows from dark CTA) ============================================================ -->
+<footer style="background:#0A0F1C;padding:3rem 1.5rem;border-top:1px solid rgba(16,185,129,0.1);" role="contentinfo">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-4 gap-8 mb-8">
+      <div class="md:col-span-2">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:#10B981;border-radius:6px;flex-shrink:0;">
+            <svg width="20" height="20" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="3" y="9" width="4" height="10" rx="1" fill="white"/><rect x="9.5" y="5" width="3" height="14" rx="1" fill="white"/><rect x="15" y="2" width="4" height="17" rx="1" fill="rgba(255,255,255,0.5)"/></svg>
+          </span>
+          <span style="font-family:'Outfit',sans-serif;font-weight:800;font-size:1.1rem;color:#F1F5F9;letter-spacing:-0.02em;">AI for Trades</span>
+        </div>
+        <p style="font-family:'DM Sans',sans-serif;font-size:.875rem;color:rgba(241,245,249,0.35);line-height:1.7;max-width:300px;">Helping NZ tradies stop losing money to missed calls. Every call answered. Every lead captured. Every job followed up.</p>
+        <p style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:rgba(241,245,249,0.2);margin-top:1rem;">Powered by <a href="https://aitools.co.nz" target="_blank" rel="noopener noreferrer" style="color:#10B981;text-decoration:none;font-weight:600;">AI Tools NZ</a></p>
+      </div>
+
+      <div>
+        <h4 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:.8rem;color:rgba(241,245,249,0.4);margin-bottom:1rem;letter-spacing:.1em;text-transform:uppercase;">Site</h4>
+        <div style="display:flex;flex-direction:column;gap:.6rem;">
+          <a href="#problem" style="font-family:'DM Sans',sans-serif;font-size:.875rem;color:rgba(241,245,249,0.35);text-decoration:none;" onmouseover="this.style.color='#F1F5F9'" onmouseout="this.style.color='rgba(241,245,249,0.35)'">The Problem</a>
+          <a href="#solution" style="font-family:'DM Sans',sans-serif;font-size:.875rem;color:rgba(241,245,249,0.35);text-decoration:none;" onmouseover="this.style.color='#F1F5F9'" onmouseout="this.style.color='rgba(241,245,249,0.35)'">The Solution</a>
+          <a href="#calculator" style="font-family:'DM Sans',sans-serif;font-size:.875rem;color:rgba(241,245,249,0.35);text-decoration:none;" onmouseover="this.style.color='#F1F5F9'" onmouseout="this.style.color='rgba(241,245,249,0.35)'">ROI Calculator</a>
+          <a href="#pricing" style="font-family:'DM Sans',sans-serif;font-size:.875rem;color:rgba(241,245,249,0.35);text-decoration:none;" onmouseover="this.style.color='#F1F5F9'" onmouseout="this.style.color='rgba(241,245,249,0.35)'">Pricing</a>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:.8rem;color:rgba(241,245,249,0.4);margin-bottom:1rem;letter-spacing:.1em;text-transform:uppercase;">Legal</h4>
+        <div style="display:flex;flex-direction:column;gap:.6rem;">
+          <a href="/privacy" style="font-family:'DM Sans',sans-serif;font-size:.875rem;color:rgba(241,245,249,0.35);text-decoration:none;" onmouseover="this.style.color='#F1F5F9'" onmouseout="this.style.color='rgba(241,245,249,0.35)'">Privacy Policy</a>
+          <a href="/terms" style="font-family:'DM Sans',sans-serif;font-size:.875rem;color:rgba(241,245,249,0.35);text-decoration:none;" onmouseover="this.style.color='#F1F5F9'" onmouseout="this.style.color='rgba(241,245,249,0.35)'">Terms of Service</a>
+          <a href="mailto:hello@trade.aitools.co.nz" style="font-family:'DM Sans',sans-serif;font-size:.875rem;color:rgba(241,245,249,0.35);text-decoration:none;" onmouseover="this.style.color='#F1F5F9'" onmouseout="this.style.color='rgba(241,245,249,0.35)'">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid rgba(255,255,255,0.05);padding-top:1.5rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;">
+      <p style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:rgba(241,245,249,0.2);">&copy; 2026 Esperion Ltd. Auckland, New Zealand. All rights reserved.</p>
+      <p style="font-family:'DM Sans',sans-serif;font-size:.75rem;color:rgba(241,245,249,0.12);">AI for Trade Businesses NZ &middot; trade.aitools.co.nz</p>
+    </div>
+  </div>
+
+    <!-- Ecosystem Links -->
+    <div style="border-top:1px solid rgba(255,255,255,0.05);padding-top:1.25rem;margin-top:1.25rem;">
+      <p style="font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,0.2);margin-bottom:8px;">AI Tools NZ Ecosystem</p>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;">
+        <a href="https://aitools.co.nz" style="font-size:.8rem;color:rgba(255,255,255,0.3);text-decoration:none;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">AI for Business</a>
+        <a href="https://realestate.aitools.co.nz" style="font-size:.8rem;color:rgba(255,255,255,0.3);text-decoration:none;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">AI for Real Estate</a>
+        <a href="https://trade.aitools.co.nz" style="font-size:.8rem;color:rgba(255,255,255,0.3);text-decoration:none;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">AI for Trades</a>
+        <a href="https://student.aitools.co.nz" style="font-size:.8rem;color:rgba(255,255,255,0.3);text-decoration:none;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">AI for Students</a>
+      </div>
+    </div>
+</footer>
+
+
+<!-- ============================================================ JAVASCRIPT — identical logic to V3 ============================================================ -->
+<script>
+  // Mobile Menu
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconMenu   = document.getElementById('icon-menu');
+  const iconClose  = document.getElementById('icon-close');
+
+  menuToggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', isOpen);
+    iconMenu.style.display  = isOpen ? 'none'  : 'block';
+    iconClose.style.display = isOpen ? 'block' : 'none';
+  });
+
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    iconMenu.style.display  = 'block';
+    iconClose.style.display = 'none';
+  }
+
+  // Sticky nav shadow
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  // ROI Calculator — identical formula to V3
+  function formatCurrencyFull(n) {
+    return '$' + Math.round(n).toLocaleString('en-NZ');
+  }
+
+  function updateCalc() {
+    const calls    = parseInt(document.getElementById('missed-calls').value);
+    const jobValue = parseInt(document.getElementById('job-value').value);
+
+    document.getElementById('calls-display').textContent = calls;
+    document.getElementById('value-display').textContent = '$' + jobValue;
+    document.getElementById('missed-calls').setAttribute('aria-valuenow', calls);
+    document.getElementById('job-value').setAttribute('aria-valuenow', jobValue);
+
+    const WORKING_DAYS        = 22;
+    const CONVERSION_GAP      = 0.30;
+    const QUOTE_RECOVERY_RATE = 0.15;
+    const OUR_COST            = 500;
+
+    const missedRevenue = calls * jobValue * CONVERSION_GAP * WORKING_DAYS;
+    const quoteRecovery = calls * jobValue * QUOTE_RECOVERY_RATE;
+    const totalMonthly  = missedRevenue + quoteRecovery;
+    const netBenefit    = totalMonthly - OUR_COST;
+    const roi           = (totalMonthly / OUR_COST).toFixed(1);
+    const paybackDays   = Math.ceil(OUR_COST / (totalMonthly / WORKING_DAYS));
+
+    document.getElementById('result-total').textContent   = formatCurrencyFull(totalMonthly);
+    document.getElementById('result-roi').textContent     = roi + 'x';
+    document.getElementById('result-payback').textContent = paybackDays + ' days';
+    document.getElementById('result-net').textContent     = formatCurrencyFull(netBenefit);
+    document.getElementById('result-roi-text').textContent = roi + ':1 return';
+  }
+
+  updateCalc();
+
+  // FAQ Accordion
+  function toggleFaq(btn) {
+    const item   = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  // Intersection Observer — scroll animations
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReducedMotion) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in, .cost-step, .flow-step').forEach(el => {
+      observer.observe(el);
+    });
+  } else {
+    document.querySelectorAll('.fade-in, .cost-step, .flow-step').forEach(el => {
+      el.style.opacity   = '1';
+      el.style.transform = 'none';
+    });
+  }
+
+  // Close mobile menu on resize
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) closeMobileMenu();
+  });
+</script>
+
+<!-- Esperion Inline Demo Chat -->
+<script
+  src="https://demo.aitools.co.nz/widget/esperion-inline-chat.js"
+  data-container="#demo-chat"
+  data-agent="mike"
+  data-theme="trades"
+  data-company="Mike's Plumbing"
+  data-tagline="AI Demo — Powered by AI Tools NZ"
+  data-calendly="https://calendly.com/hello-esperion/30min"
+  data-cap="10"
+></script>
+
+
+<!-- ═══ CALENDLY POPUP WIDGET ═══ -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<script>
+function openCalendly(e) {
+  if (e) e.preventDefault();
+  Calendly.initPopupWidget({url: 'https://calendly.com/hello-esperion/30min'});
+  return false;
+}
+// Convert all Calendly links to popup on DOM ready
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href*="calendly.com"]').forEach(function(el) {
+    el.removeAttribute('target');
+    el.removeAttribute('rel');
+    el.addEventListener('click', openCalendly);
+  });
+});
+</script>
+<!-- ═══ END CALENDLY POPUP WIDGET ═══ -->
+</body>
+</html>

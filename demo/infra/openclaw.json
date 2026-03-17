@@ -1,0 +1,106 @@
+{
+  "env": {
+    "OPENROUTER_API_KEY": "${OPENROUTER_API_KEY}"
+  },
+
+  "gateway": {
+    "port": 18789,
+    "bind": "loopback",
+    "mode": "local",
+    "auth": {
+      "mode": "trusted-proxy",
+      "trustedProxy": {
+        "userHeader": "x-forwarded-user"
+      }
+    },
+    "controlUi": {
+      "enabled": true,
+      "allowedOrigins": [
+        "https://demo.aitools.co.nz",
+        "https://aitools.co.nz",
+        "https://www.aitools.co.nz",
+        "https://trade.aitools.co.nz",
+        "https://realestate.aitools.co.nz",
+        "https://student.aitools.co.nz",
+        "https://trades.esperion.io",
+        "https://realestate.esperion.io",
+        "https://pacificpm.esperion.io",
+        "https://studymate.esperion.io"
+      ]
+    },
+    "trustedProxies": ["127.0.0.1", "::1"]
+  },
+
+  "agents": {
+    "defaults": {
+      "workspace": "~/.openclaw/workspace",
+      "model": {
+        "primary": "openrouter/google/gemini-2.5-flash"
+      },
+      "thinkingDefault": "off",
+      "verboseDefault": "off",
+      "timeoutSeconds": 120,
+      "maxConcurrent": 4,
+      "heartbeat": {
+        "every": "0"
+      }
+    },
+    "list": [
+      {
+        "id": "mike",
+        "name": "Mike's Plumbing AI",
+        "default": true,
+        "workspace": "~/.openclaw/workspace/agents/mike"
+      },
+      {
+        "id": "bayview",
+        "name": "Bayview Realty AI",
+        "workspace": "~/.openclaw/workspace/agents/bayview"
+      },
+      {
+        "id": "pacific",
+        "name": "Pacific Property Management AI",
+        "workspace": "~/.openclaw/workspace/agents/pacific"
+      },
+      {
+        "id": "studymate",
+        "name": "StudyMate NZ AI",
+        "workspace": "~/.openclaw/workspace/agents/studymate"
+      },
+      {
+        "id": "sales",
+        "name": "AI Tools NZ Sales Assistant",
+        "workspace": "~/.openclaw/workspace/agents/sales"
+      }
+    ]
+  },
+
+  "tools": {
+    "allow": [],
+    "deny": [
+      "exec", "process", "browser", "canvas", "nodes", "cron",
+      "message", "gateway", "sessions_spawn", "sessions_send",
+      "sessions_list", "sessions_history", "subagents", "tts",
+      "whatsapp_login", "web_search", "web_fetch", "image", "pdf"
+    ],
+    "elevated": {
+      "enabled": false
+    }
+  },
+
+  "session": {
+    "scope": "per-sender",
+    "reset": {
+      "mode": "idle",
+      "idleMinutes": 30
+    }
+  },
+
+  "cron": {
+    "enabled": false
+  },
+
+  "logging": {
+    "level": "info"
+  }
+}

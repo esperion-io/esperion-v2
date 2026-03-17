@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI for Students NZ — Your AI Study &amp; Career Partner | AI Tools NZ</title>
+  <meta name="description" content="AI study and career assistant built for NZ university students. Organise lecture notes, prep for exams, launch side hustles, and accelerate your career — while you focus on learning." />
+  <meta name="keywords" content="AI for students NZ, AI study assistant, AI note taking, AI exam prep NZ, AI for university students, AI citation manager, AI research assistant NZ, student entrepreneurship, career accelerator" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://student.aitools.co.nz" />
+  <meta property="og:title" content="AI for Students NZ — Your AI Study & Career Partner" />
+  <meta property="og:description" content="Organise notes, prep for exams, launch your business, build your career. Built specifically for NZ students." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://student.aitools.co.nz" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI for Students NZ — Your AI Study & Career Partner" />
+  <meta name="twitter:description" content="Organise notes, prep for exams, launch your business, build your career. Built specifically for NZ students." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: { violet: { DEFAULT: '#8B5CF6', dark: '#7C3AED' }, pink: { DEFAULT: '#EC4899' }, amber: { DEFAULT: '#D97706' }, ink: '#1E1B4B', wash: '#F5F3FF' },
+        fontFamily: { heading: ['Space Grotesk','sans-serif'], body: ['Inter','sans-serif'] }
+      }}
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:#fff;color:#111827;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    h1,h2,h3,h4,h5,h6{font-family:'Space Grotesk',sans-serif}
+
+    .nav-wrap{position:sticky;top:80px;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid #E5E7EB;transition:box-shadow 150ms ease}
+    .nav-wrap.scrolled{box-shadow:0 2px 16px rgba(0,0,0,0.06)}
+
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#8B5CF6,#EC4899);color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;padding:.9rem 2rem;border-radius:6px;border:none;cursor:pointer;transition:transform 120ms,box-shadow 150ms;text-decoration:none;line-height:1.2;letter-spacing:.01em}
+    .btn-primary:hover,.btn-primary:focus-visible{transform:translateY(-2px);box-shadow:0 6px 24px rgba(139,92,246,0.35);outline:none}
+    .btn-primary:focus-visible{outline:3px solid #8B5CF6;outline-offset:3px}
+    .btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#8B5CF6;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;padding:.85rem 1.9rem;border-radius:6px;border:2px solid #8B5CF6;cursor:pointer;transition:background 150ms,border-color 150ms,box-shadow 150ms;text-decoration:none;line-height:1.2}
+    .btn-outline:hover,.btn-outline:focus-visible{background:rgba(139,92,246,0.06);border-color:#7C3AED;box-shadow:0 4px 16px rgba(139,92,246,0.15);outline:none}
+
+    .hero-section{background:radial-gradient(ellipse at top,rgba(139,92,246,0.08),rgba(236,72,153,0.04) 50%,transparent 70%),#fff;position:relative;overflow:hidden;padding:5rem 1.5rem 7rem}
+
+    .divider-white-to-alt{height:60px;background:#fff;clip-path:polygon(0 0,100% 0,100% 30%,0 100%);margin-bottom:-2px}
+    .divider-alt-to-white{height:60px;background:#F5F3FF;clip-path:polygon(0 0,100% 40%,100% 100%,0 100%);margin-bottom:-2px}
+    .divider-white-to-dark{height:60px;background:#fff;clip-path:polygon(0 0,100% 0,100% 30%,0 100%);margin-bottom:-2px}
+
+    .section-chip{display:inline-flex;align-items:center;gap:6px;font-family:'Space Grotesk',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8B5CF6;background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.2);padding:4px 12px;border-radius:4px;margin-bottom:1rem}
+
+    .stat-callout{border-left:4px solid #8B5CF6;padding-left:1.25rem}
+    .stat-callout .stat-num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2.5rem,7vw,4rem);color:#D97706;line-height:1}
+    .stat-callout .stat-label{font-family:'Inter',sans-serif;font-size:.9rem;color:#6B7280;margin-top:4px}
+
+    .fade-in{opacity:0;transform:translateY(20px);transition:opacity 500ms ease,transform 500ms ease}
+    .fade-in.visible{opacity:1;transform:translateY(0)}
+    .flow-step{opacity:0;transform:translateX(-16px);transition:opacity 350ms ease,transform 350ms ease}
+    .flow-step.visible{opacity:1;transform:translateX(0)}
+
+    .card-light{background:#fff;border:1px solid #E5E7EB;border-left:4px solid #8B5CF6;border-radius:8px;padding:1.75rem;transition:box-shadow 150ms;box-shadow:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04)}
+    .card-light:hover{box-shadow:0 6px 20px rgba(139,92,246,0.1)}
+
+    .icon-badge{width:52px;height:52px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+    .calc-wrap{background:#fff;border:1px solid #E5E7EB;border-top:4px solid #8B5CF6;border-radius:8px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .calc-header{background:#F5F3FF;border-bottom:1px solid #E5E7EB;padding:1rem 2rem;display:flex;align-items:center;gap:10px}
+    .calc-dot{width:10px;height:10px;border-radius:50%}
+    input[type="range"]{-webkit-appearance:none;width:100%;height:8px;border-radius:4px;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.25);outline:none;cursor:pointer}
+    input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:4px;background:linear-gradient(135deg,#8B5CF6,#EC4899);cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(139,92,246,0.35)}
+    input[type="range"]::-moz-range-thumb{width:26px;height:26px;border-radius:4px;background:linear-gradient(135deg,#8B5CF6,#EC4899);cursor:pointer;border:3px solid #fff}
+    input[type="range"]:focus{outline:none}
+    input[type="range"]:focus::-webkit-slider-thumb{box-shadow:0 0 0 3px rgba(139,92,246,0.25)}
+    .result-big{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2.5rem,8vw,4rem);color:#8B5CF6;line-height:1;transition:all 200ms}
+    .result-stat{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.5rem;color:#111827;line-height:1}
+    .result-money{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.5rem;color:#D97706;line-height:1}
+    .calc-label{font-family:'Inter',sans-serif;font-size:.875rem;font-weight:600;color:#6B7280;display:block;margin-bottom:8px}
+
+    .numbers-big{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2rem,5vw,3rem);color:#8B5CF6;line-height:1}
+
+    .pricing-card{background:#fff;border:1px solid #E5E7EB;border-top:5px solid #8B5CF6;border-radius:12px;padding:2.5rem;position:relative;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .pricing-badge{position:absolute;top:-14px;right:2rem;background:linear-gradient(135deg,#8B5CF6,#EC4899);color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;padding:4px 14px;border-radius:4px}
+
+    .faq-item{border-bottom:1px solid #E5E7EB}
+    .faq-trigger{width:100%;text-align:left;padding:1.25rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;background:none;border:none;cursor:pointer;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1rem;color:#111827;transition:color 150ms}
+    .faq-trigger:hover{color:#8B5CF6}
+    .faq-trigger:focus-visible{outline:3px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    .faq-icon{width:24px;height:24px;flex-shrink:0;color:#8B5CF6;transition:transform 200ms}
+    .faq-item.open .faq-icon{transform:rotate(45deg)}
+    .faq-answer{display:none;padding-bottom:1.25rem;font-size:.95rem;line-height:1.75;color:#6B7280}
+    .faq-item.open .faq-answer{display:block}
+
+    .mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-top:1px solid #E5E7EB;padding:1rem;box-shadow:0 8px 24px rgba(0,0,0,0.08)}
+    .mobile-menu.open{display:block}
+
+    .guarantee-box{background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.2);border-left:4px solid #8B5CF6;border-radius:8px;padding:1.25rem 1.5rem}
+    .trust-badge{display:flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:.875rem;font-weight:600;color:#6B7280}
+    .how-step-num{width:60px;height:60px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.5rem;color:#fff;flex-shrink:0}
+
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+    .pulse-dot{animation:pulse 2s infinite}
+
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+      .fade-in,.flow-step{opacity:1!important;transform:none!important}
+    }
+
+    @media(max-width:1024px){
+      .pricing-grid{grid-template-columns:repeat(2,1fr) !important;}
+    }
+    @media(max-width:640px){
+      .pricing-grid{grid-template-columns:1fr !important;}
+    }
+    .pricing-card-popular{border-top-color:#EC4899 !important;transform:scale(1.03);box-shadow:0 8px 30px rgba(139,92,246,0.15);}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "AI for Students NZ",
+    "description": "AI study and career assistant built for NZ university students. Organise lecture notes, prep for exams, launch side hustles, and accelerate your career.",
+    "url": "https://student.aitools.co.nz",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Web",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Starter Plan",
+        "price": "499",
+        "priceCurrency": "NZD",
+        "description": "Setup fee. Ongoing $62.50/mo (March Madness)."
+      },
+      {
+        "@type": "Offer",
+        "name": "Pro Plan",
+        "price": "999",
+        "priceCurrency": "NZD",
+        "description": "Setup fee. Ongoing $125/mo (March Madness)."
+      },
+      {
+        "@type": "Offer",
+        "name": "Entrepreneur Plan",
+        "price": "1999",
+        "priceCurrency": "NZD",
+        "description": "Setup fee. Ongoing $250/mo (March Madness)."
+      }
+    ],
+    "provider": {
+      "@type": "Organization",
+      "name": "AI Tools NZ",
+      "url": "https://aitools.co.nz"
+    }
+  }
+  </script>
+
+<!-- ═══ MARCH MADNESS PROMO — REMOVE AFTER MARCH 2026 ═══ -->
+<style>
+  @keyframes marchShimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+  .promo-banner {
+    position: fixed;
+    top: 40px;
+    left: 0; right: 0;
+    background: linear-gradient(135deg, #DC2626 0%, #F59E0B 50%, #DC2626 100%);
+    background-size: 200% auto;
+    animation: marchShimmer 3s linear infinite;
+    color: #fff;
+    text-align: center;
+    padding: 10px 16px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    z-index: 199;
+    margin: 0;
+  }
+  .promo-banner a { color: #fff; text-decoration: underline; }
+  .price-original {
+    text-decoration: line-through;
+    opacity: 0.5;
+    font-size: 0.75em;
+    margin-right: 4px;
+  }
+  .price-promo {
+    color: #DC2626;
+    font-weight: 800;
+  }
+  .march-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #DC2626, #F59E0B);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+</style>
+<!-- ═══ END MARCH MADNESS PROMO STYLES ═══ -->
+</head>
+<body style="padding-top:80px;">
+<!-- ═══ ECOSYSTEM BAR ═══ -->
+<div id="ecosystem-bar">
+  <div class="eco-inner">
+    <a href="https://aitools.co.nz" class="eco-brand">
+      <svg class="eco-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="3" fill="#8B5CF6"/>
+        <circle cx="12" cy="3" r="1.5" fill="#8B5CF6" opacity="0.6"/>
+        <circle cx="21" cy="7.5" r="1.5" fill="#8B5CF6" opacity="0.6"/>
+        <circle cx="21" cy="16.5" r="1.5" fill="#8B5CF6" opacity="0.6"/>
+        <circle cx="12" cy="21" r="1.5" fill="#8B5CF6" opacity="0.6"/>
+        <circle cx="3" cy="16.5" r="1.5" fill="#8B5CF6" opacity="0.6"/>
+        <circle cx="3" cy="7.5" r="1.5" fill="#8B5CF6" opacity="0.6"/>
+        <line x1="12" y1="9" x2="12" y2="4.5" stroke="#8B5CF6" stroke-width="0.7" opacity="0.4"/>
+        <line x1="14.6" y1="10.5" x2="19.5" y2="8" stroke="#8B5CF6" stroke-width="0.7" opacity="0.4"/>
+        <line x1="14.6" y1="13.5" x2="19.5" y2="16" stroke="#8B5CF6" stroke-width="0.7" opacity="0.4"/>
+        <line x1="12" y1="15" x2="12" y2="19.5" stroke="#8B5CF6" stroke-width="0.7" opacity="0.4"/>
+        <line x1="9.4" y1="13.5" x2="4.5" y2="16" stroke="#8B5CF6" stroke-width="0.7" opacity="0.4"/>
+        <line x1="9.4" y1="10.5" x2="4.5" y2="8" stroke="#8B5CF6" stroke-width="0.7" opacity="0.4"/>
+      </svg>
+      AI Tools NZ
+    </a>
+    <nav id="eco-nav-links" class="eco-links">
+      <a href="https://aitools.co.nz" data-eco="business" class="eco-link">Business</a>
+      <a href="https://realestate.aitools.co.nz" data-eco="realestate" class="eco-link">Real Estate</a>
+      <a href="https://trade.aitools.co.nz" data-eco="trades" class="eco-link">Trades</a>
+      <a href="https://student.aitools.co.nz" data-eco="students" class="eco-link">Students</a>
+    </nav>
+    <button id="eco-mobile-toggle" class="eco-mobile-btn" aria-label="Toggle ecosystem navigation">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+  </div>
+  <div class="eco-glow"></div>
+  <div id="eco-mobile-menu" class="eco-mobile-menu">
+    <a href="https://aitools.co.nz" class="eco-mobile-link">Business</a>
+    <a href="https://realestate.aitools.co.nz" class="eco-mobile-link">Real Estate</a>
+    <a href="https://trade.aitools.co.nz" class="eco-mobile-link">Trades</a>
+    <a href="https://student.aitools.co.nz" class="eco-mobile-link">Students</a>
+  </div>
+</div>
+<style>
+  @keyframes ecoGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  @keyframes ecoPulse {
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 0.35; }
+  }
+  #ecosystem-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 40px;
+    z-index: 200;
+    background: linear-gradient(135deg, #0a0a1a 0%, #111127 25%, #0d0d20 50%, #111127 75%, #0a0a1a 100%);
+    background-size: 300% 300%;
+    animation: ecoGradient 8s ease infinite;
+    display: flex;
+    align-items: center;
+    overflow: visible;
+  }
+  .eco-glow {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(139,92,246,0.5) 30%, rgba(139,92,246,0.8) 50%, rgba(139,92,246,0.5) 70%, transparent 100%);
+    animation: ecoPulse 3s ease-in-out infinite;
+  }
+  .eco-inner {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+  }
+  .eco-brand {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: text-shadow 0.3s;
+  }
+  .eco-brand:hover { text-shadow: 0 0 12px rgba(139,92,246,0.5); }
+  .eco-icon { filter: drop-shadow(0 0 4px rgba(139,92,246,0.4)); }
+  .eco-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .eco-link {
+    color: rgba(255,255,255,0.45);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s, text-shadow 0.2s;
+  }
+  .eco-link:hover {
+    color: rgba(255,255,255,0.9);
+    text-shadow: 0 0 10px rgba(139,92,246,0.4);
+  }
+  .eco-link.active {
+    color: #fff;
+    border-bottom-color: #8B5CF6;
+    text-shadow: 0 0 8px rgba(139,92,246,0.3);
+  }
+  .eco-mobile-btn {
+    display: none;
+    background: none;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    color: rgba(255,255,255,0.7);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 4px 10px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .eco-mobile-btn:hover { border-color: rgba(139,92,246,0.5); color: #fff; }
+  .eco-mobile-menu {
+    display: none;
+    position: absolute;
+    top: 40px; left: 0; right: 0;
+    background: linear-gradient(180deg, #111127 0%, #0a0a1a 100%);
+    padding: 8px 24px 12px;
+    z-index: 201;
+    border-bottom: 1px solid rgba(139,92,246,0.2);
+  }
+  .eco-mobile-link {
+    display: block;
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: color 0.2s, padding-left 0.2s;
+  }
+  .eco-mobile-link:last-child { border-bottom: none; }
+  .eco-mobile-link:hover { color: #fff; padding-left: 8px; }
+  @media (max-width: 640px) {
+    .eco-links { display: none !important; }
+    .eco-mobile-btn { display: flex; align-items: center; gap: 4px; }
+  }
+</style>
+<script>
+(function(){
+  var btn=document.getElementById('eco-mobile-toggle');
+  var menu=document.getElementById('eco-mobile-menu');
+  if(btn&&menu){btn.addEventListener('click',function(){
+    var open=menu.style.display!=='block';
+    menu.style.display=open?'block':'none';
+    btn.querySelector('svg').style.transform=open?'rotate(180deg)':'';
+  })}
+  var host=window.location.hostname;
+  var map={'aitools.co.nz':'business','realestate.aitools.co.nz':'realestate','trade.aitools.co.nz':'trades','student.aitools.co.nz':'students'};
+  var active=map[host]||'students';
+  if(active){
+    var el=document.querySelector('[data-eco="'+active+'"]');
+    if(el) el.classList.add('active');
+  }
+})();
+</script>
+<!-- ═══ END ECOSYSTEM BAR ═══ -->
+<!-- ═══ MARCH MADNESS BANNER — REMOVE AFTER MARCH 2026 ═══ -->
+<div class="promo-banner">
+  🔥 MARCH MADNESS — All plans <strong>50% OFF</strong> this month only! <a href="javascript:void(0)" onclick="openCalendly(event)">Book now →</a>
+</div>
+<!-- ═══ END MARCH MADNESS BANNER ═══ -->
+
+<!-- ============================================================ NAV ============================================================ -->
+<nav class="nav-wrap" id="main-nav" role="navigation" aria-label="Main navigation">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+    <a href="/" class="flex items-center gap-3" style="text-decoration:none;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:6px;flex-shrink:0;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3L2 12h3v8h4v-5h6v5h4v-8h3L12 3z" fill="white" opacity="0.6"/><rect x="9" y="14" width="6" height="6" rx="1" fill="white"/></svg>
+      </span>
+      <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem;color:#111827;letter-spacing:-0.02em;">AI for Students</span>
+    </a>
+    <div class="hidden md:flex items-center gap-6">
+      <a href="#problem" style="font-family:'Inter',sans-serif;font-size:.875rem;font-weight:600;color:#6B7280;text-decoration:none;" onmouseover="this.style.color='#8B5CF6'" onmouseout="this.style.color='#6B7280'">The Problem</a>
+      <a href="#features" style="font-family:'Inter',sans-serif;font-size:.875rem;font-weight:600;color:#6B7280;text-decoration:none;" onmouseover="this.style.color='#8B5CF6'" onmouseout="this.style.color='#6B7280'">Features</a>
+      <a href="#calculator" style="font-family:'Inter',sans-serif;font-size:.875rem;font-weight:600;color:#6B7280;text-decoration:none;" onmouseover="this.style.color='#8B5CF6'" onmouseout="this.style.color='#6B7280'">Calculator</a>
+      <a href="#pricing" style="font-family:'Inter',sans-serif;font-size:.875rem;font-weight:600;color:#6B7280;text-decoration:none;" onmouseover="this.style.color='#8B5CF6'" onmouseout="this.style.color='#6B7280'">Pricing</a>
+      <a href="https://calendly.com/hello-esperion/30min" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding:.55rem 1.25rem;font-size:.875rem;">Get Started</a>
+    </div>
+    <button class="md:hidden p-2" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation" style="color:#374151;">
+      <svg id="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg id="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="display:none;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu" role="menu">
+    <div class="flex flex-col gap-2 max-w-6xl mx-auto px-2">
+      <a href="#problem" style="font-family:'Inter',sans-serif;padding:10px 8px;font-weight:600;color:#374151;text-decoration:none;" onclick="closeMobileMenu()">The Problem</a>
+      <a href="#features" style="font-family:'Inter',sans-serif;padding:10px 8px;font-weight:600;color:#374151;text-decoration:none;" onclick="closeMobileMenu()">Features</a>
+      <a href="#calculator" style="font-family:'Inter',sans-serif;padding:10px 8px;font-weight:600;color:#374151;text-decoration:none;" onclick="closeMobileMenu()">Calculator</a>
+      <a href="#pricing" style="font-family:'Inter',sans-serif;padding:10px 8px;font-weight:600;color:#374151;text-decoration:none;" onclick="closeMobileMenu()">Pricing</a>
+      <a href="https://calendly.com/hello-esperion/30min" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-top:8px;justify-content:center;" onclick="closeMobileMenu()">Get Started</a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ============================================================ HERO ============================================================ -->
+<section class="hero-section" aria-labelledby="hero-heading">
+  <div class="relative z-10 max-w-6xl mx-auto" style="padding:0 1.5rem;">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:1.5rem;padding:6px 14px;border-radius:4px;background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.2);">
+          <span class="pulse-dot" style="width:7px;height:7px;background:#8B5CF6;border-radius:50%;flex-shrink:0;"></span>
+          <span style="font-family:'Inter',sans-serif;font-size:.75rem;font-weight:700;color:#8B5CF6;letter-spacing:.1em;text-transform:uppercase;">Built for NZ Students</span>
+        </div>
+        <h1 id="hero-heading" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2.25rem,5.5vw,3.75rem);line-height:1.05;color:#111827;margin-bottom:1.5rem;letter-spacing:-0.02em;">
+          Study Smarter. Launch Faster.<br>
+          <span style="background:linear-gradient(135deg,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Built for NZ Students.</span>
+        </h1>
+        <p style="font-family:'Inter',sans-serif;font-size:1.05rem;color:#6B7280;line-height:1.8;margin-bottom:2.5rem;max-width:520px;">
+          Juggling lectures, assignments, a part-time job, and a side hustle idea? AI that handles the study admin and helps you
+          <strong style="color:#111827;font-weight:600;">launch your career while you're still at uni.</strong>
+        </p>
+        <div class="flex flex-wrap gap-4" style="margin-bottom:2.5rem;">
+          <a href="https://calendly.com/hello-esperion/30min" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:1.05rem;padding:1rem 2rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            Get Started
+          </a>
+          <a href="#how-it-works" class="btn-outline">See How It Works</a>
+        </div>
+        <div class="flex flex-wrap gap-x-6 gap-y-3" role="list">
+          <div class="trust-badge" role="listitem"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" style="flex-shrink:0;" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>86% of students use AI</div>
+          <div class="trust-badge" role="listitem"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" style="flex-shrink:0;" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Save 10+ hrs/week</div>
+          <div class="trust-badge" role="listitem"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#EC4899" stroke-width="2.5" stroke-linecap="round" style="flex-shrink:0;" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Launch your first business at uni</div>
+          <div class="trust-badge" role="listitem"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" style="flex-shrink:0;" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>NZ Gov RBP co-funding available</div>
+        </div>
+      </div>
+
+      <div class="hidden lg:block" aria-hidden="true">
+        <div style="position:relative;padding:2rem;">
+          <div style="background:#fff;border:1px solid #E5E7EB;border-left:5px solid #8B5CF6;border-radius:8px;padding:2.5rem;margin-bottom:1rem;box-shadow:0 4px 16px rgba(0,0,0,0.06);">
+            <div style="font-family:'Inter',sans-serif;font-size:.8rem;font-weight:700;color:#8B5CF6;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.75rem;">The Student Time Crisis</div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:3.5rem;color:#D97706;line-height:1;margin-bottom:.5rem;">84%</div>
+            <div style="font-family:'Inter',sans-serif;font-size:.875rem;color:#9CA3AF;">of NZ students balance work and study</div>
+            <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid #F3F4F6;">
+              <div style="display:flex;gap:1.5rem;">
+                <div>
+                  <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.75rem;color:#111827;">70%</div>
+                  <div style="font-family:'Inter',sans-serif;font-size:.75rem;color:#9CA3AF;">stressed weekly</div>
+                </div>
+                <div style="width:1px;background:#F3F4F6;"></div>
+                <div>
+                  <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.75rem;color:#D97706;">1/3</div>
+                  <div style="font-family:'Inter',sans-serif;font-size:.75rem;color:#9CA3AF;">never review notes</div>
+                </div>
+                <div style="width:1px;background:#F3F4F6;"></div>
+                <div>
+                  <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.75rem;color:#111827;">50%+</div>
+                  <div style="font-family:'Inter',sans-serif;font-size:.75rem;color:#9CA3AF;">cram before exams</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.2);border-radius:6px;padding:.875rem 1.25rem;display:flex;align-items:center;gap:10px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span style="font-family:'Inter',sans-serif;font-size:.875rem;font-weight:600;color:#8B5CF6;">AI organises your study life &amp; launches your career</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-white-to-alt"></div>
+
+
+<!-- ============================================================ THE PROBLEM ============================================================ -->
+<section style="background:#F5F3FF;padding:5rem 1.5rem 6rem;" id="problem" aria-labelledby="problem-heading">
+  <div class="max-w-6xl mx-auto">
+    <div style="max-width:680px;margin-bottom:3.5rem;">
+      <div class="section-chip">The Problem</div>
+      <h2 id="problem-heading" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(1.875rem,4vw,3rem);color:#111827;line-height:1.1;margin-bottom:1rem;letter-spacing:-0.02em;">
+        You're Drowning in Study Admin, Not Actual Learning
+      </h2>
+      <p style="font-family:'Inter',sans-serif;font-size:1.05rem;line-height:1.8;color:#6B7280;">
+        You're already using ChatGPT. But you're copy-pasting everything, losing track of notes, and scrambling before every exam.
+        <strong style="color:#111827;">Sound familiar?</strong>
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="card-light fade-in">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:2.5rem;color:#D97706;line-height:1;margin-bottom:.5rem;">84%</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:#111827;margin-bottom:.5rem;">Balance Work + Study</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:.9rem;line-height:1.7;color:#6B7280;">NZ students are juggling part-time jobs with full course loads. Something always gives.</p>
+      </div>
+      <div class="card-light fade-in" style="transition-delay:80ms;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:2.5rem;color:#D97706;line-height:1;margin-bottom:.5rem;">70%</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:#111827;margin-bottom:.5rem;">Stressed Every Week</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:.9rem;line-height:1.7;color:#6B7280;">Weekly stress is the norm, not the exception. Deadlines, exams, and life pile up relentlessly.</p>
+      </div>
+      <div class="card-light fade-in" style="transition-delay:160ms;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:2.5rem;color:#D97706;line-height:1;margin-bottom:.5rem;">1 in 3</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:#111827;margin-bottom:.5rem;">Never Review Notes</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:.9rem;line-height:1.7;color:#6B7280;">You take notes in the lecture. Then they sit there. Untouched. Until the night before the exam.</p>
+      </div>
+      <div class="card-light fade-in" style="transition-delay:240ms;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:2.5rem;color:#D97706;line-height:1;margin-bottom:.5rem;">50%+</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:#111827;margin-bottom:.5rem;">Cram Before Exams</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:.9rem;line-height:1.7;color:#6B7280;">Over half of students rely almost solely on cramming. You already know how that ends.</p>
+      </div>
+      <div class="card-light fade-in" style="transition-delay:320ms;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:2.5rem;color:#D97706;line-height:1;margin-bottom:.5rem;">#1</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:#111827;margin-bottom:.5rem;">Time Management Struggle</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:.9rem;line-height:1.7;color:#6B7280;">78% of students struggle with time management. It's the single biggest barrier to academic success.</p>
+      </div>
+      <div class="card-light fade-in" style="transition-delay:400ms;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:2.5rem;color:#EC4899;line-height:1;margin-bottom:.5rem;">72%</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:#111827;margin-bottom:.5rem;">Graduates Without Experience</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:.9rem;line-height:1.7;color:#6B7280;">Most grads leave uni with a degree but zero real-world experience, no portfolio, and no network. Employers want proof, not just papers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-alt-to-white"></div>
+
+
+<!-- ============================================================ FEATURES ============================================================ -->
+<section style="background:#fff;padding:5rem 1.5rem 6rem;" id="features" aria-labelledby="features-heading">
+  <div class="max-w-6xl mx-auto">
+    <div style="text-align:center;max-width:640px;margin:0 auto 3.5rem;">
+      <div class="section-chip" style="display:inline-flex;">What It Does</div>
+      <h2 id="features-heading" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(1.875rem,4vw,3rem);color:#111827;line-height:1.1;margin-bottom:1rem;letter-spacing:-0.02em;">
+        AI That Actually Understands Student Life
+      </h2>
+      <p style="font-family:'Inter',sans-serif;font-size:1.05rem;line-height:1.8;color:#6B7280;">
+        Not a generic chatbot. A study assistant that knows your courses, your notes, your deadlines — and helps you build your future.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="card-light fade-in">
+        <div class="icon-badge" style="margin-bottom:1.25rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:#111827;margin-bottom:.75rem;">Lecture Note Organiser</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:.9rem;line-height:1.7;color:#6B7280;">Upload or paste your notes. AI structures them, creates summaries, and builds study guides you'll actually use.</p>
+      </div>
+
+      <div class="card-light fade-in" style="transition-delay:80ms;">
+        <div class="icon-badge" style="margin-bottom:1.25rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:#111827;margin-bottom:.75rem;">Research Assistant</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:.9rem;line-height:1.7;color:#6B7280;">Find papers, summarise literature, and manage citations in APA, Harvard, or Chicago. Your lit review, sorted.</p>
+      </div>
+
+      <div class="card-light fade-in" style="transition-delay:160ms;">
+        <div class="icon-badge" style="margin-bottom:1.25rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:#111827;margin-bottom:.75rem;">Exam Prep Engine</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:.9rem;line-height:1.7;color:#6B7280;">Generate practice questions, flashcards, and study plans from your actual course material. Smarter than cramming.</p>
+      </div>
+
+      <div class="card-light fade-in" style="transition-delay:240ms;">
+        <div class="icon-badge" style="margin-bottom:1.25rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:#111827;margin-bottom:.75rem;">Assignment Planner</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:.9rem;line-height:1.7;color:#6B7280;">Track every deadline. Break assignments into manageable steps. Smart scheduling that actually works with your life.</p>
+      </div>
+
+      <div class="card-light fade-in" style="transition-delay:320ms;">
+        <div class="icon-badge" style="margin-bottom:1.25rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:#111827;margin-bottom:.75rem;">Writing Coach</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:.9rem;line-height:1.7;color:#6B7280;">Grammar, structure, academic tone. Not writing <em>for</em> you — helping you write <em>better</em>. Your words, polished.</p>
+      </div>
+
+      <div class="card-light fade-in" style="transition-delay:400ms;">
+        <div class="icon-badge" style="margin-bottom:1.25rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:#111827;margin-bottom:.75rem;">International Student Support</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:.9rem;line-height:1.7;color:#6B7280;">Academic English assistance, concept translation, and NZ academic conventions. Because IELTS didn't prepare you for everything.</p>
+      </div>
+
+      <div class="card-light fade-in" style="transition-delay:480ms;">
+        <div class="icon-badge" style="margin-bottom:1.25rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:#111827;margin-bottom:.75rem;">Business Launch Toolkit</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:.9rem;line-height:1.7;color:#6B7280;">Validate your idea, build pitch decks, financial modelling, and market research. Turn your uni project into a real business.</p>
+      </div>
+
+      <div class="card-light fade-in" style="transition-delay:560ms;">
+        <div class="icon-badge" style="margin-bottom:1.25rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+        </div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:#111827;margin-bottom:.75rem;">Career Accelerator</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:.9rem;line-height:1.7;color:#6B7280;">Portfolio builder, CV optimisation, interview prep, and LinkedIn optimisation. Graduate with proof, not just a degree.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-white-to-alt"></div>
+
+
+<!-- ============================================================ HOW IT WORKS ============================================================ -->
+<section style="background:#F5F3FF;padding:5rem 1.5rem 6rem;" id="how-it-works" aria-labelledby="how-heading">
+  <div class="max-w-6xl mx-auto">
+    <div style="text-align:center;max-width:640px;margin:0 auto 3.5rem;">
+      <div class="section-chip" style="display:inline-flex;">How It Works</div>
+      <h2 id="how-heading" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(1.875rem,4vw,3rem);color:#111827;line-height:1.1;margin-bottom:1rem;letter-spacing:-0.02em;">
+        Three Steps to Studying Smarter
+      </h2>
+      <p style="font-family:'Inter',sans-serif;font-size:1.05rem;line-height:1.8;color:#6B7280;">No complicated setup. No learning curve. Just connect, organise, and study.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="fade-in" style="background:#fff;border:1px solid #E5E7EB;border-top:4px solid #8B5CF6;border-radius:8px;padding:2rem;box-shadow:0 1px 4px rgba(0,0,0,0.04);">
+        <div class="how-step-num" style="margin-bottom:1.25rem;">1</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;color:#111827;margin-bottom:.75rem;">Connect Your Study Life</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:.95rem;line-height:1.75;color:#6B7280;margin-bottom:1.25rem;">Upload your notes, connect your calendar, tell it your courses. Takes about <strong style="color:#111827;">5 minutes</strong>.</p>
+        <div style="background:#F5F3FF;border:1px solid #E5E7EB;border-radius:6px;padding:.875rem;text-align:center;">
+          <p style="font-family:'Inter',sans-serif;font-size:.85rem;color:#6B7280;font-weight:600;">Notes, calendar, courses — all in one place</p>
+        </div>
+      </div>
+
+      <div class="fade-in" style="background:#fff;border:1px solid #E5E7EB;border-top:4px solid #8B5CF6;border-radius:8px;padding:2rem;transition-delay:100ms;box-shadow:0 1px 4px rgba(0,0,0,0.04);">
+        <div class="how-step-num" style="margin-bottom:1.25rem;">2</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;color:#111827;margin-bottom:.75rem;">AI Organises and Prepares</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:.95rem;line-height:1.75;color:#6B7280;margin-bottom:1.25rem;">Your notes get structured. Study plans get built. Deadlines get tracked. <strong style="color:#111827;">All automatically.</strong></p>
+        <div style="background:#F5F3FF;border:1px solid #E5E7EB;border-radius:6px;padding:.875rem;text-align:center;">
+          <p style="font-family:'Inter',sans-serif;font-size:.85rem;color:#6B7280;font-weight:600;">Summaries, flashcards, study plans — ready</p>
+        </div>
+      </div>
+
+      <div class="fade-in" style="background:rgba(139,92,246,0.04);border:1px solid rgba(139,92,246,0.18);border-top:4px solid #8B5CF6;border-radius:8px;padding:2rem;transition-delay:200ms;">
+        <div class="how-step-num" style="margin-bottom:1.25rem;">3</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;color:#111827;margin-bottom:.75rem;">Study Smarter, Stress Less</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:.95rem;line-height:1.75;color:#374151;margin-bottom:1.25rem;">Practice questions, revision guides, career tools — <strong style="color:#8B5CF6;">on demand, whenever you need them.</strong></p>
+        <div style="background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.2);border-radius:6px;padding:.875rem;text-align:center;">
+          <p style="font-family:'Inter',sans-serif;font-size:.85rem;color:#8B5CF6;font-weight:600;">Like getting an extra day every week</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-alt-to-white"></div>
+
+
+<!-- ============================================================ ROI CALCULATOR ============================================================ -->
+<section style="background:#fff;padding:5rem 1.5rem 6rem;" id="calculator" aria-labelledby="calc-heading">
+  <div class="max-w-6xl mx-auto">
+    <div style="text-align:center;max-width:640px;margin:0 auto 3rem;">
+      <div class="section-chip" style="display:inline-flex;">ROI Calculator</div>
+      <h2 id="calc-heading" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(1.875rem,4vw,3rem);color:#111827;line-height:1.1;margin-bottom:1rem;letter-spacing:-0.02em;">
+        How Much Time (and Money) Could You Get Back?
+      </h2>
+      <p style="font-family:'Inter',sans-serif;font-size:1.05rem;line-height:1.8;color:#6B7280;">
+        Punch in your numbers. We'll show you how many hours you save — and how a side hustle changes the equation.
+      </p>
+    </div>
+
+    <div class="calc-wrap max-w-5xl mx-auto">
+      <div class="calc-header">
+        <div class="calc-dot" style="background:#E5E7EB;"></div>
+        <div class="calc-dot" style="background:#E5E7EB;"></div>
+        <div class="calc-dot" style="background:linear-gradient(135deg,#8B5CF6,#EC4899);"></div>
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.875rem;color:#8B5CF6;margin-left:8px;letter-spacing:.08em;text-transform:uppercase;">Student ROI Calculator</span>
+      </div>
+
+      <div style="padding:2.5rem;">
+        <div class="grid lg:grid-cols-2 gap-10">
+          <div>
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;color:#8B5CF6;margin-bottom:2rem;text-transform:uppercase;letter-spacing:.08em;font-size:.875rem;">// Your Study Life</h3>
+            <div style="display:flex;flex-direction:column;gap:2rem;">
+              <div>
+                <label class="calc-label" for="study-hours">Hours studying per week: <strong style="color:#8B5CF6;" id="study-display">20</strong></label>
+                <input type="range" id="study-hours" min="5" max="50" value="20" aria-label="Hours studying per week" aria-valuemin="5" aria-valuemax="50" aria-valuenow="20" />
+                <div style="display:flex;justify-content:space-between;font-family:'Inter',sans-serif;font-size:.75rem;color:#9CA3AF;margin-top:6px;"><span>5 hrs</span><span>50 hrs</span></div>
+              </div>
+              <div>
+                <label class="calc-label" for="num-courses">Number of courses: <strong style="color:#8B5CF6;" id="courses-display">4</strong></label>
+                <input type="range" id="num-courses" min="1" max="8" value="4" aria-label="Number of courses" aria-valuemin="1" aria-valuemax="8" aria-valuenow="4" />
+                <div style="display:flex;justify-content:space-between;font-family:'Inter',sans-serif;font-size:.75rem;color:#9CA3AF;margin-top:6px;"><span>1 course</span><span>8 courses</span></div>
+              </div>
+              <div>
+                <label class="calc-label" for="work-hours">Part-time work hours/week: <strong style="color:#D97706;" id="work-display">15</strong> <span style="font-weight:400;color:#9CA3AF;">(more = each saved hour matters more)</span></label>
+                <input type="range" id="work-hours" min="0" max="40" value="15" aria-label="Part-time work hours per week" aria-valuemin="0" aria-valuemax="40" aria-valuenow="15" />
+                <div style="display:flex;justify-content:space-between;font-family:'Inter',sans-serif;font-size:.75rem;color:#9CA3AF;margin-top:6px;"><span>0 hrs</span><span>40 hrs</span></div>
+              </div>
+              <div>
+                <label class="calc-label" for="hustle-revenue">Planning a side hustle? Potential monthly revenue: <strong style="color:#EC4899;" id="hustle-display">$0</strong></label>
+                <input type="range" id="hustle-revenue" min="0" max="5000" step="100" value="0" aria-label="Potential monthly side hustle revenue" aria-valuemin="0" aria-valuemax="5000" aria-valuenow="0" />
+                <div style="display:flex;justify-content:space-between;font-family:'Inter',sans-serif;font-size:.75rem;color:#9CA3AF;margin-top:6px;"><span>$0</span><span>$5,000/mo</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;justify-content:center;">
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;color:#8B5CF6;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:.08em;font-size:.875rem;">// Your Results</h3>
+            <div style="background:rgba(139,92,246,0.04);border:1px solid rgba(139,92,246,0.15);border-radius:8px;padding:1.75rem;text-align:center;margin-bottom:1.25rem;">
+              <p style="font-family:'Inter',sans-serif;font-size:.8rem;font-weight:600;color:#9CA3AF;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em;">Estimated hours saved per week</p>
+              <div class="result-big" id="result-hours" aria-live="polite" aria-label="Hours saved per week">8.5</div>
+              <p style="font-family:'Inter',sans-serif;font-size:.75rem;color:#9CA3AF;margin-top:6px;">with AI handling your study admin</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.25rem;">
+              <div style="background:#F5F3FF;border:1px solid #E5E7EB;border-radius:6px;padding:1rem;text-align:center;">
+                <div class="result-stat" id="result-free-time" aria-live="polite">+1 day</div>
+                <div style="font-family:'Inter',sans-serif;font-size:.7rem;color:#9CA3AF;margin-top:4px;text-transform:uppercase;letter-spacing:.06em;">Time freed</div>
+              </div>
+              <div style="background:#F5F3FF;border:1px solid #E5E7EB;border-radius:6px;padding:1rem;text-align:center;">
+                <div class="result-money" id="result-roi" aria-live="polite">—</div>
+                <div style="font-family:'Inter',sans-serif;font-size:.7rem;color:#9CA3AF;margin-top:4px;text-transform:uppercase;letter-spacing:.06em;">Monthly ROI</div>
+              </div>
+              <div style="background:#F5F3FF;border:1px solid #E5E7EB;border-radius:6px;padding:1rem;text-align:center;">
+                <div class="result-stat" id="result-semester" aria-live="polite">136 hrs</div>
+                <div style="font-family:'Inter',sans-serif;font-size:.7rem;color:#9CA3AF;margin-top:4px;text-transform:uppercase;letter-spacing:.06em;">Per semester</div>
+              </div>
+            </div>
+            <p style="font-family:'Inter',sans-serif;font-size:.85rem;color:#6B7280;text-align:center;margin-bottom:1.25rem;line-height:1.6;" id="result-summary">
+              That's like getting an <strong style="color:#111827;">extra day every week</strong>. Study smarter, launch your career, and build something real while you're still at uni.
+            </p>
+            <a href="https://calendly.com/hello-esperion/30min" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width:100%;justify-content:center;font-size:1rem;">
+              Start Building Your Future
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-white-to-alt"></div>
+
+
+<!-- ============================================================ PRICING ============================================================ -->
+<section style="background:#F5F3FF;padding:5rem 1.5rem 6rem;" id="pricing" aria-labelledby="pricing-heading">
+  <div class="max-w-6xl mx-auto">
+    <div style="text-align:center;max-width:640px;margin:0 auto 3.5rem;">
+      <div class="section-chip" style="display:inline-flex;">Pricing</div>
+      <h2 id="pricing-heading" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(1.875rem,4vw,3rem);color:#111827;line-height:1.1;margin-bottom:1rem;letter-spacing:-0.02em;">
+        Invest in Your Future
+      </h2>
+      <p style="font-family:'Inter',sans-serif;font-size:1.05rem;line-height:1.8;color:#6B7280;">One-time setup personalised to your courses, uni, and goals. Then simple monthly ongoing support. Cancel anytime.</p>
+    </div>
+
+    <div class="pricing-grid" style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;">
+
+      <!-- STARTER -->
+      <div class="pricing-card fade-in" style="display:flex;flex-direction:column;">
+        <div style="margin-bottom:1.5rem;">
+          <div class="section-chip" style="margin-bottom:.75rem;font-size:.7rem;">Starter</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;color:#8B5CF6;line-height:1;margin-bottom:.25rem;text-transform:uppercase;letter-spacing:.05em;">Setup</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:2.5rem;color:#8B5CF6;line-height:1;"><span class="price-original">$499</span><span class="price-promo">$249</span></div><span class="march-badge">50% Off</span>
+          <div style="font-family:'Inter',sans-serif;font-size:.95rem;color:#D97706;font-weight:700;margin-top:.5rem;">+ <span class="price-original">$125</span><span class="price-promo">$62.50</span><span style="font-size:.85rem;font-weight:500;color:#9CA3AF;">/mo ongoing</span></div>
+          <p style="font-family:'Inter',sans-serif;font-size:.8rem;color:#9CA3AF;margin-top:8px;line-height:1.5;">AI study assistant, personalised to your courses and goals</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem;flex:1;">
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'Inter',sans-serif;font-size:.9rem;color:#374151;">Note organisation &amp; summaries</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'Inter',sans-serif;font-size:.9rem;color:#374151;">Exam prep &amp; practice questions</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'Inter',sans-serif;font-size:.9rem;color:#374151;">Assignment planning &amp; deadlines</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'Inter',sans-serif;font-size:.9rem;color:#374151;">1 user, basic integrations</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'Inter',sans-serif;font-size:.9rem;color:#374151;">Email support</span></div>
+        </div>
+        <a href="https://calendly.com/hello-esperion/30min" target="_blank" rel="noopener noreferrer" class="btn-outline" style="width:100%;justify-content:center;font-size:.95rem;padding:.85rem;text-decoration:none;">
+          Get Started
+        </a>
+      </div>
+
+      <!-- PRO -->
+      <div class="pricing-card pricing-card-popular fade-in" style="display:flex;flex-direction:column;transition-delay:100ms;">
+        <div class="pricing-badge">Most Popular</div>
+        <div style="margin-bottom:1.5rem;">
+          <div class="section-chip" style="margin-bottom:.75rem;font-size:.7rem;">Pro</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;color:#EC4899;line-height:1;margin-bottom:.25rem;text-transform:uppercase;letter-spacing:.05em;">Setup</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:2.5rem;color:#EC4899;line-height:1;"><span class="price-original">$999</span><span class="price-promo">$499</span></div><span class="march-badge">50% Off</span>
+          <div style="font-family:'Inter',sans-serif;font-size:.95rem;color:#D97706;font-weight:700;margin-top:.5rem;">+ <span class="price-original">$250</span><span class="price-promo">$125</span><span style="font-size:.85rem;font-weight:500;color:#9CA3AF;">/mo ongoing</span></div>
+          <p style="font-family:'Inter',sans-serif;font-size:.8rem;color:#9CA3AF;margin-top:8px;line-height:1.5;">Full study + research + writing coach. Built for ambitious students.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem;flex:1;">
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EC4899" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'Inter',sans-serif;font-size:.9rem;color:#374151;">Everything in Starter</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EC4899" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'Inter',sans-serif;font-size:.9rem;color:#374151;">Full research assistant</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EC4899" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'Inter',sans-serif;font-size:.9rem;color:#374151;">Writing coach</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EC4899" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'Inter',sans-serif;font-size:.9rem;color:#374151;">International student support</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EC4899" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'Inter',sans-serif;font-size:.9rem;color:#374151;">Priority support</span></div>
+        </div>
+        <a href="https://calendly.com/hello-esperion/30min" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width:100%;justify-content:center;font-size:.95rem;padding:.85rem;text-decoration:none;">
+          Start Studying Smarter
+        </a>
+      </div>
+
+      <!-- ENTREPRENEUR -->
+      <div class="pricing-card fade-in" style="display:flex;flex-direction:column;transition-delay:200ms;">
+        <div style="margin-bottom:1.5rem;">
+          <div class="section-chip" style="margin-bottom:.75rem;font-size:.7rem;">Entrepreneur</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;color:#8B5CF6;line-height:1;margin-bottom:.25rem;text-transform:uppercase;letter-spacing:.05em;">Setup</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:2.5rem;color:#8B5CF6;line-height:1;"><span class="price-original">$1,999</span><span class="price-promo">$999</span></div><span class="march-badge">50% Off</span>
+          <div style="font-family:'Inter',sans-serif;font-size:.95rem;color:#D97706;font-weight:700;margin-top:.5rem;">+ <span class="price-original">$500</span><span class="price-promo">$250</span><span style="font-size:.85rem;font-weight:500;color:#9CA3AF;">/mo ongoing</span></div>
+          <p style="font-family:'Inter',sans-serif;font-size:.8rem;color:#9CA3AF;margin-top:8px;line-height:1.5;">Study + career + business launch. For students building their future now.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem;flex:1;">
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'Inter',sans-serif;font-size:.9rem;color:#374151;">Everything in Pro</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'Inter',sans-serif;font-size:.9rem;color:#374151;">AI business launch toolkit</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'Inter',sans-serif;font-size:.9rem;color:#374151;">Side hustle automation</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'Inter',sans-serif;font-size:.9rem;color:#374151;">Portfolio &amp; CV builder</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-family:'Inter',sans-serif;font-size:.9rem;color:#374151;">Mentorship matching</span></div>
+        </div>
+        <a href="https://calendly.com/hello-esperion/30min" target="_blank" rel="noopener noreferrer" class="btn-outline" style="width:100%;justify-content:center;font-size:.95rem;padding:.85rem;text-decoration:none;">
+          Launch Your Future
+        </a>
+      </div>
+    </div>
+
+    <div style="max-width:1000px;margin:2rem auto 0;">
+      <div class="guarantee-box fade-in">
+        <p style="font-family:'Inter',sans-serif;font-size:.9rem;color:#374151;line-height:1.65;">
+          <strong style="color:#8B5CF6;">Setup covers full personalisation</strong> to your courses, university, and goals — so the AI actually understands your world from day one. Ongoing monthly covers AI usage, updates, and support. Cancel anytime.
+        </p>
+        <p style="font-family:'Inter',sans-serif;font-size:.85rem;color:#6B7280;line-height:1.65;margin-top:.75rem;">
+          💡 <strong style="color:#111827;">NZ Government Regional Business Partner (RBP) co-funding</strong> may be available to help cover setup costs. <a href="https://www.regionalbusinesspartners.co.nz" target="_blank" rel="noopener noreferrer" style="color:#8B5CF6;text-decoration:underline;">Check your eligibility →</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-alt-to-white"></div>
+
+
+<!-- ============================================================ FOR EDUCATORS ============================================================ -->
+<section style="background:#fff;padding:5rem 1.5rem 6rem;" id="educators" aria-labelledby="educators-heading">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="section-chip">For Educators</div>
+        <h2 id="educators-heading" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(1.875rem,4vw,3rem);color:#111827;line-height:1.1;margin-bottom:1rem;letter-spacing:-0.02em;">
+          Spend Less Time Marking.<br>More Time Teaching.
+        </h2>
+        <p style="font-family:'Inter',sans-serif;font-size:1.05rem;line-height:1.8;color:#6B7280;margin-bottom:2rem;">
+          You didn't get into teaching to spend 6 hours a week marking. The student-to-staff ratio has gone from 18.7:1 to 19.6:1 — more students, less time. AI handles the repetitive work so you can focus on what matters.
+        </p>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <div style="display:flex;align-items:flex-start;gap:12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><p style="font-family:'Inter',sans-serif;font-size:.9rem;color:#374151;line-height:1.65;"><strong>AI marking assistant</strong> — rubric-based first-pass feedback, so you focus on the meaningful comments</p></div>
+          <div style="display:flex;align-items:flex-start;gap:12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><p style="font-family:'Inter',sans-serif;font-size:.9rem;color:#374151;line-height:1.65;"><strong>Course material generator</strong> — slides, quiz questions, rubrics, updated readings</p></div>
+          <div style="display:flex;align-items:flex-start;gap:12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><p style="font-family:'Inter',sans-serif;font-size:.9rem;color:#374151;line-height:1.65;"><strong>Student communication templates</strong> — FAQ emails, standard advice, onboarding content</p></div>
+        </div>
+      </div>
+      <div class="fade-in">
+        <div style="background:#fff;border:1px solid #E5E7EB;border-top:4px solid #8B5CF6;border-radius:8px;padding:2.25rem;box-shadow:0 2px 12px rgba(0,0,0,0.04);">
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;color:#111827;margin-bottom:1.5rem;">The Educator Time Crisis</h3>
+          <div style="display:flex;flex-direction:column;gap:1.25rem;">
+            <div style="display:flex;align-items:center;gap:1rem;padding:1rem;background:#F5F3FF;border:1px solid #E5E7EB;border-radius:6px;">
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.5rem;color:#D97706;">6 hrs</div>
+              <div style="font-family:'Inter',sans-serif;font-size:.85rem;color:#6B7280;">spent marking every week</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:1rem;padding:1rem;background:#F5F3FF;border:1px solid #E5E7EB;border-radius:6px;">
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.5rem;color:#D97706;">11 hrs</div>
+              <div style="font-family:'Inter',sans-serif;font-size:.85rem;color:#6B7280;">spent on lesson planning weekly</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:1rem;padding:1rem;background:rgba(139,92,246,0.04);border:1px solid rgba(139,92,246,0.15);border-radius:6px;">
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.5rem;color:#8B5CF6;">~6 hrs</div>
+              <div style="font-family:'Inter',sans-serif;font-size:.85rem;color:#8B5CF6;font-weight:600;">saved every week with AI</div>
+            </div>
+          </div>
+          <div style="margin-top:1.5rem;text-align:center;">
+            <a href="https://calendly.com/hello-esperion/30min" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:.95rem;padding:.8rem 1.75rem;">
+              Talk to Us About Educator Plans
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-white-to-alt"></div>
+
+
+<!-- ============================================================ ACADEMIC INTEGRITY ============================================================ -->
+<section style="background:#F5F3FF;padding:5rem 1.5rem 6rem;" id="integrity" aria-labelledby="integrity-heading">
+  <div class="max-w-6xl mx-auto">
+    <div style="max-width:800px;margin:0 auto;text-align:center;">
+      <div class="section-chip" style="display:inline-flex;">Our Promise</div>
+      <h2 id="integrity-heading" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(1.875rem,4vw,3rem);color:#111827;line-height:1.1;margin-bottom:1rem;letter-spacing:-0.02em;">
+        We Help You Learn, Not Cheat
+      </h2>
+      <p style="font-family:'Inter',sans-serif;font-size:1.05rem;line-height:1.8;color:#6B7280;margin-bottom:3rem;">
+        This is non-negotiable. We're here to make you a better student, not to do your work for you.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <div class="card-light fade-in">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:#111827;">Comprehension, Not Generation</h3>
+        </div>
+        <p style="font-family:'Inter',sans-serif;font-size:.9rem;line-height:1.7;color:#6B7280;">AI assists with understanding, organisation, and practice. It never writes your assignments. Your notes, your research, your words.</p>
+      </div>
+      <div class="card-light fade-in" style="transition-delay:80ms;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:#111827;">University Policy Compliant</h3>
+        </div>
+        <p style="font-family:'Inter',sans-serif;font-size:.9rem;line-height:1.7;color:#6B7280;">Fully aligned with NZ university AI policies. Same category as Grammarly or Quizlet — a study aid, not a shortcut.</p>
+      </div>
+      <div class="card-light fade-in" style="transition-delay:160ms;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:#111827;">Works With Turnitin</h3>
+        </div>
+        <p style="font-family:'Inter',sans-serif;font-size:.9rem;line-height:1.7;color:#6B7280;">We work alongside Turnitin, not against it. AI helps you organise and understand — the writing is always yours.</p>
+      </div>
+      <div class="card-light fade-in" style="transition-delay:240ms;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:#111827;">NZ Privacy Act 2020 Compliant</h3>
+        </div>
+        <p style="font-family:'Inter',sans-serif;font-size:.9rem;line-height:1.7;color:#6B7280;">Your data stays secure. We comply with NZ's Privacy Act and all 13 Information Privacy Principles. Your notes are yours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-alt-to-white"></div>
+
+
+<!-- ============================================================ SOCIAL PROOF / STATS ============================================================ -->
+<section style="background:#fff;padding:5rem 1.5rem 6rem;" aria-labelledby="stats-heading">
+  <div class="max-w-6xl mx-auto">
+    <div style="text-align:center;margin-bottom:3.5rem;">
+      <div class="section-chip" style="display:inline-flex;">The Numbers</div>
+      <h2 id="stats-heading" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(1.875rem,4vw,3rem);color:#111827;line-height:1.1;letter-spacing:-0.02em;">NZ Students Are Ready for AI</h2>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+      <div class="fade-in" style="text-align:center;padding:2rem 1rem;">
+        <div class="numbers-big">443,500</div>
+        <p style="font-family:'Inter',sans-serif;font-size:.85rem;color:#9CA3AF;margin-top:.5rem;">NZ tertiary learners</p>
+      </div>
+      <div class="fade-in" style="text-align:center;padding:2rem 1rem;transition-delay:80ms;">
+        <div class="numbers-big">86%</div>
+        <p style="font-family:'Inter',sans-serif;font-size:.85rem;color:#9CA3AF;margin-top:.5rem;">of students use AI globally</p>
+      </div>
+      <div class="fade-in" style="text-align:center;padding:2rem 1rem;transition-delay:160ms;">
+        <div class="numbers-big">69%</div>
+        <p style="font-family:'Inter',sans-serif;font-size:.85rem;color:#9CA3AF;margin-top:.5rem;">of NZ teachers use AI weekly</p>
+      </div>
+      <div class="fade-in" style="text-align:center;padding:2rem 1rem;transition-delay:240ms;">
+        <div class="numbers-big">50,300</div>
+        <p style="font-family:'Inter',sans-serif;font-size:.85rem;color:#9CA3AF;margin-top:.5rem;">international students in NZ</p>
+      </div>
+    </div>
+
+    <div style="max-width:640px;margin:0 auto;" class="fade-in">
+      <div style="background:rgba(139,92,246,0.05);border:1px solid rgba(139,92,246,0.18);border-left:4px solid #8B5CF6;border-radius:8px;padding:2rem;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:#8B5CF6;margin-bottom:.75rem;">Built Specifically for NZ Students</div>
+        <p style="font-family:'Inter',sans-serif;font-size:.95rem;color:#374151;line-height:1.75;">
+          Universities are adopting AI — don't fall behind. This isn't generic ChatGPT. It understands <strong style="color:#111827;">NZ curriculum, APA/Harvard referencing, and NZ academic conventions</strong>. Because studying in New Zealand is different from studying anywhere else.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-white-to-alt"></div>
+
+
+<!-- ============================================================ FAQ ============================================================ -->
+<section style="background:#F5F3FF;padding:5rem 1.5rem 6rem;" aria-labelledby="faq-heading">
+  <div class="max-w-6xl mx-auto">
+    <div style="max-width:680px;margin-bottom:3rem;">
+      <div class="section-chip">Got Questions?</div>
+      <h2 id="faq-heading" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(1.875rem,4vw,3rem);color:#111827;line-height:1.1;letter-spacing:-0.02em;">Straight Answers</h2>
+    </div>
+
+    <div class="max-w-3xl" id="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false" aria-controls="faq-1" onclick="toggleFaq(this)">
+          What exactly is this?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer" id="faq-1">An AI study and career assistant built specifically for NZ students. It organises your lecture notes, helps you prep for exams, manages your citations, plans your assignments, and — with the Entrepreneur plan — helps you validate business ideas, build pitch decks, and launch side hustles. Think of it as your study partner and career coach that never sleeps.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false" aria-controls="faq-2" onclick="toggleFaq(this)">
+          Will it write my assignments for me?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer" id="faq-2">No. Hard no. We help you learn and organise — you do the writing. AI structures your notes, generates practice questions, and helps you understand concepts. But the actual assignments? That's all you. We're a study aid, not a shortcut.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false" aria-controls="faq-3" onclick="toggleFaq(this)">
+          Is this allowed at my university?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer" id="faq-3">We're positioned as a study aid — the same category as Grammarly or Quizlet. NZ universities generally permit AI tools for study and comprehension. We never generate assignment content, so you stay on the right side of academic integrity policies. Always check your specific course requirements.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false" aria-controls="faq-4" onclick="toggleFaq(this)">
+          How is this different from ChatGPT?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer" id="faq-4">ChatGPT is a general-purpose chatbot. This is purpose-built for studying and career building. It integrates with your notes, your calendar, and your specific courses. It knows NZ academic conventions, formats citations properly (APA, Harvard, Chicago), and builds study plans around your actual deadlines. Plus it has career and entrepreneurship tools that ChatGPT doesn't. No more copy-pasting everything into a chat window.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false" aria-controls="faq-5" onclick="toggleFaq(this)">
+          What about my data and privacy?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer" id="faq-5">Fully compliant with the NZ Privacy Act 2020. Your notes and data stay secure. We don't sell your information or use it to train AI models. Your study data is yours — we just help you organise it.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false" aria-controls="faq-6" onclick="toggleFaq(this)">
+          How does pricing work?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer" id="faq-6">There's a one-time setup fee (normally $499–$1,999, <strong style="color:#DC2626;">50% off for March Madness: $249–$999</strong>) which covers full personalisation to your courses, university, and goals. Then a monthly ongoing fee (normally $125–$500/mo, <strong style="color:#DC2626;">now $62.50–$250/mo</strong>) for continued AI usage, updates, and support. Cancel the monthly anytime. The setup is an investment in getting the AI properly configured for <em>your</em> specific situation — not a generic tool. NZ Government RBP co-funding may also be available to help with setup costs.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false" aria-controls="faq-8" onclick="toggleFaq(this)">
+          Is this just for studying?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer" id="faq-8">No — it's for building your entire future while you're at uni. Studying smarter is the foundation, but the Entrepreneur plan adds business launch tools (idea validation, pitch decks, financial modelling, market research), side hustle automation, portfolio building, CV optimisation, interview prep, and LinkedIn optimisation. The best time to start building your career and business is while you're still studying. We give you the AI tools to do it.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider-alt-to-white"></div>
+
+
+<!-- ============================================================ FINAL CTA ============================================================ -->
+<div class="divider-white-to-dark"></div>
+
+<section style="background:#1E1B4B;padding:5rem 1.5rem 6rem;" id="get-started" aria-labelledby="cta-heading">
+  <div style="position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;" aria-hidden="true">
+      <div style="position:absolute;top:-20px;right:-60px;width:300px;height:300px;border:1px solid rgba(139,92,246,0.15);transform:rotate(15deg);border-radius:8px;"></div>
+      <div style="position:absolute;bottom:-40px;left:-40px;width:200px;height:200px;border:1px solid rgba(236,72,153,0.1);transform:rotate(-10deg);border-radius:6px;"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto text-center" style="position:relative;z-index:1;padding:0 1rem;">
+      <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:2rem;padding:6px 16px;border-radius:4px;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);">
+        <span class="pulse-dot" style="width:8px;height:8px;background:#EC4899;border-radius:50%;flex-shrink:0;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:.8rem;font-weight:700;color:#EC4899;letter-spacing:.1em;text-transform:uppercase;">Start building your future</span>
+      </div>
+
+      <h2 id="cta-heading" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2rem,4.5vw,3.25rem);color:#F1F5F9;line-height:1.1;margin-bottom:1.5rem;letter-spacing:-0.02em;">
+        Start Building Your Future Today.<br>
+        <span style="background:linear-gradient(135deg,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Your Career Starts at Uni.</span>
+      </h2>
+
+      <p style="font-family:'Inter',sans-serif;font-size:1.1rem;line-height:1.8;color:rgba(241,245,249,0.6);margin-bottom:3rem;max-width:560px;margin-left:auto;margin-right:auto;">
+        Join the 86% of students already using AI — but with a tool that knows your courses, builds your career, and helps you launch a business while you're still studying.
+      </p>
+
+      <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:2.5rem;">
+        <a href="https://calendly.com/hello-esperion/30min" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:1.1rem;padding:1.1rem 2.25rem;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Get Started
+        </a>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;margin-bottom:2rem;">
+        <a href="mailto:hello@student.aitools.co.nz" style="font-family:'Inter',sans-serif;font-size:1rem;font-weight:600;color:rgba(241,245,249,0.75);text-decoration:none;display:flex;align-items:center;gap:8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EC4899" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          hello@student.aitools.co.nz
+        </a>
+      </div>
+
+      <p style="font-family:'Inter',sans-serif;font-size:.875rem;color:rgba(241,245,249,0.3);">Powered by <a href="https://aitools.co.nz" target="_blank" rel="noopener noreferrer" style="color:#8B5CF6;text-decoration:none;font-weight:600;">AI Tools NZ</a></p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ EXPLORE OTHER INDUSTRIES ═══ -->
+<section style="background:#F5F3FF;padding:80px 24px;">
+  <div style="max-width:1100px;margin:0 auto;text-align:center;">
+    <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:#8B5CF6;margin-bottom:8px;">AI Tools NZ Ecosystem</p>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:2rem;color:#1E1B4B;margin-bottom:12px;">AI for Every Industry</h2>
+    <p style="font-family:Inter,sans-serif;font-size:1rem;color:#6B7280;margin-bottom:48px;max-width:600px;margin-left:auto;margin-right:auto;">Know a business owner who could use AI? Send them to the right site.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;text-align:left;">
+      <a href="https://aitools.co.nz" style="text-decoration:none;background:#fff;border-radius:12px;padding:28px;border:1px solid #E5E7EB;transition:border-color 0.2s,box-shadow 0.2s;" onmouseover="this.style.borderColor='#6366F1';this.style.boxShadow='0 4px 20px rgba(99,102,241,0.1)'" onmouseout="this.style.borderColor='#E5E7EB';this.style.boxShadow='none'">
+        <div style="font-size:1.5rem;margin-bottom:8px;">💼</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:#1E1B4B;margin-bottom:6px;">AI for Business</h3>
+        <p style="font-family:Inter,sans-serif;font-size:.875rem;color:#6B7280;line-height:1.6;">Custom AI systems for any NZ business. Set up in 5 days.</p>
+      </a>
+      <a href="https://realestate.aitools.co.nz" style="text-decoration:none;background:#fff;border-radius:12px;padding:28px;border:1px solid #E5E7EB;transition:border-color 0.2s,box-shadow 0.2s;" onmouseover="this.style.borderColor='#2563EB';this.style.boxShadow='0 4px 20px rgba(37,99,235,0.1)'" onmouseout="this.style.borderColor='#E5E7EB';this.style.boxShadow='none'">
+        <div style="font-size:1.5rem;margin-bottom:8px;">🏠</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:#1E1B4B;margin-bottom:6px;">AI for Real Estate</h3>
+        <p style="font-family:Inter,sans-serif;font-size:.875rem;color:#6B7280;line-height:1.6;">Every enquiry answered in 60 seconds. Built for NZ agencies.</p>
+      </a>
+      <a href="https://trade.aitools.co.nz" style="text-decoration:none;background:#fff;border-radius:12px;padding:28px;border:1px solid #E5E7EB;transition:border-color 0.2s,box-shadow 0.2s;" onmouseover="this.style.borderColor='#10B981';this.style.boxShadow='0 4px 20px rgba(16,185,129,0.1)'" onmouseout="this.style.borderColor='#E5E7EB';this.style.boxShadow='none'">
+        <div style="font-size:1.5rem;margin-bottom:8px;">🔧</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:#1E1B4B;margin-bottom:6px;">AI for Trades</h3>
+        <p style="font-family:Inter,sans-serif;font-size:.875rem;color:#6B7280;line-height:1.6;">Never miss a call again. Recover $15,000/month in lost jobs.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ FOOTER ============================================================ -->
+<footer style="background:#0F0D2E;padding:3rem 1.5rem;border-top:1px solid rgba(139,92,246,0.1);" role="contentinfo">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-4 gap-8 mb-8">
+      <div class="md:col-span-2">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:6px;flex-shrink:0;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3L2 12h3v8h4v-5h6v5h4v-8h3L12 3z" fill="white" opacity="0.5"/><rect x="9" y="14" width="6" height="6" rx="1" fill="white"/></svg>
+          </span>
+          <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:#F1F5F9;letter-spacing:-0.02em;">AI for Students</span>
+        </div>
+        <p style="font-family:'Inter',sans-serif;font-size:.875rem;color:rgba(241,245,249,0.35);line-height:1.7;max-width:300px;">Helping NZ students study smarter and build their futures. Organise notes, prep for exams, launch businesses — all with AI built for the NZ education system.</p>
+        <p style="font-family:'Inter',sans-serif;font-size:.8rem;color:rgba(241,245,249,0.2);margin-top:1rem;">Powered by <a href="https://aitools.co.nz" target="_blank" rel="noopener noreferrer" style="color:#8B5CF6;text-decoration:none;font-weight:600;">AI Tools NZ</a></p>
+      </div>
+
+      <div>
+        <h4 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.8rem;color:rgba(241,245,249,0.4);margin-bottom:1rem;letter-spacing:.1em;text-transform:uppercase;">Site</h4>
+        <div style="display:flex;flex-direction:column;gap:.6rem;">
+          <a href="#features" style="font-family:'Inter',sans-serif;font-size:.875rem;color:rgba(241,245,249,0.35);text-decoration:none;" onmouseover="this.style.color='#F1F5F9'" onmouseout="this.style.color='rgba(241,245,249,0.35)'">Features</a>
+          <a href="#how-it-works" style="font-family:'Inter',sans-serif;font-size:.875rem;color:rgba(241,245,249,0.35);text-decoration:none;" onmouseover="this.style.color='#F1F5F9'" onmouseout="this.style.color='rgba(241,245,249,0.35)'">How It Works</a>
+          <a href="#calculator" style="font-family:'Inter',sans-serif;font-size:.875rem;color:rgba(241,245,249,0.35);text-decoration:none;" onmouseover="this.style.color='#F1F5F9'" onmouseout="this.style.color='rgba(241,245,249,0.35)'">Calculator</a>
+          <a href="#pricing" style="font-family:'Inter',sans-serif;font-size:.875rem;color:rgba(241,245,249,0.35);text-decoration:none;" onmouseover="this.style.color='#F1F5F9'" onmouseout="this.style.color='rgba(241,245,249,0.35)'">Pricing</a>
+          <a href="#educators" style="font-family:'Inter',sans-serif;font-size:.875rem;color:rgba(241,245,249,0.35);text-decoration:none;" onmouseover="this.style.color='#F1F5F9'" onmouseout="this.style.color='rgba(241,245,249,0.35)'">For Educators</a>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.8rem;color:rgba(241,245,249,0.4);margin-bottom:1rem;letter-spacing:.1em;text-transform:uppercase;">Legal</h4>
+        <div style="display:flex;flex-direction:column;gap:.6rem;">
+          <a href="https://aitools.co.nz" style="font-family:'Inter',sans-serif;font-size:.875rem;color:rgba(241,245,249,0.35);text-decoration:none;" onmouseover="this.style.color='#F1F5F9'" onmouseout="this.style.color='rgba(241,245,249,0.35)'">About</a>
+          <a href="/privacy" style="font-family:'Inter',sans-serif;font-size:.875rem;color:rgba(241,245,249,0.35);text-decoration:none;" onmouseover="this.style.color='#F1F5F9'" onmouseout="this.style.color='rgba(241,245,249,0.35)'">Privacy Policy</a>
+          <a href="/terms" style="font-family:'Inter',sans-serif;font-size:.875rem;color:rgba(241,245,249,0.35);text-decoration:none;" onmouseover="this.style.color='#F1F5F9'" onmouseout="this.style.color='rgba(241,245,249,0.35)'">Terms of Service</a>
+          <a href="mailto:hello@student.aitools.co.nz" style="font-family:'Inter',sans-serif;font-size:.875rem;color:rgba(241,245,249,0.35);text-decoration:none;" onmouseover="this.style.color='#F1F5F9'" onmouseout="this.style.color='rgba(241,245,249,0.35)'">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid rgba(255,255,255,0.05);padding-top:1.5rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;">
+      <p style="font-family:'Inter',sans-serif;font-size:.8rem;color:rgba(241,245,249,0.2);">&copy; 2026 Esperion Ltd. Auckland, New Zealand. All rights reserved.</p>
+      <p style="font-family:'Inter',sans-serif;font-size:.75rem;color:rgba(241,245,249,0.12);">AI for Students NZ &middot; student.aitools.co.nz</p>
+    </div>
+  </div>
+
+    <!-- Ecosystem Links -->
+    <div style="border-top:1px solid rgba(255,255,255,0.05);padding-top:1.25rem;margin-top:1.25rem;">
+      <p style="font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,0.2);margin-bottom:8px;">AI Tools NZ Ecosystem</p>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;">
+        <a href="https://aitools.co.nz" style="font-size:.8rem;color:rgba(255,255,255,0.3);text-decoration:none;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">AI for Business</a>
+        <a href="https://realestate.aitools.co.nz" style="font-size:.8rem;color:rgba(255,255,255,0.3);text-decoration:none;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">AI for Real Estate</a>
+        <a href="https://trade.aitools.co.nz" style="font-size:.8rem;color:rgba(255,255,255,0.3);text-decoration:none;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">AI for Trades</a>
+        <a href="https://student.aitools.co.nz" style="font-size:.8rem;color:rgba(255,255,255,0.3);text-decoration:none;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">AI for Students</a>
+      </div>
+    </div>
+</footer>
+
+
+<!-- ============================================================ JAVASCRIPT ============================================================ -->
+<script>
+  // Mobile Menu
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconMenu   = document.getElementById('icon-menu');
+  const iconClose  = document.getElementById('icon-close');
+
+  menuToggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', isOpen);
+    iconMenu.style.display  = isOpen ? 'none'  : 'block';
+    iconClose.style.display = isOpen ? 'block' : 'none';
+  });
+
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    iconMenu.style.display  = 'block';
+    iconClose.style.display = 'none';
+  }
+
+  // Sticky nav shadow
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  // ROI Calculator — dynamic, recalculates on every input change
+  const studySlider   = document.getElementById('study-hours');
+  const coursesSlider = document.getElementById('num-courses');
+  const workSlider    = document.getElementById('work-hours');
+  const hustleSlider  = document.getElementById('hustle-revenue');
+
+  function updateCalc() {
+    const studyHours    = parseInt(studySlider.value);
+    const numCourses    = parseInt(coursesSlider.value);
+    const workHours     = parseInt(workSlider.value);
+    const hustleRevenue = parseInt(hustleSlider.value);
+
+    // Update displays
+    document.getElementById('study-display').textContent = studyHours;
+    document.getElementById('courses-display').textContent = numCourses;
+    document.getElementById('work-display').textContent = workHours;
+    document.getElementById('hustle-display').textContent = '$' + hustleRevenue.toLocaleString();
+
+    // Update ARIA
+    studySlider.setAttribute('aria-valuenow', studyHours);
+    coursesSlider.setAttribute('aria-valuenow', numCourses);
+    workSlider.setAttribute('aria-valuenow', workHours);
+    hustleSlider.setAttribute('aria-valuenow', hustleRevenue);
+
+    // Calculate time savings
+    // More work hours = less free time = AI time savings are worth more
+    const ADMIN_RATIO = 0.30;
+    const AI_EFFICIENCY = 0.70;
+    const COURSE_MULTIPLIER = 1 + (numCourses - 1) * 0.08;
+    // Work pressure multiplier: 0 hrs work = 1.0x, 40 hrs = 1.5x
+    const WORK_PRESSURE = 1 + (workHours / 40) * 0.5;
+
+    const adminHours = studyHours * ADMIN_RATIO * COURSE_MULTIPLIER;
+    const hoursSaved = Math.round(adminHours * AI_EFFICIENCY * WORK_PRESSURE * 10) / 10;
+
+    // Monthly cost (Pro plan as reference: $250/mo)
+    const MONTHLY_COST = 250;
+
+    // ROI calculation
+    const monthlyNetGain = hustleRevenue - MONTHLY_COST;
+
+    // Semester savings (16 weeks)
+    const semesterSaved = Math.round(hoursSaved * 16);
+
+    // Free time equivalent
+    let freeTimeText;
+    if (hoursSaved >= 8) {
+      freeTimeText = '+1 day';
+    } else if (hoursSaved >= 4) {
+      freeTimeText = '+½ day';
+    } else {
+      freeTimeText = '+' + Math.round(hoursSaved) + ' hrs';
+    }
+
+    // ROI display
+    let roiText;
+    if (hustleRevenue > 0) {
+      if (monthlyNetGain > 0) {
+        roiText = '+$' + monthlyNetGain.toLocaleString();
+      } else {
+        roiText = '-$' + Math.abs(monthlyNetGain).toLocaleString();
+      }
+    } else {
+      roiText = '—';
+    }
+
+    // Update DOM
+    document.getElementById('result-hours').textContent = hoursSaved.toFixed(1);
+    document.getElementById('result-free-time').textContent = freeTimeText;
+    document.getElementById('result-roi').textContent = roiText;
+    document.getElementById('result-semester').textContent = semesterSaved + ' hrs';
+
+    // Summary text
+    let summaryText;
+    if (hustleRevenue > 0 && monthlyNetGain > 0) {
+      summaryText = 'That\'s <strong style="color:#111827;">' + hoursSaved.toFixed(1) + ' hours saved weekly</strong> plus <span style="color:#EC4899;font-weight:700;">$' + monthlyNetGain.toLocaleString() + '/mo net profit</span> from your side hustle. Your AI pays for itself and then some.';
+    } else if (hustleRevenue > 0) {
+      summaryText = 'That\'s <strong style="color:#111827;">' + hoursSaved.toFixed(1) + ' hours saved weekly</strong>. Your side hustle is growing — at <span style="color:#EC4899;font-weight:700;">$' + hustleRevenue.toLocaleString() + '/mo</span>, you\'re close to covering the AI cost entirely.';
+    } else if (hoursSaved >= 8) {
+      summaryText = 'That\'s like getting an <strong style="color:#111827;">extra day every week</strong>. Study smarter, launch your career, and build something real while you\'re still at uni.';
+    } else {
+      summaryText = 'That\'s <strong style="color:#111827;">' + hoursSaved.toFixed(1) + ' hours back every week</strong>. More time to study, build a side hustle, or get ahead on your career.';
+    }
+    document.getElementById('result-summary').innerHTML = summaryText;
+  }
+
+  // Add event listeners to ALL inputs for dynamic recalculation
+  studySlider.addEventListener('input', updateCalc);
+  coursesSlider.addEventListener('input', updateCalc);
+  workSlider.addEventListener('input', updateCalc);
+  hustleSlider.addEventListener('input', updateCalc);
+
+  // Initial calculation
+  updateCalc();
+
+
+  // FAQ Accordion
+  function toggleFaq(btn) {
+    const item   = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  // Intersection Observer — scroll animations
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReducedMotion) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in, .flow-step').forEach(el => {
+      observer.observe(el);
+    });
+  } else {
+    document.querySelectorAll('.fade-in, .flow-step').forEach(el => {
+      el.style.opacity   = '1';
+      el.style.transform = 'none';
+    });
+  }
+
+  // Close mobile menu on resize
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) closeMobileMenu();
+  });
+
+  // Initialize Lucide icons
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+</script>
+
+
+<!-- ═══ CALENDLY POPUP WIDGET ═══ -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<script>
+function openCalendly(e) {
+  if (e) e.preventDefault();
+  Calendly.initPopupWidget({url: 'https://calendly.com/hello-esperion/30min'});
+  return false;
+}
+// Convert all Calendly links to popup on DOM ready
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href*="calendly.com"]').forEach(function(el) {
+    el.removeAttribute('target');
+    el.removeAttribute('rel');
+    el.addEventListener('click', openCalendly);
+  });
+});
+</script>
+<!-- ═══ END CALENDLY POPUP WIDGET ═══ -->
+</body>
+</html>

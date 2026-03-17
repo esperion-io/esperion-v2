@@ -1,0 +1,17 @@
+demo.aitools.co.nz {
+    # Reverse proxy to OpenClaw gateway
+    reverse_proxy localhost:18789
+
+    # CORS headers for widget embedding
+    header {
+        Access-Control-Allow-Origin *
+        Access-Control-Allow-Methods "GET, POST, OPTIONS"
+        Access-Control-Allow-Headers "Content-Type, Authorization"
+    }
+
+    # Serve static widget files
+    handle /widget/* {
+        root * /var/www
+        file_server
+    }
+}

@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Tools NZ — Find the Right AI for Your Industry | AI Tools NZ</title>
+  <meta name="description" content="AI Tools NZ builds custom AI for NZ businesses — real estate, trades, students &amp; more. Pick your industry, see your ROI. 5-day setup. Book a free demo." />
+  <meta name="keywords" content="AI implementation New Zealand, AI for business NZ, AI automation NZ, AI Tools NZ, AI chatbot NZ, AI voice agent NZ" />
+  <meta name="author" content="AI Tools NZ" />
+  <meta property="og:title" content="AI Tools NZ — Find the Right AI for Your Industry" />
+  <meta property="og:description" content="AI Tools NZ builds custom AI for NZ businesses — real estate, trades, students &amp; more. Pick your industry, see your ROI." />
+  <meta property="og:url" content="https://aitools.co.nz" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://aitools.co.nz/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Tools NZ — AI Implementation for NZ Businesses" />
+  <meta name="twitter:description" content="Custom AI systems in 5 days. Paying for themselves in month one." />
+  <link rel="canonical" href="https://aitools.co.nz" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "AI Tools NZ",
+    "description": "AI implementation agency for New Zealand businesses",
+    "url": "https://aitools.co.nz",
+    "email": "hello@esperion.io",
+    "areaServed": "NZ",
+    "serviceType": "AI Implementation",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Auckland",
+      "addressCountry": "NZ"
+    }
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            zinc: {
+              50: '#FAFAFA',
+              100: '#F4F4F5',
+              200: '#E4E4E7',
+              400: '#A1A1AA',
+              500: '#71717A',
+              700: '#3F3F46',
+              800: '#27272A',
+              900: '#18181B',
+              950: '#09090B',
+            },
+            indigo: {
+              500: '#6366F1',
+              600: '#4F46E5',
+              400: '#818CF8',
+            }
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      /* V4 Palette — Light Theme */
+      --bg-primary:  #FFFFFF;
+      --bg-alt:      #F9FAFB;
+      --bg-dark:     #09090B;   /* final CTA + footer only */
+      --bg-light:    #FFFFFF;   /* legacy compat */
+      --text-primary: #111827;
+      --text-dark:   #111827;
+      --text-secondary: #6B7280;
+      --text-muted:  #6B7280;
+      --text-light:  #F9FAFB;  /* text on dark sections */
+      --accent:      #6366F1;
+      --accent-hov:  #4F46E5;
+      --accent-glow: rgba(99,102,241,0.15);
+      --accent-dim:  rgba(99,102,241,0.06);
+      --accent-mid:  rgba(99,102,241,0.10);
+      --border-light: rgba(0,0,0,0.06);
+      --border-card: #E5E7EB;
+      --border-dark: rgba(255,255,255,0.06);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      overflow-x: hidden;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* ─── GRADIENT TEXT — monochromatic indigo ─── */
+    .gradient-text {
+      background: linear-gradient(135deg, #6366F1, #818CF8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* ─── NAV ─── */
+    #nav {
+      position: fixed;
+      top: 80px; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    #nav.scrolled {
+      border-bottom-color: var(--border-card);
+      box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+    }
+    .nav-link {
+      color: var(--text-secondary);
+      transition: color 0.2s;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .nav-link:hover { color: var(--text-primary); }
+
+    /* ─── HERO ─── */
+    .hero-section {
+      background: var(--bg-alt);
+      background-image: radial-gradient(ellipse at top, rgba(99,102,241,0.06) 0%, transparent 60%);
+      position: relative;
+      overflow: hidden;
+    }
+    /* Subtle geometric lines for visual interest */
+    .hero-geo {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(99,102,241,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99,102,241,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.5) 0%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.5) 0%, transparent 70%);
+    }
+
+    /* ─── TRUST BADGES ─── */
+    .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: white;
+      border: 1px solid var(--border-card);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    /* ─── BUTTONS ─── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+      font-family: 'Space Grotesk', sans-serif;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    .btn-primary:hover {
+      background: var(--accent-hov);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(99,102,241,0.25), 0 8px 24px rgba(99,102,241,0.12);
+    }
+    .btn-primary:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: transparent;
+      color: var(--accent);
+      font-weight: 600;
+      font-family: 'Space Grotesk', sans-serif;
+      border-radius: 10px;
+      border: 1.5px solid rgba(99,102,241,0.35);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    .btn-ghost:hover {
+      background: var(--accent-dim);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .btn-ghost:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: transparent;
+      color: var(--accent);
+      font-weight: 600;
+      font-family: 'Space Grotesk', sans-serif;
+      border-radius: 10px;
+      border: 1.5px solid rgba(99,102,241,0.35);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+      text-decoration: none;
+      font-size: 0.9rem;
+      width: 100%;
+    }
+    .btn-outline:hover {
+      background: var(--accent-dim);
+      border-color: var(--accent);
+    }
+    .btn-outline:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    /* ─── CLEAN CARD (replaces glass-card) ─── */
+    .clean-card {
+      background: white;
+      border: 1px solid var(--border-card);
+      border-radius: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+    .clean-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(99,102,241,0.2);
+      box-shadow: 0 12px 40px rgba(99,102,241,0.08), 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    /* Legacy alias — used in static sections */
+    .glass-card-light {
+      background: white;
+      border: 1px solid var(--border-card);
+      border-radius: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+    .glass-card-light:hover {
+      transform: translateY(-4px);
+      border-color: rgba(99,102,241,0.2);
+      box-shadow: 0 12px 40px rgba(99,102,241,0.08);
+    }
+
+    /* ─── STAT CARDS ─── */
+    .stat-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    /* ─── BENTO GRID ─── */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 16px;
+    }
+    .bento-large { grid-row: span 2; }
+    @media (max-width: 768px) {
+      .bento-grid { grid-template-columns: 1fr; }
+      .bento-large { grid-row: span 1; }
+    }
+
+    /* ─── ICON BOX ─── */
+    .icon-box {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ─── ROI CALCULATOR — light inputs ─── */
+    .roi-input {
+      width: 100%;
+      padding: 12px 16px;
+      background: white;
+      border: 1px solid var(--border-card);
+      border-radius: 10px;
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .roi-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(99,102,241,0.12);
+    }
+    .roi-input option { background: white; color: var(--text-primary); }
+
+    .range-input {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 4px;
+      background: #E5E7EB;
+      border-radius: 2px;
+      outline: none;
+    }
+    .range-input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+      transition: box-shadow 0.2s;
+    }
+    .range-input::-webkit-slider-thumb:hover {
+      box-shadow: 0 0 0 5px rgba(99,102,241,0.2);
+    }
+    .range-input::-moz-range-thumb {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      border: none;
+    }
+
+    .roi-result {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #6366F1, #818CF8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      transition: all 0.4s ease-out;
+    }
+
+    /* ─── STEP CONNECTOR ─── */
+    .step-connector {
+      flex: 1;
+      height: 1px;
+      background: rgba(99,102,241,0.2);
+      margin: 0 16px;
+      position: relative;
+      top: -28px;
+    }
+    @media (max-width: 768px) {
+      .step-connector { display: none; }
+    }
+
+    /* ─── PRICING ─── */
+    .pricing-card {
+      background: white;
+      border: 1px solid var(--border-card);
+      border-radius: 20px;
+      padding: 32px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(99,102,241,0.08);
+    }
+    .pricing-card.popular {
+      border: 1.5px solid rgba(99,102,241,0.4);
+      box-shadow: 0 8px 40px rgba(99,102,241,0.12);
+      transform: scale(1.03);
+    }
+    .pricing-card.popular:hover {
+      transform: scale(1.03) translateY(-4px);
+      box-shadow: 0 24px 64px rgba(99,102,241,0.18);
+    }
+
+    /* ─── FAQ ─── */
+    .faq-item {
+      border-bottom: 1px solid var(--border-card);
+    }
+    .faq-btn {
+      width: 100%;
+      text-align: left;
+      padding: 20px 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .faq-btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    .faq-icon {
+      flex-shrink: 0;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: #F3F4F6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .faq-btn[aria-expanded="true"] .faq-icon {
+      transform: rotate(45deg);
+      background: var(--accent);
+    }
+    .faq-btn[aria-expanded="true"] .faq-icon svg { stroke: white; }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+    .faq-answer.open { max-height: 300px; }
+    .faq-answer-inner {
+      padding-bottom: 20px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ─── FADE IN ANIMATIONS ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+    .fade-in-delay-3 { transition-delay: 0.3s; }
+    .fade-in-delay-4 { transition-delay: 0.4s; }
+
+    /* ─── INDUSTRY CARDS ─── */
+    .industry-card {
+      border-radius: 20px;
+      position: relative;
+      background: white;
+      border: 1px solid var(--border-card);
+      padding: 32px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      overflow: hidden;
+    }
+    .industry-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(99,102,241,0.2);
+      box-shadow: 0 20px 60px rgba(99,102,241,0.08);
+    }
+    .industry-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+    }
+
+    /* ─── HAMBURGER ─── */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+    .hamburger span { width: 24px; height: 2px; background: var(--text-secondary); transition: transform 0.3s, opacity 0.3s; border-radius: 2px; display: block; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .nav-menu { display: none; }
+      .nav-menu.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 64px; left: 0; right: 0;
+        background: white;
+        padding: 20px 24px;
+        gap: 16px;
+        border-top: 1px solid var(--border-card);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      }
+      .nav-menu.open .nav-link { font-size: 1rem; color: var(--text-primary); }
+    }
+
+    /* ─── STAT ROW ─── */
+    .stat-pill {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 4px;
+    }
+
+    /* ─── CALLOUT BOX ─── */
+    .callout-box {
+      background: rgba(99,102,241,0.04);
+      border: 1px solid rgba(99,102,241,0.15);
+      border-left: 3px solid var(--accent);
+      border-radius: 12px;
+      padding: 20px 24px;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--bg-dark);
+      border-top: 1px solid var(--border-dark);
+    }
+
+    /* ─── SCROLL TOP ─── */
+    #scroll-top {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      width: 44px; height: 44px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s, background 0.2s;
+      box-shadow: 0 4px 20px rgba(99,102,241,0.3);
+      border: none;
+      z-index: 50;
+    }
+    #scroll-top.visible { opacity: 1; pointer-events: auto; }
+    #scroll-top:hover { transform: translateY(-3px); background: var(--accent-hov); }
+
+    /* ─── FEATURE CHECK ─── */
+    .feature-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+    .check-icon {
+      flex-shrink: 0;
+      width: 18px; height: 18px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    /* ─── SECTION LABEL ─── */
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* ─── ROI DETAILS on light bg ─── */
+    .roi-detail-box {
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: rgba(99,102,241,0.05);
+      border: 1px solid rgba(99,102,241,0.15);
+      margin-bottom: 12px;
+    }
+    .roi-detail-box .label { font-size: 0.8rem; font-weight: 600; color: var(--text-primary); margin-bottom: 2px; font-family: 'Space Grotesk', sans-serif; }
+    .roi-detail-box .value { font-size: 0.875rem; color: var(--accent); }
+  </style>
+
+<!-- ═══ MARCH MADNESS PROMO — REMOVE AFTER MARCH 2026 ═══ -->
+<style>
+  @keyframes marchShimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+  .promo-banner {
+    position: fixed;
+    top: 40px;
+    left: 0; right: 0;
+    background: linear-gradient(135deg, #DC2626 0%, #F59E0B 50%, #DC2626 100%);
+    background-size: 200% auto;
+    animation: marchShimmer 3s linear infinite;
+    color: #fff;
+    text-align: center;
+    padding: 10px 16px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    z-index: 199;
+    margin: 0;
+  }
+  .promo-banner a { color: #fff; text-decoration: underline; }
+  .price-original {
+    text-decoration: line-through;
+    opacity: 0.5;
+    font-size: 0.75em;
+    margin-right: 4px;
+  }
+  .price-promo {
+    color: #DC2626;
+    font-weight: 800;
+  }
+  /* Fix: gradient-text parent makes child text invisible — override */
+  .gradient-text .price-original,
+  .gradient-text .price-promo {
+    -webkit-text-fill-color: initial;
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+  }
+  .gradient-text .price-original {
+    -webkit-text-fill-color: #9CA3AF;
+  }
+  .gradient-text .price-promo {
+    -webkit-text-fill-color: #DC2626;
+  }
+  .march-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #DC2626, #F59E0B);
+    color: #fff;
+    font-size: 0.6rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-left: 6px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+</style>
+<!-- ═══ END MARCH MADNESS PROMO STYLES ═══ -->
+</head>
+<body>
+<!-- ═══ ECOSYSTEM BAR ═══ -->
+<div id="ecosystem-bar">
+  <div class="eco-inner">
+    <a href="https://aitools.co.nz" class="eco-brand">
+      <svg class="eco-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="3" fill="#6366F1"/>
+        <circle cx="12" cy="3" r="1.5" fill="#6366F1" opacity="0.6"/>
+        <circle cx="21" cy="7.5" r="1.5" fill="#6366F1" opacity="0.6"/>
+        <circle cx="21" cy="16.5" r="1.5" fill="#6366F1" opacity="0.6"/>
+        <circle cx="12" cy="21" r="1.5" fill="#6366F1" opacity="0.6"/>
+        <circle cx="3" cy="16.5" r="1.5" fill="#6366F1" opacity="0.6"/>
+        <circle cx="3" cy="7.5" r="1.5" fill="#6366F1" opacity="0.6"/>
+        <line x1="12" y1="9" x2="12" y2="4.5" stroke="#6366F1" stroke-width="0.7" opacity="0.4"/>
+        <line x1="14.6" y1="10.5" x2="19.5" y2="8" stroke="#6366F1" stroke-width="0.7" opacity="0.4"/>
+        <line x1="14.6" y1="13.5" x2="19.5" y2="16" stroke="#6366F1" stroke-width="0.7" opacity="0.4"/>
+        <line x1="12" y1="15" x2="12" y2="19.5" stroke="#6366F1" stroke-width="0.7" opacity="0.4"/>
+        <line x1="9.4" y1="13.5" x2="4.5" y2="16" stroke="#6366F1" stroke-width="0.7" opacity="0.4"/>
+        <line x1="9.4" y1="10.5" x2="4.5" y2="8" stroke="#6366F1" stroke-width="0.7" opacity="0.4"/>
+      </svg>
+      AI Tools NZ
+    </a>
+    <nav id="eco-nav-links" class="eco-links">
+      <a href="https://aitools.co.nz" data-eco="business" class="eco-link">Business</a>
+      <a href="https://realestate.aitools.co.nz" data-eco="realestate" class="eco-link">Real Estate</a>
+      <a href="https://trade.aitools.co.nz" data-eco="trades" class="eco-link">Trades</a>
+      <a href="https://student.aitools.co.nz" data-eco="students" class="eco-link">Students</a>
+    </nav>
+    <button id="eco-mobile-toggle" class="eco-mobile-btn" aria-label="Toggle ecosystem navigation">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+  </div>
+  <div class="eco-glow"></div>
+  <div id="eco-mobile-menu" class="eco-mobile-menu">
+    <a href="https://aitools.co.nz" class="eco-mobile-link">Business</a>
+    <a href="https://realestate.aitools.co.nz" class="eco-mobile-link">Real Estate</a>
+    <a href="https://trade.aitools.co.nz" class="eco-mobile-link">Trades</a>
+    <a href="https://student.aitools.co.nz" class="eco-mobile-link">Students</a>
+  </div>
+</div>
+<style>
+  @keyframes ecoGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  @keyframes ecoPulse {
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 0.35; }
+  }
+  #ecosystem-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 40px;
+    z-index: 200;
+    background: linear-gradient(135deg, #0a0a1a 0%, #111127 25%, #0d0d20 50%, #111127 75%, #0a0a1a 100%);
+    background-size: 300% 300%;
+    animation: ecoGradient 8s ease infinite;
+    display: flex;
+    align-items: center;
+    overflow: visible;
+  }
+  .eco-glow {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(99,102,241,0.5) 30%, rgba(99,102,241,0.8) 50%, rgba(99,102,241,0.5) 70%, transparent 100%);
+    animation: ecoPulse 3s ease-in-out infinite;
+  }
+  .eco-inner {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+  }
+  .eco-brand {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: text-shadow 0.3s;
+  }
+  .eco-brand:hover { text-shadow: 0 0 12px rgba(99,102,241,0.5); }
+  .eco-icon { filter: drop-shadow(0 0 4px rgba(99,102,241,0.4)); }
+  .eco-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .eco-link {
+    color: rgba(255,255,255,0.45);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s, text-shadow 0.2s;
+  }
+  .eco-link:hover {
+    color: rgba(255,255,255,0.9);
+    text-shadow: 0 0 10px rgba(99,102,241,0.4);
+  }
+  .eco-link.active {
+    color: #fff;
+    border-bottom-color: #6366F1;
+    text-shadow: 0 0 8px rgba(99,102,241,0.3);
+  }
+  .eco-mobile-btn {
+    display: none;
+    background: none;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    color: rgba(255,255,255,0.7);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 4px 10px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .eco-mobile-btn:hover { border-color: rgba(99,102,241,0.5); color: #fff; }
+  .eco-mobile-menu {
+    display: none;
+    position: absolute;
+    top: 40px; left: 0; right: 0;
+    background: linear-gradient(180deg, #111127 0%, #0a0a1a 100%);
+    padding: 8px 24px 12px;
+    z-index: 201;
+    border-bottom: 1px solid rgba(99,102,241,0.2);
+  }
+  .eco-mobile-link {
+    display: block;
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: color 0.2s, padding-left 0.2s;
+  }
+  .eco-mobile-link:last-child { border-bottom: none; }
+  .eco-mobile-link:hover { color: #fff; padding-left: 8px; }
+  @media (max-width: 640px) {
+    .eco-links { display: none !important; }
+    .eco-mobile-btn { display: flex; align-items: center; gap: 4px; }
+  }
+</style>
+<script>
+(function(){
+  var btn=document.getElementById('eco-mobile-toggle');
+  var menu=document.getElementById('eco-mobile-menu');
+  if(btn&&menu){btn.addEventListener('click',function(){
+    var open=menu.style.display!=='block';
+    menu.style.display=open?'block':'none';
+    btn.querySelector('svg').style.transform=open?'rotate(180deg)':'';
+  })}
+  var host=window.location.hostname;
+  var map={'aitools.co.nz':'business','realestate.aitools.co.nz':'realestate','trade.aitools.co.nz':'trades','student.aitools.co.nz':'students'};
+  var active=map[host]||'business';
+  if(active){
+    var el=document.querySelector('[data-eco="'+active+'"]');
+    if(el) el.classList.add('active');
+  }
+})();
+</script>
+<!-- ═══ END ECOSYSTEM BAR ═══ -->
+<!-- ═══ MARCH MADNESS BANNER — REMOVE AFTER MARCH 2026 ═══ -->
+<div class="promo-banner">
+  🔥 MARCH MADNESS — All plans <strong>50% OFF</strong> this month only! <a href="javascript:void(0)" onclick="openCalendly(event)">Book now →</a>
+</div>
+<!-- ═══ END MARCH MADNESS BANNER ═══ -->
+
+<!-- ════════════════════════════════════════════
+     1. STICKY NAV
+════════════════════════════════════════════ -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="#" class="font-display font-bold text-xl flex items-center gap-2" aria-label="AI Tools NZ - Home" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary);">
+      <span class="inline-flex w-8 h-8 rounded-lg items-center justify-center" style="background: var(--accent);">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2L14 5.5V10.5L8 14L2 10.5V5.5L8 2Z" fill="white"/></svg>
+      </span>
+      AI Tools NZ
+    </a>
+
+    <!-- Nav Links -->
+    <div class="nav-menu flex items-center gap-8" id="nav-menu" role="list">
+      <a href="#solution" class="nav-link" role="listitem">Solutions</a>
+      <a href="#industries" class="nav-link" role="listitem">Industries</a>
+      <a href="#demo" class="nav-link" role="listitem">Demo</a>
+      <a href="#roi" class="nav-link" role="listitem">ROI</a>
+      <a href="#pricing" class="nav-link" role="listitem">Pricing</a>
+      <a href="#faq" class="nav-link" role="listitem">FAQ</a>
+      <a href="https://calendly.com/hello-esperion/30min" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 10px 20px; font-size:0.875rem;">Book a Demo</a>
+    </div>
+
+    <!-- Hamburger -->
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════
+     2. HERO
+════════════════════════════════════════════ -->
+<section class="hero-section min-h-screen flex items-center" id="hero" style="padding-top: 160px;">
+  <!-- Subtle geometric grid -->
+  <div class="hero-geo" aria-hidden="true"></div>
+
+  <div class="relative z-10 max-w-5xl mx-auto px-6 py-24 text-center">
+    <!-- Pre-headline badge -->
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 fade-in" style="background: white; border: 1px solid var(--border-card); box-shadow: 0 1px 4px rgba(0,0,0,0.06);">
+      <span class="w-2 h-2 rounded-full animate-pulse" style="background: var(--accent);"></span>
+      <span class="text-sm font-medium" style="color: var(--accent);">NZ's #1 AI Implementation Agency</span>
+    </div>
+
+    <!-- Headline -->
+    <h1 class="font-display text-5xl md:text-7xl font-bold leading-tight mb-6 fade-in fade-in-delay-1" style="font-family:'Space Grotesk',sans-serif; line-height:1.1; color: var(--text-primary);">
+      Find the Right AI<br/>
+      <span class="gradient-text">For Your Industry.</span>
+    </h1>
+
+    <!-- Subtext -->
+    <p class="text-lg md:text-xl mb-10 max-w-2xl mx-auto fade-in fade-in-delay-2" style="color: var(--text-secondary); line-height: 1.75; font-family:'Inter',sans-serif;">
+      AI Tools NZ builds custom AI systems for NZ businesses. <strong style="color: var(--text-primary);">Pick your industry</strong> to see how AI can work for you — or explore our general business solutions below.
+    </p>
+
+    <!-- ═══ INDUSTRY ROUTING CARDS ═══ -->
+    <div class="grid md:grid-cols-3 gap-6 mb-14 fade-in fade-in-delay-3" style="max-width:960px;margin-left:auto;margin-right:auto;">
+      <!-- Real Estate Card -->
+      <a href="https://realestate.aitools.co.nz" style="text-decoration:none;display:block;background:white;border-radius:16px;padding:32px 24px;border:2px solid #E5E7EB;transition:all 0.25s ease;text-align:left;box-shadow:0 1px 3px rgba(0,0,0,0.04);" onmouseover="this.style.borderColor='#2563EB';this.style.boxShadow='0 8px 30px rgba(37,99,235,0.15)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#E5E7EB';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.04)';this.style.transform='none'">
+        <div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#2563EB,#3B82F6);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.25rem;color:#0F172A;margin-bottom:8px;">AI for Real Estate</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:.9rem;color:#6B7280;line-height:1.6;margin-bottom:12px;">Every enquiry answered in 60 seconds. 22-25% conversion rate for NZ agencies.</p>
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:.85rem;font-weight:600;color:#2563EB;display:flex;align-items:center;gap:4px;">Explore →</span>
+      </a>
+
+      <!-- Trades Card -->
+      <a href="https://trade.aitools.co.nz" style="text-decoration:none;display:block;background:white;border-radius:16px;padding:32px 24px;border:2px solid #E5E7EB;transition:all 0.25s ease;text-align:left;box-shadow:0 1px 3px rgba(0,0,0,0.04);" onmouseover="this.style.borderColor='#10B981';this.style.boxShadow='0 8px 30px rgba(16,185,129,0.15)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#E5E7EB';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.04)';this.style.transform='none'">
+        <div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#10B981,#34D399);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.25rem;color:#0F172A;margin-bottom:8px;">AI for Trades</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:.9rem;color:#6B7280;line-height:1.6;margin-bottom:12px;">Never miss a call again. Recover $15,000/month in lost jobs for NZ tradies.</p>
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:.85rem;font-weight:600;color:#10B981;display:flex;align-items:center;gap:4px;">Explore →</span>
+      </a>
+
+      <!-- Students Card -->
+      <a href="https://student.aitools.co.nz" style="text-decoration:none;display:block;background:white;border-radius:16px;padding:32px 24px;border:2px solid #E5E7EB;transition:all 0.25s ease;text-align:left;box-shadow:0 1px 3px rgba(0,0,0,0.04);" onmouseover="this.style.borderColor='#8B5CF6';this.style.boxShadow='0 8px 30px rgba(139,92,246,0.15)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#E5E7EB';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.04)';this.style.transform='none'">
+        <div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#8B5CF6,#A78BFA);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.25rem;color:#0F172A;margin-bottom:8px;">AI for Students</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:.9rem;color:#6B7280;line-height:1.6;margin-bottom:12px;">Your AI study &amp; career partner. Built specifically for NZ university life.</p>
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:.85rem;font-weight:600;color:#8B5CF6;display:flex;align-items:center;gap:4px;">Explore →</span>
+      </a>
+    </div>
+
+    <p class="text-sm mb-6 fade-in fade-in-delay-3" style="color: var(--text-muted); font-family:'Inter',sans-serif;">
+      Not in these industries? Keep scrolling — our general business AI solutions work for <strong>any industry</strong>.
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-14 fade-in fade-in-delay-4">
+      <a href="#demo" class="btn-primary" aria-label="Try our AI demo for free">
+        <i data-lucide="sparkles" width="18" height="18" aria-hidden="true"></i>
+        Try Our AI — Free
+      </a>
+      <a href="https://calendly.com/hello-esperion/30min" target="_blank" rel="noopener noreferrer" class="btn-ghost" aria-label="Book a free AI demo call with AI Tools NZ">
+        <i data-lucide="calendar" width="18" height="18" aria-hidden="true"></i>
+        Book a Demo Call
+      </a>
+    </div>
+    <p class="text-sm fade-in fade-in-delay-4" style="color: var(--text-muted); margin-top: -8px;">↓ Or scroll down to chat with our AI right now</p>
+
+    <!-- Trust badges -->
+    <div class="flex flex-wrap gap-3 justify-center fade-in fade-in-delay-4">
+      <span class="trust-badge"><i data-lucide="map-pin" width="14" height="14" aria-hidden="true"></i> NZ Owned &amp; Operated</span>
+      <span class="trust-badge"><i data-lucide="zap" width="14" height="14" aria-hidden="true"></i> 5-Day Setup</span>
+      <span class="trust-badge"><i data-lucide="trending-down" width="14" height="14" aria-hidden="true"></i> 65%+ Cost Savings</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     3. THE PROBLEM
+════════════════════════════════════════════ -->
+<section id="problem" style="background: #FFFFFF; padding: 100px 0 120px;">
+  <div class="max-w-6xl mx-auto px-6">
+    <!-- Headline -->
+    <div class="max-w-3xl mx-auto text-center mb-16 fade-in">
+      <p class="section-label mb-4">The Problem</p>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-6" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary); line-height:1.2;">
+        Most Businesses Tried AI.<br/>
+        <span class="gradient-text">Then Went Back to Manual.</span>
+      </h2>
+      <p class="text-lg" style="color: var(--text-muted); line-height: 1.75;">
+        You've played with ChatGPT. Signed up for a chatbot. Maybe even paid for an AI tool. Then you went back to doing everything the old way — because nobody showed you how to make AI actually do the work.
+      </p>
+    </div>
+
+    <!-- Stats grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+      <div class="glass-card-light p-8 text-center fade-in fade-in-delay-1">
+        <div class="stat-number gradient-text mb-2" data-count="82" data-suffix="%">0%</div>
+        <div class="text-sm font-medium" style="color: var(--text-muted);">experimenting with AI</div>
+      </div>
+      <div class="glass-card-light p-8 text-center fade-in fade-in-delay-2">
+        <div class="stat-number gradient-text mb-2" data-count="12" data-suffix="%">0%</div>
+        <div class="text-sm font-medium" style="color: var(--text-muted);">actually made it work</div>
+      </div>
+      <div class="glass-card-light p-8 text-center fade-in fade-in-delay-3">
+        <div class="stat-number gradient-text mb-2" data-count="68" data-suffix="%">0%</div>
+        <div class="text-sm font-medium" style="color: var(--text-muted);">had no implementation plan</div>
+      </div>
+      <div class="glass-card-light p-8 text-center fade-in fade-in-delay-4">
+        <div class="stat-number gradient-text mb-2" data-count="40" data-suffix="%">0%</div>
+        <div class="text-sm font-medium" style="color: var(--text-muted);">of AI projects fail (Gartner)</div>
+      </div>
+    </div>
+
+    <!-- Callout box -->
+    <div class="callout-box max-w-3xl mx-auto text-center fade-in">
+      <p class="text-lg font-semibold" style="color: var(--text-primary); font-family:'Space Grotesk',sans-serif;">
+        It's not that AI doesn't work. It's that nobody set it up properly for <span class="gradient-text">YOUR business.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     4. THE SOLUTION
+════════════════════════════════════════════ -->
+<section id="solution" style="background: var(--bg-alt); padding: 100px 0 120px; position: relative; overflow: hidden;">
+  <!-- Very subtle indigo tint glow -->
+  <div aria-hidden="true" style="position:absolute; top:-80px; right:-80px; width:500px; height:500px; background: radial-gradient(circle, rgba(99,102,241,0.05) 0%, transparent 70%); border-radius:50%; pointer-events:none;"></div>
+
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16 fade-in">
+      <p class="section-label mb-4">Your AI Team</p>
+      <h2 class="font-display text-4xl md:text-5xl font-bold" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary); line-height:1.2;">
+        What We Actually<br/><span class="gradient-text">Build For You</span>
+      </h2>
+    </div>
+
+    <!-- Bento Grid -->
+    <div class="bento-grid">
+      <!-- LARGE: AI Personal Assistant -->
+      <div class="clean-card bento-large p-10 flex flex-col justify-between fade-in" role="article">
+        <div>
+          <div class="icon-box mb-6" style="background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.15); width:60px; height:60px; border-radius:16px;">
+            <i data-lucide="brain-circuit" width="28" height="28" style="color: var(--accent);" aria-hidden="true"></i>
+          </div>
+          <h3 class="font-display text-2xl font-bold mb-4" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary);">AI Personal Assistant</h3>
+          <p style="color: var(--text-muted); line-height:1.75; font-size:1rem;">
+            Manages your inbox, surfaces what matters, drafts responses, tracks everything. Like having a chief of staff who never sleeps — without the salary.
+          </p>
+        </div>
+        <div class="mt-8 pt-8" style="border-top: 1px solid var(--border-card);">
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs px-3 py-1.5 rounded-full" style="background: rgba(99,102,241,0.07); color: var(--accent); border: 1px solid rgba(99,102,241,0.15);">Inbox Management</span>
+            <span class="text-xs px-3 py-1.5 rounded-full" style="background: rgba(99,102,241,0.07); color: var(--accent); border: 1px solid rgba(99,102,241,0.15);">Draft Responses</span>
+            <span class="text-xs px-3 py-1.5 rounded-full" style="background: rgba(99,102,241,0.07); color: var(--accent); border: 1px solid rgba(99,102,241,0.15);">Task Tracking</span>
+            <span class="text-xs px-3 py-1.5 rounded-full" style="background: rgba(99,102,241,0.07); color: var(--accent); border: 1px solid rgba(99,102,241,0.15);">24/7 Available</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Voice Agent -->
+      <div class="clean-card p-8 fade-in fade-in-delay-1" role="article">
+        <div class="icon-box mb-4" style="background: rgba(99,102,241,0.07); border: 1px solid rgba(99,102,241,0.15); width:48px; height:48px; border-radius:12px;">
+          <i data-lucide="phone-call" width="22" height="22" style="color: var(--accent);" aria-hidden="true"></i>
+        </div>
+        <h3 class="font-display text-xl font-bold mb-3" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary);">AI Voice Agent</h3>
+        <p style="color: var(--text-muted); line-height:1.7; font-size:0.9rem;">Answers every call 24/7. Qualifies leads. Books appointments. Never misses a ring.</p>
+      </div>
+
+      <!-- Smart Chatbot -->
+      <div class="clean-card p-8 fade-in fade-in-delay-2" role="article">
+        <div class="icon-box mb-4" style="background: rgba(99,102,241,0.07); border: 1px solid rgba(99,102,241,0.15); width:48px; height:48px; border-radius:12px;">
+          <i data-lucide="message-square" width="22" height="22" style="color: var(--accent);" aria-hidden="true"></i>
+        </div>
+        <h3 class="font-display text-xl font-bold mb-3" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary);">Smart Chatbot</h3>
+        <p style="color: var(--text-muted); line-height:1.7; font-size:0.9rem;">Lives on your website. Answers instantly. Captures leads. Works weekends.</p>
+      </div>
+
+      <!-- Workflow Automation -->
+      <div class="clean-card p-8 fade-in fade-in-delay-3" role="article">
+        <div class="icon-box mb-4" style="background: rgba(99,102,241,0.07); border: 1px solid rgba(99,102,241,0.15); width:48px; height:48px; border-radius:12px;">
+          <i data-lucide="workflow" width="22" height="22" style="color: var(--accent);" aria-hidden="true"></i>
+        </div>
+        <h3 class="font-display text-xl font-bold mb-3" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary);">Workflow Automation</h3>
+        <p style="color: var(--text-muted); line-height:1.7; font-size:0.9rem;">Connects your tools. Automates follow-ups, invoicing, reporting. Runs while you sleep.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     5. WHO WE HELP
+════════════════════════════════════════════ -->
+<section id="industries" style="background: #FFFFFF; padding: 100px 0 120px;">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16 fade-in">
+      <p class="section-label mb-4">Industries</p>
+      <h2 class="font-display text-4xl md:text-5xl font-bold" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary); line-height:1.2;">
+        Built For <span class="gradient-text">Your Industry</span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Trades -->
+      <div class="industry-card fade-in fade-in-delay-1" role="article">
+        <div class="stat-number gradient-text mb-2">$15K</div>
+        <div class="text-xs font-semibold uppercase tracking-widest mb-4 section-label">per month — recaptured</div>
+        <h3 class="font-display text-xl font-bold mb-2" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary);">Trades &amp; Home Services</h3>
+        <p class="mb-6" style="color: var(--text-muted); font-size:0.9rem; line-height:1.7;">Stop losing $15K/month to missed calls. AI voice agents answer 24/7, qualify jobs, and book your calendar automatically.</p>
+        <a href="https://trade.aitools.co.nz" target="_blank" rel="noopener" class="inline-flex items-center gap-2 font-semibold text-sm" style="color: var(--accent); font-family:'Space Grotesk',sans-serif;">
+          Visit AI for Trades <i data-lucide="arrow-right" width="16" height="16" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <!-- Real Estate -->
+      <div class="industry-card fade-in fade-in-delay-2" role="article">
+        <div class="stat-number gradient-text mb-2">60s</div>
+        <div class="text-xs font-semibold uppercase tracking-widest mb-4 section-label">lead response time</div>
+        <h3 class="font-display text-xl font-bold mb-2" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary);">Real Estate Agencies</h3>
+        <p class="mb-6" style="color: var(--text-muted); font-size:0.9rem; line-height:1.7;">Respond to leads in 60 seconds, not 2 hours. Automated follow-up sequences, appointment scheduling, and lead qualification.</p>
+        <a href="https://realestate.aitools.co.nz" target="_blank" rel="noopener" class="inline-flex items-center gap-2 font-semibold text-sm" style="color: var(--accent); font-family:'Space Grotesk',sans-serif;">
+          Visit AI for Real Estate <i data-lucide="arrow-right" width="16" height="16" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <!-- Property Management -->
+      <div class="industry-card fade-in fade-in-delay-3" role="article">
+        <div class="stat-number gradient-text mb-2">30%</div>
+        <div class="text-xs font-semibold uppercase tracking-widest mb-4 section-label">reduction in tenant churn</div>
+        <h3 class="font-display text-xl font-bold mb-2" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary);">Property Management</h3>
+        <p style="color: var(--text-muted); font-size:0.9rem; line-height:1.7;">Automate maintenance coordination, reduce tenant churn with proactive communication, and free your team for high-value work.</p>
+      </div>
+
+      <!-- Medical & Dental -->
+      <div class="industry-card fade-in fade-in-delay-4" role="article">
+        <div class="stat-number gradient-text mb-2">60%</div>
+        <div class="text-xs font-semibold uppercase tracking-widest mb-4 section-label">fewer no-shows</div>
+        <h3 class="font-display text-xl font-bold mb-2" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary);">Medical &amp; Dental</h3>
+        <p style="color: var(--text-muted); font-size:0.9rem; line-height:1.7;">Cut no-shows by 60%, free up 2 hours/day for your team. Automated reminders, rebooking, and patient intake flows.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     6. ROI CALCULATOR
+════════════════════════════════════════════ -->
+<section id="roi" style="background: var(--bg-alt); padding: 100px 0 140px; position: relative; overflow: hidden;">
+  <!-- Subtle indigo accent wash -->
+  <div aria-hidden="true" style="position:absolute; inset:0; background: radial-gradient(ellipse at 40% 50%, rgba(99,102,241,0.05) 0%, transparent 65%); pointer-events:none;"></div>
+
+  <div class="max-w-4xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-12 fade-in">
+      <p class="section-label mb-4">ROI Calculator</p>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary); line-height:1.2;">
+        Calculate Your <span class="gradient-text">AI ROI</span>
+      </h2>
+      <p style="color: var(--text-muted);">See what AI could add to your bottom line — in 30 seconds.</p>
+    </div>
+
+    <!-- Calculator Card -->
+    <div class="clean-card p-8 md:p-12 fade-in" role="form" aria-label="AI ROI Calculator">
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Inputs -->
+        <div class="space-y-6">
+          <!-- Industry -->
+          <div>
+            <label for="roi-industry" class="block text-sm font-semibold mb-2" style="color: var(--text-primary); font-family:'Space Grotesk',sans-serif;">Industry</label>
+            <select id="roi-industry" class="roi-input" aria-label="Select your industry">
+              <option value="trades">Trades &amp; Home Services</option>
+              <option value="realestate">Real Estate</option>
+              <option value="property">Property Management</option>
+              <option value="medical">Medical &amp; Dental</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <!-- Employees -->
+          <div>
+            <label for="roi-employees" class="block text-sm font-semibold mb-2" style="color: var(--text-primary); font-family:'Space Grotesk',sans-serif;">
+              Team Size: <span id="emp-display" style="color: var(--accent);">5</span> employees
+            </label>
+            <input type="range" id="roi-employees" class="range-input" min="1" max="50" value="5" aria-label="Number of employees" aria-valuemin="1" aria-valuemax="50" aria-valuenow="5" />
+            <div class="flex justify-between mt-1" style="color: var(--text-muted); font-size:0.75rem;">
+              <span>1</span><span>50</span>
+            </div>
+          </div>
+
+          <!-- Revenue -->
+          <div>
+            <label for="roi-revenue" class="block text-sm font-semibold mb-2" style="color: var(--text-primary); font-family:'Space Grotesk',sans-serif;">Monthly Revenue (NZD)</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 font-semibold" style="color: var(--text-muted);">$</span>
+              <input type="number" id="roi-revenue" class="roi-input" style="padding-left:28px;" placeholder="50,000" value="50000" min="0" aria-label="Monthly revenue in NZD" />
+            </div>
+          </div>
+
+          <button onclick="calculateROI()" class="btn-primary w-full justify-center" aria-label="Calculate your AI ROI" style="display:flex;">
+            <i data-lucide="calculator" width="18" height="18" aria-hidden="true"></i>
+            Calculate My ROI
+          </button>
+        </div>
+
+        <!-- Output -->
+        <div class="flex flex-col justify-center" id="roi-output" aria-live="polite" aria-label="ROI calculation results">
+          <p class="text-sm font-semibold uppercase tracking-widest mb-2" style="color: var(--text-secondary); font-family:'Space Grotesk',sans-serif;">Estimated Monthly Value</p>
+          <div class="roi-result mb-2" id="roi-value" aria-live="polite">$0</div>
+          <p class="text-sm mb-6" style="color: var(--text-muted);" id="roi-label">Select your industry and calculate</p>
+
+          <div id="roi-details" style="display:none;">
+            <div class="roi-detail-box">
+              <p class="label">Recommended Tier</p>
+              <p class="value" id="roi-tier">—</p>
+            </div>
+            <div class="roi-detail-box">
+              <p class="label">ROI Timeline</p>
+              <p class="value" id="roi-timeline">—</p>
+            </div>
+
+            <a href="https://calendly.com/hello-esperion/30min" target="_blank" rel="noopener noreferrer" class="btn-primary w-full justify-center mt-4" style="display:flex;" aria-label="Get your custom ROI report and book a demo">
+              Get Your Custom ROI Report — Book a Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     7. HOW IT WORKS
+════════════════════════════════════════════ -->
+<section id="how-it-works" style="background: #FFFFFF; padding: 100px 0 120px;">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-16 fade-in">
+      <p class="section-label mb-4">The Process</p>
+      <h2 class="font-display text-4xl md:text-5xl font-bold" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary); line-height:1.2;">
+        From Zero to AI<br/><span class="gradient-text">in Under 2 Weeks</span>
+      </h2>
+    </div>
+
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 relative">
+      <!-- Step 1 -->
+      <div class="flex-1 text-center fade-in fade-in-delay-1" role="article">
+        <div class="relative inline-flex mb-6">
+          <div class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto" style="background: rgba(99,102,241,0.07); border: 1.5px solid rgba(99,102,241,0.18);">
+            <i data-lucide="map" width="32" height="32" style="color: var(--accent);" aria-hidden="true"></i>
+          </div>
+          <span class="absolute -top-3 -right-3 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold text-white" style="background: var(--accent); font-family:'Space Grotesk',sans-serif;" aria-hidden="true">1</span>
+        </div>
+        <h3 class="font-display text-xl font-bold mb-3" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary);">We Map Your Business</h3>
+        <p style="color: var(--text-muted); font-size:0.9rem; line-height:1.7;">90-minute deep dive. We learn your workflows, bottlenecks, and opportunities. No generic templates.</p>
+      </div>
+
+      <!-- Connector -->
+      <div class="step-connector" aria-hidden="true"></div>
+
+      <!-- Step 2 -->
+      <div class="flex-1 text-center fade-in fade-in-delay-2" role="article">
+        <div class="relative inline-flex mb-6">
+          <div class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto" style="background: rgba(99,102,241,0.07); border: 1.5px solid rgba(99,102,241,0.18);">
+            <i data-lucide="wrench" width="32" height="32" style="color: var(--accent);" aria-hidden="true"></i>
+          </div>
+          <span class="absolute -top-3 -right-3 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold text-white" style="background: var(--accent); font-family:'Space Grotesk',sans-serif;" aria-hidden="true">2</span>
+        </div>
+        <h3 class="font-display text-xl font-bold mb-3" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary);">We Build Your AI System</h3>
+        <p style="color: var(--text-muted); font-size:0.9rem; line-height:1.7;">5–10 days. Not 4–8 weeks. Custom-configured AI that knows your business, your tone, your workflows.</p>
+      </div>
+
+      <!-- Connector -->
+      <div class="step-connector" aria-hidden="true"></div>
+
+      <!-- Step 3 -->
+      <div class="flex-1 text-center fade-in fade-in-delay-3" role="article">
+        <div class="relative inline-flex mb-6">
+          <div class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto" style="background: rgba(99,102,241,0.07); border: 1.5px solid rgba(99,102,241,0.18);">
+            <i data-lucide="trending-up" width="32" height="32" style="color: var(--accent);" aria-hidden="true"></i>
+          </div>
+          <span class="absolute -top-3 -right-3 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold text-white" style="background: var(--accent); font-family:'Space Grotesk',sans-serif;" aria-hidden="true">3</span>
+        </div>
+        <h3 class="font-display text-xl font-bold mb-3" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary);">You See Results</h3>
+        <p style="color: var(--text-muted); font-size:0.9rem; line-height:1.7;">Live in 2 weeks. ROI within month one. We monitor, optimise, and keep your AI ahead of the curve.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     LIVE DEMO
+════════════════════════════════════════════ -->
+<section id="demo" style="background: var(--bg-alt); padding: 100px 0 120px; position: relative; overflow: hidden;">
+  <div aria-hidden="true" style="position:absolute; top:-80px; left:-80px; width:500px; height:500px; background: radial-gradient(circle, rgba(99,102,241,0.05) 0%, transparent 70%); border-radius:50%; pointer-events:none;"></div>
+
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16 fade-in">
+      <p class="section-label mb-4">Live Demo</p>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary); line-height:1.2;">
+        Experience Our AI.<br/><span class="gradient-text">Right Now.</span>
+      </h2>
+      <p class="text-lg max-w-2xl mx-auto" style="color: var(--text-muted); line-height: 1.75;">
+        No signup. No script. Chat with our AI or call it — see for yourself what AI can do for your business.
+      </p>
+    </div>
+
+    <!-- Voice Demo — Compact Horizontal Banner -->
+    <div class="clean-card mb-10 fade-in fade-in-delay-1" style="overflow:hidden;">
+      <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10 p-8 md:py-8 md:px-12" style="background: linear-gradient(135deg, rgba(99,102,241,0.04) 0%, rgba(99,102,241,0.01) 100%);">
+        <div class="flex items-center gap-5 flex-shrink-0">
+          <div class="icon-box" style="background: var(--accent); width:56px; height:56px; border-radius:16px;">
+            <i data-lucide="phone-call" width="26" height="26" style="color: white;" aria-hidden="true"></i>
+          </div>
+          <div>
+            <h3 class="font-display text-xl font-bold" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary);">Hear Our AI</h3>
+            <p class="text-sm" style="color: var(--text-muted);">Call and talk to it — no script, no prompts</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-5 flex-wrap justify-center md:justify-start" style="flex:1;">
+          <a href="tel:+64210390602" class="text-2xl md:text-3xl font-bold" style="font-family:'Space Grotesk',sans-serif; color: var(--accent); text-decoration:none; white-space:nowrap;">
+            021 039 0602
+          </a>
+          <a href="tel:+64210390602" class="btn-primary" style="padding: 12px 28px; white-space:nowrap;">
+            <i data-lucide="phone" width="18" height="18" aria-hidden="true"></i>
+            Call Now
+          </a>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0" style="color: var(--text-muted); font-size: 0.8rem;">
+          <span class="w-2 h-2 rounded-full animate-pulse" style="background: #10B981;"></span>
+          Live 24/7
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat Demo — Full Width -->
+    <div class="mb-10 fade-in fade-in-delay-2">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="icon-box" style="background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.15); width:40px; height:40px; border-radius:10px;">
+          <i data-lucide="message-square" width="20" height="20" style="color: var(--accent);" aria-hidden="true"></i>
+        </div>
+        <div>
+          <h3 class="font-display text-xl font-bold" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary);">Chat With Our AI</h3>
+          <p class="text-sm" style="color: var(--text-muted);">Ask anything — pricing, industries, capabilities. It knows everything.</p>
+        </div>
+      </div>
+      <div id="demo-chat" style="width:100%; max-width:820px; margin:0 auto;"></div>
+    </div>
+
+    <!-- Industry Demo Links -->
+    <div class="text-center fade-in">
+      <p class="text-sm font-semibold mb-4" style="color: var(--text-secondary); font-family:'Space Grotesk',sans-serif;">Want to see industry-specific AI? Try our live demos:</p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="https://trade.aitools.co.nz" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold" style="background: white; border: 1px solid var(--border-card); color: var(--text-primary); text-decoration: none; transition: all 0.2s;" onmouseover="this.style.borderColor='#10B981';this.style.boxShadow='0 4px 12px rgba(16,185,129,0.15)'" onmouseout="this.style.borderColor='var(--border-card)';this.style.boxShadow='none'">
+          🔧 Trades Demo
+        </a>
+        <a href="https://realestate.aitools.co.nz" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold" style="background: white; border: 1px solid var(--border-card); color: var(--text-primary); text-decoration: none; transition: all 0.2s;" onmouseover="this.style.borderColor='#2563EB';this.style.boxShadow='0 4px 12px rgba(37,99,235,0.15)'" onmouseout="this.style.borderColor='var(--border-card)';this.style.boxShadow='none'">
+          🏠 Real Estate Demo
+        </a>
+        <a href="https://student.aitools.co.nz" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold" style="background: white; border: 1px solid var(--border-card); color: var(--text-primary); text-decoration: none; transition: all 0.2s;" onmouseover="this.style.borderColor='#8B5CF6';this.style.boxShadow='0 4px 12px rgba(139,92,246,0.15)'" onmouseout="this.style.borderColor='var(--border-card)';this.style.boxShadow='none'">
+          🎓 Students Demo
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     8. SOCIAL PROOF
+════════════════════════════════════════════ -->
+<section id="social-proof" style="background: var(--bg-alt); padding: 80px 0; position: relative; overflow: hidden;">
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <!-- Stats row -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 fade-in">
+      <div class="stat-pill">
+        <div class="text-3xl font-bold font-display mb-1" style="color: var(--text-primary); font-family:'Space Grotesk',sans-serif;">5-Day</div>
+        <div class="text-sm" style="color: var(--text-muted);">Setup Guarantee</div>
+      </div>
+      <div class="stat-pill">
+        <div class="text-3xl font-bold font-display mb-1 gradient-text" style="font-family:'Space Grotesk',sans-serif;">64–68%</div>
+        <div class="text-sm" style="color: var(--text-muted);">Efficiency Margins</div>
+      </div>
+      <div class="stat-pill">
+        <div class="text-3xl font-bold font-display mb-1" style="color: var(--text-primary); font-family:'Space Grotesk',sans-serif;">$15K</div>
+        <div class="text-sm" style="color: var(--text-muted);">Govt Co-Funding</div>
+      </div>
+      <div class="stat-pill">
+        <div class="text-3xl font-bold font-display mb-1 gradient-text" style="font-family:'Space Grotesk',sans-serif;">NZ Owned</div>
+        <div class="text-sm" style="color: var(--text-muted);">&amp; Operated</div>
+      </div>
+    </div>
+
+    <!-- Government badge -->
+    <div class="clean-card p-8 mb-10 fade-in">
+      <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+        <div class="flex-shrink-0">
+          <div class="w-16 h-16 rounded-2xl flex items-center justify-center" style="background: rgba(99,102,241,0.07); border: 1px solid rgba(99,102,241,0.15);">
+            <i data-lucide="landmark" width="28" height="28" style="color: var(--accent);" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest mb-2" style="color: var(--accent); font-family:'Space Grotesk',sans-serif;">NZ Government Backed</p>
+          <h3 class="font-display text-xl font-bold mb-2" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary);">$17M Responsible AI Adoption Programme</h3>
+          <p style="color: var(--text-muted); font-size:0.9rem; line-height:1.7;">AI Tools NZ is part of the Regional Business Partner (RBP) Network. NZ businesses may qualify for up to <strong style="color: var(--accent);">$15,000 in co-funding</strong> to offset AI implementation costs.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quote -->
+    <div class="text-center max-w-3xl mx-auto fade-in">
+      <div class="text-4xl mb-6" style="color: var(--accent);" aria-hidden="true">"</div>
+      <blockquote class="text-xl md:text-2xl font-medium mb-6" style="font-family:'Space Grotesk',sans-serif; line-height:1.6; color: var(--text-primary);">
+        82% of NZ businesses are experimenting with AI but only 12% have made it work. We're the agency that bridges that gap.
+      </blockquote>
+      <div class="flex items-center justify-center gap-3">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background: var(--accent);">
+          <span class="text-white font-bold text-sm" style="font-family:'Space Grotesk',sans-serif;">E</span>
+        </div>
+        <div class="text-left">
+          <div class="font-semibold text-sm" style="color: var(--text-primary); font-family:'Space Grotesk',sans-serif;">AI Tools NZ Team</div>
+          <div class="text-xs" style="color: var(--text-muted);">AI Implementation Agency, Auckland NZ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     9. PRICING
+════════════════════════════════════════════ -->
+<section id="pricing" style="background: #FFFFFF; padding: 100px 0 120px;">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16 fade-in">
+      <p class="section-label mb-4">Pricing</p>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary); line-height:1.2;">
+        Transparent Pricing.<br/><span class="gradient-text">No Surprises.</span>
+      </h2>
+      <p class="text-base max-w-xl mx-auto" style="color: var(--text-muted);">Setup fees may be fully covered by NZ Government co-funding (up to $15,000)</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+      <!-- AI First Responder -->
+      <div class="pricing-card fade-in fade-in-delay-1" role="article">
+        <div class="mb-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold mb-4" style="background:#F3F4F6; color: var(--text-secondary); font-family:'Space Grotesk',sans-serif;">STARTER</div>
+          <div class="flex items-end gap-1 mb-2 flex-wrap">
+            <span class="text-4xl font-bold" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary);"><span class="price-original">$500</span><span class="price-promo">$250</span></span><span class="march-badge">50% Off</span>
+            <span class="text-sm pb-1" style="color: var(--text-muted);">/mo</span>
+          </div>
+          <p class="text-sm" style="color: var(--text-muted);">Was $500/mo — <strong style="color:#DC2626;">now $250/mo</strong> for March getting started with AI</p>
+        </div>
+        <div class="space-y-1 mb-8">
+          <div class="feature-check">
+            <div class="check-icon" aria-hidden="true"><i data-lucide="check" width="10" height="10" style="color:white;stroke-width:3;"></i></div>
+            <span>AI answers your calls &amp; messages 24/7</span>
+          </div>
+          <div class="feature-check">
+            <div class="check-icon" aria-hidden="true"><i data-lucide="check" width="10" height="10" style="color:white;stroke-width:3;"></i></div>
+            <span>Captures leads from your website automatically</span>
+          </div>
+          <div class="feature-check">
+            <div class="check-icon" aria-hidden="true"><i data-lucide="check" width="10" height="10" style="color:white;stroke-width:3;"></i></div>
+            <span>Books appointments into your calendar</span>
+          </div>
+          <div class="feature-check">
+            <div class="check-icon" aria-hidden="true"><i data-lucide="check" width="10" height="10" style="color:white;stroke-width:3;"></i></div>
+            <span>Monthly performance report</span>
+          </div>
+        </div>
+        <a href="https://calendly.com/hello-esperion/30min" target="_blank" rel="noopener noreferrer" class="btn-outline" aria-label="Talk to us about the Starter plan">Talk to Us</a>
+      </div>
+
+      <!-- AI Operations Layer (POPULAR) -->
+      <div class="pricing-card popular fade-in fade-in-delay-2" role="article" aria-label="Most popular plan">
+        <div class="mb-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold mb-4" style="background: var(--accent); color:white; font-family:'Space Grotesk',sans-serif;">⭐ MOST POPULAR</div>
+          <div class="flex items-end gap-1 mb-2 flex-wrap">
+            <span class="text-4xl font-bold gradient-text" style="font-family:'Space Grotesk',sans-serif;"><span class="price-original">$1,000</span><span class="price-promo">$500</span></span><span class="march-badge">50% Off</span>
+            <span class="text-sm pb-1" style="color: var(--text-muted);">/mo</span>
+          </div>
+          <p class="text-sm" style="color: var(--text-muted);">Was $1,000/mo — <strong style="color:#DC2626;">now $500/mo</strong> for businesses ready to automate daily operations</p>
+        </div>
+        <div class="space-y-1 mb-8">
+          <div class="feature-check">
+            <div class="check-icon" aria-hidden="true"><i data-lucide="check" width="10" height="10" style="color:white;stroke-width:3;"></i></div>
+            <span>Everything in Starter</span>
+          </div>
+          <div class="feature-check">
+            <div class="check-icon" aria-hidden="true"><i data-lucide="check" width="10" height="10" style="color:white;stroke-width:3;"></i></div>
+            <span>AI assistant that handles your emails, tasks &amp; scheduling</span>
+          </div>
+          <div class="feature-check">
+            <div class="check-icon" aria-hidden="true"><i data-lucide="check" width="10" height="10" style="color:white;stroke-width:3;"></i></div>
+            <span>Automatic follow-ups so no lead goes cold</span>
+          </div>
+          <div class="feature-check">
+            <div class="check-icon" aria-hidden="true"><i data-lucide="check" width="10" height="10" style="color:white;stroke-width:3;"></i></div>
+            <span>Connects to your existing software &amp; tools</span>
+          </div>
+        </div>
+        <a href="https://calendly.com/hello-esperion/30min" target="_blank" rel="noopener noreferrer" class="btn-primary w-full justify-center" style="display:flex;" aria-label="Talk to us about the Growth plan">Talk to Us</a>
+      </div>
+
+      <!-- AI Chief of Staff -->
+      <div class="pricing-card fade-in fade-in-delay-3" role="article">
+        <div class="mb-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold mb-4" style="background:#F3F4F6; color: var(--text-secondary); font-family:'Space Grotesk',sans-serif;">SCALE</div>
+          <div class="flex items-end gap-1 mb-2 flex-wrap">
+            <span class="text-4xl font-bold" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary);"><span class="price-original">$2,000</span><span class="price-promo">$1,000</span></span><span class="march-badge">50% Off</span>
+            <span class="text-sm pb-1" style="color: var(--text-muted);">/mo</span>
+          </div>
+          <p class="text-sm" style="color: var(--text-muted);">Was $2,000/mo — <strong style="color:#DC2626;">now $1,000/mo</strong> for businesses going all-in on AI</p>
+        </div>
+        <div class="space-y-1 mb-8">
+          <div class="feature-check">
+            <div class="check-icon" aria-hidden="true"><i data-lucide="check" width="10" height="10" style="color:white;stroke-width:3;"></i></div>
+            <span>Everything in Growth</span>
+          </div>
+          <div class="feature-check">
+            <div class="check-icon" aria-hidden="true"><i data-lucide="check" width="10" height="10" style="color:white;stroke-width:3;"></i></div>
+            <span>AI runs your key business processes end-to-end</span>
+          </div>
+          <div class="feature-check">
+            <div class="check-icon" aria-hidden="true"><i data-lucide="check" width="10" height="10" style="color:white;stroke-width:3;"></i></div>
+            <span>Custom-built connections to any software you use</span>
+          </div>
+          <div class="feature-check">
+            <div class="check-icon" aria-hidden="true"><i data-lucide="check" width="10" height="10" style="color:white;stroke-width:3;"></i></div>
+            <span>Dedicated AI strategy partner working with you</span>
+          </div>
+        </div>
+        <a href="https://calendly.com/hello-esperion/30min" target="_blank" rel="noopener noreferrer" class="btn-outline" aria-label="Talk to us about the Scale plan">Talk to Us</a>
+      </div>
+    </div>
+
+    <!-- Govt funding note -->
+    <div class="mt-10 p-5 rounded-2xl text-center fade-in" style="background: rgba(99,102,241,0.04); border: 1px solid rgba(99,102,241,0.15);">
+      <div class="flex items-center justify-center gap-3">
+        <i data-lucide="shield-check" width="20" height="20" style="color: var(--accent);" aria-hidden="true"></i>
+        <p class="font-semibold text-sm" style="color: var(--text-primary); font-family:'Space Grotesk',sans-serif;">
+          Setup fees may be fully covered by NZ Government co-funding (up to <strong style="color: var(--accent);">$15,000</strong>) — ask us how
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     10. FAQ
+════════════════════════════════════════════ -->
+<section id="faq" style="background: var(--bg-alt); padding: 100px 0 120px;">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-16 fade-in">
+      <p class="section-label mb-4">FAQ</p>
+      <h2 class="font-display text-4xl md:text-5xl font-bold" style="font-family:'Space Grotesk',sans-serif; color: var(--text-primary); line-height:1.2;">
+        Your Questions,<br/><span class="gradient-text">Answered.</span>
+      </h2>
+    </div>
+
+    <div class="fade-in" role="list" aria-label="Frequently asked questions">
+      <!-- FAQ 1 -->
+      <div class="faq-item" role="listitem">
+        <button class="faq-btn" aria-expanded="true" aria-controls="faq-1" onclick="toggleFAQ(this, 'faq-1')">
+          <span>What exactly is an AI Personal Assistant?</span>
+          <span class="faq-icon" aria-hidden="true"><i data-lucide="plus" width="14" height="14"></i></span>
+        </button>
+        <div class="faq-answer open" id="faq-1" role="region" aria-label="Answer to: What exactly is an AI Personal Assistant?">
+          <div class="faq-answer-inner">
+            Think of it as your own tireless team member who handles the admin work you never have time for. It can manage your inbox, draft replies in your voice, schedule meetings, chase up tasks, organise information, and keep track of everything going on in your business — 24/7. It's flexible enough to handle whatever you throw at it, from sorting through emails to preparing reports. The more you use it, the better it gets at understanding how you work.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="faq-item" role="listitem">
+        <button class="faq-btn" aria-expanded="false" aria-controls="faq-2" onclick="toggleFAQ(this, 'faq-2')">
+          <span>How long does setup take?</span>
+          <span class="faq-icon" aria-hidden="true"><i data-lucide="plus" width="14" height="14"></i></span>
+        </button>
+        <div class="faq-answer" id="faq-2" role="region" aria-label="Answer to: How long does setup take?">
+          <div class="faq-answer-inner">
+            We begin with a 90-minute discovery call to map your business and workflows. From there, your AI system is built and configured in 5–10 days, then goes live. You're looking at a 2-week total timeline from first call to fully operational — not the 4–8 weeks typical of other agencies.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="faq-item" role="listitem">
+        <button class="faq-btn" aria-expanded="false" aria-controls="faq-3" onclick="toggleFAQ(this, 'faq-3')">
+          <span>What does it cost?</span>
+          <span class="faq-icon" aria-hidden="true"><i data-lucide="plus" width="14" height="14"></i></span>
+        </button>
+        <div class="faq-answer" id="faq-3" role="region" aria-label="Answer to: What does it cost?">
+          <div class="faq-answer-inner">
+            Monthly plans normally start from $500/mo (Starter) up to $2,000+/mo (Scale). <strong style="color:#DC2626;">March Madness: all plans 50% off — from just $250/mo</strong>. There are setup fees that vary by project scope — however, NZ businesses may qualify for up to $15,000 in government co-funding through the Responsible AI Adoption programme, which can cover the entire setup cost.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="faq-item" role="listitem">
+        <button class="faq-btn" aria-expanded="false" aria-controls="faq-4" onclick="toggleFAQ(this, 'faq-4')">
+          <span>Is my data safe?</span>
+          <span class="faq-icon" aria-hidden="true"><i data-lucide="plus" width="14" height="14"></i></span>
+        </button>
+        <div class="faq-answer" id="faq-4" role="region" aria-label="Answer to: Is my data safe?">
+          <div class="faq-answer-inner">
+            Yes. We take data security seriously. Your data is never used to train external AI models. We implement enterprise-grade encryption, role-based access controls, and audit trails. All implementations comply with NZ Privacy Act 2020. We can also work within your existing IT security policies.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="faq-item" role="listitem">
+        <button class="faq-btn" aria-expanded="false" aria-controls="faq-5" onclick="toggleFAQ(this, 'faq-5')">
+          <span>What if AI doesn't work for my business?</span>
+          <span class="faq-icon" aria-hidden="true"><i data-lucide="plus" width="14" height="14"></i></span>
+        </button>
+        <div class="faq-answer" id="faq-5" role="region" aria-label="Answer to: What if AI doesn't work for my business?">
+          <div class="faq-answer-inner">
+            That's exactly why we start with a discovery call — to determine where AI creates genuine value for your specific business. If we don't see a strong ROI case, we'll tell you honestly before taking your money. And if after implementation it's not delivering, we work on it until it does or we refund.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 6 -->
+      <div class="faq-item" role="listitem">
+        <button class="faq-btn" aria-expanded="false" aria-controls="faq-6" onclick="toggleFAQ(this, 'faq-6')">
+          <span>Do you work with my existing software?</span>
+          <span class="faq-icon" aria-hidden="true"><i data-lucide="plus" width="14" height="14"></i></span>
+        </button>
+        <div class="faq-answer" id="faq-6" role="region" aria-label="Answer to: Do you work with my existing software?">
+          <div class="faq-answer-inner">
+            Yes. We integrate with the tools you already use — Google Workspace, Microsoft 365, Xero, MYOB, Salesforce, HubSpot, RealPlus, PropertyMe, Cliniko, and most common CRMs, booking systems, and practice management software. If it has an API, we can connect to it.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 7 -->
+      <div class="faq-item" role="listitem">
+        <button class="faq-btn" aria-expanded="false" aria-controls="faq-7" onclick="toggleFAQ(this, 'faq-7')">
+          <span>What's the NZ Government co-funding?</span>
+          <span class="faq-icon" aria-hidden="true"><i data-lucide="plus" width="14" height="14"></i></span>
+        </button>
+        <div class="faq-answer" id="faq-7" role="region" aria-label="Answer to: What's the NZ Government co-funding?">
+          <div class="faq-answer-inner">
+            The NZ Government has allocated $17M for the Responsible AI Adoption programme, managed through the Regional Business Partner (RBP) Network. Eligible NZ businesses can receive up to $15,000 in co-funding to cover AI implementation costs. We can guide you through the application process. Book a demo and we'll assess your eligibility for free.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 8 -->
+      <div class="faq-item" role="listitem">
+        <button class="faq-btn" aria-expanded="false" aria-controls="faq-8" onclick="toggleFAQ(this, 'faq-8')">
+          <span>Can I try before I commit?</span>
+          <span class="faq-icon" aria-hidden="true"><i data-lucide="plus" width="14" height="14"></i></span>
+        </button>
+        <div class="faq-answer" id="faq-8" role="region" aria-label="Answer to: Can I try before I commit?">
+          <div class="faq-answer-inner">
+            Absolutely. Start with a free 15-minute demo call where we'll walk you through exactly what AI would look like in your business and show you a live example. No obligation, no sales pressure. If it makes sense, we'll scope a project together. If not, you've learned something valuable for free.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     11. FINAL CTA  ← ONE dark section for urgency
+════════════════════════════════════════════ -->
+<section id="cta" style="background: var(--bg-dark); padding: 120px 0; position: relative; overflow: hidden;">
+  <div aria-hidden="true" style="position:absolute; inset:0; background: radial-gradient(ellipse at center, rgba(99,102,241,0.18) 0%, transparent 65%);"></div>
+
+  <div class="max-w-4xl mx-auto px-6 text-center relative z-10 fade-in">
+    <!-- Urgency badge -->
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8" style="background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.25);">
+      <i data-lucide="clock" width="14" height="14" style="color:#818CF8;" aria-hidden="true"></i>
+      <span class="text-sm font-medium" style="color:#818CF8;">Every week without AI costs you</span>
+    </div>
+
+    <h2 class="font-display text-4xl md:text-6xl font-bold mb-6" style="font-family:'Space Grotesk',sans-serif; line-height:1.1; color: var(--text-light);">
+      Every Week Without AI<br/>
+      <span class="gradient-text">Revenue Goes to Your Competitor.</span>
+    </h2>
+
+    <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto" style="color: var(--text-muted); line-height:1.75;">
+      The business down the road is already automating their calls, follow-ups, and bookings. The question isn't whether to adopt AI — it's how fast you can do it right.
+    </p>
+
+    <!-- Big CTA -->
+    <a href="https://calendly.com/hello-esperion/30min" target="_blank" rel="noopener noreferrer" class="btn-primary text-lg inline-flex mb-8" style="padding: 18px 36px; font-size:1.05rem;" aria-label="Book your free demo and see your custom ROI">
+      <i data-lucide="calendar-check" width="22" height="22" aria-hidden="true"></i>
+      Book Your Free Demo — See Your Custom ROI in 15 Minutes
+    </a>
+
+    <div class="flex flex-wrap gap-6 justify-center items-center">
+      <a href="mailto:hello@esperion.io" class="flex items-center gap-2 text-sm" style="color: var(--text-muted);" aria-label="Email us">
+        <i data-lucide="mail" width="16" height="16" aria-hidden="true"></i>
+        hello@esperion.io
+      </a>
+      <span style="color:#3F3F46;" aria-hidden="true">|</span>
+      <a href="tel:+64211234365" class="flex items-center gap-2 text-sm" style="color: var(--text-muted);" aria-label="Call AI Tools NZ">
+        <i data-lucide="phone" width="16" height="16" aria-hidden="true"></i>
+        +64 21 123 4365
+      </a>
+      <span style="color:#3F3F46;" aria-hidden="true">|</span>
+      <span class="flex items-center gap-2 text-sm" style="color: var(--text-muted);">
+        <i data-lucide="map-pin" width="16" height="16" aria-hidden="true"></i>
+        Auckland, New Zealand
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     12. FOOTER
+════════════════════════════════════════════ -->
+<footer>
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+      <!-- Brand -->
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="inline-flex w-8 h-8 rounded-lg items-center justify-center" style="background: var(--accent);">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2L14 5.5V10.5L8 14L2 10.5V5.5L8 2Z" fill="white"/></svg>
+          </span>
+          <span class="text-white font-bold text-xl" style="font-family:'Space Grotesk',sans-serif;">AI Tools NZ</span>
+        </div>
+        <p class="text-sm mb-4" style="color: var(--text-muted); line-height:1.7;">AI Implementation for NZ Businesses.<br/>Custom AI systems in 5 days. ROI in month one.</p>
+        <p class="text-xs" style="color:#3F3F46;">Powered by <a href="https://aitools.co.nz" target="_blank" rel="noopener" style="color:#818CF8;">AI Tools NZ</a></p>
+      </div>
+
+      <!-- Solutions -->
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color:#3F3F46; font-family:'Space Grotesk',sans-serif;">Solutions</p>
+        <ul class="space-y-2" role="list">
+          <li><a href="#solution" class="text-sm" style="color: var(--text-muted);">AI Personal Assistant</a></li>
+          <li><a href="#solution" class="text-sm" style="color: var(--text-muted);">AI Voice Agent</a></li>
+          <li><a href="#solution" class="text-sm" style="color: var(--text-muted);">Smart Chatbot</a></li>
+          <li><a href="#solution" class="text-sm" style="color: var(--text-muted);">Workflow Automation</a></li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color:#3F3F46; font-family:'Space Grotesk',sans-serif;">Company</p>
+        <ul class="space-y-2" role="list">
+          <li><a href="#pricing" class="text-sm" style="color: var(--text-muted);">Pricing</a></li>
+          <li><a href="#faq" class="text-sm" style="color: var(--text-muted);">FAQ</a></li>
+          <li><a href="mailto:hello@esperion.io" class="text-sm" style="color: var(--text-muted);">Contact</a></li>
+          <li><a href="#" class="text-sm" style="color: var(--text-muted);">Privacy Policy</a></li>
+          <li><a href="#" class="text-sm" style="color: var(--text-muted);">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="border-top: 1px solid var(--border-dark); padding-top: 32px;" class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-sm" style="color:#3F3F46;">© 2026 AI Tools NZ. Auckland, New Zealand. All rights reserved.</p>
+      <div class="flex items-center gap-6">
+        <a href="https://trade.aitools.co.nz" target="_blank" rel="noopener" class="text-xs" style="color: var(--text-muted);">AI for Trades</a>
+        <a href="https://realestate.aitools.co.nz" target="_blank" rel="noopener" class="text-xs" style="color: var(--text-muted);">AI for Real Estate</a>
+        <a href="https://aitools.co.nz" target="_blank" rel="noopener" class="text-xs" style="color: var(--text-muted);">AI Tools NZ</a>
+      </div>
+    </div>
+  </div>
+
+    <!-- Ecosystem Links -->
+    <div style="border-top:1px solid rgba(255,255,255,0.05);padding-top:1.25rem;margin-top:1.25rem;">
+      <p style="font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,0.2);margin-bottom:8px;">AI Tools NZ Ecosystem</p>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;">
+        <a href="https://aitools.co.nz" style="font-size:.8rem;color:rgba(255,255,255,0.3);text-decoration:none;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">AI for Business</a>
+        <a href="https://realestate.aitools.co.nz" style="font-size:.8rem;color:rgba(255,255,255,0.3);text-decoration:none;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">AI for Real Estate</a>
+        <a href="https://trade.aitools.co.nz" style="font-size:.8rem;color:rgba(255,255,255,0.3);text-decoration:none;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">AI for Trades</a>
+        <a href="https://student.aitools.co.nz" style="font-size:.8rem;color:rgba(255,255,255,0.3);text-decoration:none;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">AI for Students</a>
+      </div>
+    </div>
+</footer>
+
+<!-- Scroll to top button -->
+<button id="scroll-top" aria-label="Scroll to top of page" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+  <i data-lucide="chevron-up" width="20" height="20" style="color:white;" aria-hidden="true"></i>
+</button>
+
+<!-- ════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════ -->
+<script>
+  // ── Init Lucide Icons ──
+  document.addEventListener('DOMContentLoaded', () => {
+    lucide.createIcons();
+    initAll();
+  });
+
+  function initAll() {
+    initNav();
+    initHamburger();
+    initScrollAnimations();
+    initStatCounters();
+    initScrollTop();
+    // Auto-calculate on load
+    calculateROI();
+  }
+
+  // ── Sticky Nav ──
+  function initNav() {
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    }, { passive: true });
+  }
+
+  // ── Hamburger ──
+  function initHamburger() {
+    const btn = document.getElementById('hamburger');
+    const menu = document.getElementById('nav-menu');
+    btn.addEventListener('click', () => {
+      const isOpen = btn.classList.toggle('open');
+      menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen);
+    });
+    // Close on link click
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        btn.classList.remove('open');
+        menu.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // ── Scroll Animations ──
+  function initScrollAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+  }
+
+  // ── Stat Counters ──
+  function initStatCounters() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.dataset.counted) {
+          entry.target.dataset.counted = true;
+          const target = parseInt(entry.target.dataset.count);
+          const suffix = entry.target.dataset.suffix || '';
+          animateCounter(entry.target, target, suffix);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('[data-count]').forEach(el => {
+      observer.observe(el);
+    });
+  }
+
+  function animateCounter(el, target, suffix) {
+    const duration = 1800;
+    const start = performance.now();
+    const easeOut = t => 1 - Math.pow(1 - t, 3);
+
+    function step(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const value = Math.round(easeOut(progress) * target);
+      el.textContent = value + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // ── FAQ Accordion ──
+  function toggleFAQ(btn, id) {
+    const answer = document.getElementById(id);
+    const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+
+    // Close all
+    document.querySelectorAll('.faq-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+    document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+
+    // Open clicked if it was closed
+    if (!isExpanded) {
+      btn.setAttribute('aria-expanded', 'true');
+      answer.classList.add('open');
+    }
+  }
+
+  // Keyboard nav for FAQ
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      const btn = e.target;
+      if (btn.classList.contains('faq-btn')) {
+        e.preventDefault();
+        btn.click();
+      }
+    }
+  });
+
+  // ── ROI Calculator ──
+  const employeeSlider = document.getElementById('roi-employees');
+  const roiIndustry = document.getElementById('roi-industry');
+  const roiRevenue = document.getElementById('roi-revenue');
+
+  if (employeeSlider) {
+    employeeSlider.addEventListener('input', () => {
+      document.getElementById('emp-display').textContent = employeeSlider.value;
+      employeeSlider.setAttribute('aria-valuenow', employeeSlider.value);
+      calculateROI();
+    });
+  }
+  if (roiIndustry) roiIndustry.addEventListener('change', calculateROI);
+  if (roiRevenue) roiRevenue.addEventListener('input', calculateROI);
+
+  function formatCurrency(val) {
+    if (val >= 1000000) return '$' + (val / 1000000).toFixed(1) + 'M';
+    if (val >= 1000) return '$' + Math.round(val / 1000).toLocaleString() + 'K';
+    return '$' + val.toLocaleString();
+  }
+
+  function calculateROI() {
+    const industry = document.getElementById('roi-industry').value;
+    const employees = parseInt(document.getElementById('roi-employees').value) || 5;
+    const revenue = parseFloat(document.getElementById('roi-revenue').value) || 50000;
+
+    // Scale factor based on team size (more employees = more impact)
+    const teamScale = Math.max(0.5, Math.min(employees / 5, 4));
+    // Revenue factor for scaling estimates
+    const revScale = Math.max(0.5, revenue / 50000);
+
+    let monthlyValue = 0;
+    let label = '';
+    let tier = '';
+    let timeline = '';
+
+    switch (industry) {
+      case 'trades':
+        // Missed calls scale with team size; job value scales with revenue
+        const missedCalls = Math.round(3 + employees * 0.8);
+        const avgJob = Math.round(200 + (revenue / employees / 12) * 0.3);
+        monthlyValue = Math.round(missedCalls * avgJob * 0.30 * 22);
+        label = 'Est. value from ' + missedCalls + ' recaptured missed calls/day × $' + avgJob + ' avg job';
+        tier = 'Starter Plan ($250/mo — March Madness) — ROI of ~' + Math.round(monthlyValue / 250) + 'x';
+        timeline = 'Positive ROI from week 2. Full payback within month 1.';
+        break;
+      case 'realestate':
+        // Leads scale with team size and revenue
+        const leadsPerMonth = Math.round(8 + employees * 1.5);
+        const avgCommission = Math.round(revenue * 0.03);
+        monthlyValue = Math.round(leadsPerMonth * avgCommission * 0.12);
+        label = 'Est. value from ' + leadsPerMonth + ' leads/mo with faster response + 12% conversion uplift';
+        tier = 'Growth Plan ($500/mo — March Madness) — ROI of ~' + Math.round(monthlyValue / 500) + 'x';
+        timeline = 'First additional sale within weeks. Proven ROI by month 1.';
+        break;
+      case 'property':
+        // Admin hours saved scale with portfolio/team size
+        const adminHoursSaved = Math.round(employees * 8);
+        const hourlyRate = 35;
+        const tenantRetention = Math.round(revenue * 0.02 * teamScale);
+        monthlyValue = Math.round((adminHoursSaved * hourlyRate) + tenantRetention);
+        label = 'Est. value: ' + adminHoursSaved + ' admin hrs saved + improved tenant retention';
+        tier = 'Growth Plan ($500/mo — March Madness) — ROI of ~' + (monthlyValue / 500).toFixed(1) + 'x';
+        timeline = 'Admin savings visible immediately. Full ROI within month 1.';
+        break;
+      case 'medical':
+        // No-shows scale with practice size
+        const dailyNoShows = Math.round(1.5 + employees * 0.6);
+        const avgConsult = Math.round(150 + (revenue / employees / 22));
+        monthlyValue = Math.round(dailyNoShows * avgConsult * 22 * 0.60);
+        label = 'Est. value: ' + dailyNoShows + ' no-shows/day reduced × $' + avgConsult + ' avg consultation';
+        tier = 'Starter Plan ($250/mo — March Madness) — ROI of ~' + Math.round(monthlyValue / 250) + 'x';
+        timeline = 'No-show reduction from day 1. Full ROI within 2 weeks.';
+        break;
+      case 'other':
+      default:
+        // General efficiency gain scales with revenue and team
+        const efficiencyRate = 0.04 + (employees * 0.008);
+        monthlyValue = Math.round(revenue * Math.min(efficiencyRate, 0.15));
+        label = 'Est. ' + (Math.min(efficiencyRate, 0.15) * 100).toFixed(1) + '% efficiency gain on $' + revenue.toLocaleString() + '/mo revenue';
+        if (monthlyValue < 800) {
+          tier = 'Starter Plan ($250/mo — March Madness)';
+        } else if (monthlyValue < 2000) {
+          tier = 'Growth Plan ($500/mo — March Madness) — ROI of ~' + Math.round(monthlyValue / 500) + 'x';
+        } else {
+          tier = 'Scale Plan ($1,000/mo — March Madness) — ROI of ~' + Math.round(monthlyValue / 1000) + 'x';
+        }
+        timeline = 'Conservative estimate. Real ROI often 2–3x higher.';
+        break;
+    }
+
+    // Animate the number
+    const valueEl = document.getElementById('roi-value');
+    const startVal = parseInt(valueEl.textContent.replace(/[^0-9]/g, '')) || 0;
+    animateROINumber(valueEl, startVal, monthlyValue, 600);
+
+    document.getElementById('roi-label').textContent = label;
+    document.getElementById('roi-tier').textContent = tier;
+    document.getElementById('roi-timeline').textContent = timeline;
+    document.getElementById('roi-details').style.display = 'block';
+
+    // Re-init icons in output
+    lucide.createIcons();
+  }
+
+  function animateROINumber(el, from, to, duration) {
+    const start = performance.now();
+    const easeOut = t => 1 - Math.pow(1 - t, 3);
+    function step(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const value = Math.round(from + easeOut(progress) * (to - from));
+      el.textContent = formatCurrency(value) + '/mo';
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // ── Scroll-to-Top ──
+  function initScrollTop() {
+    const btn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 600) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }, { passive: true });
+  }
+
+  // ── Smooth scroll for anchor links ──
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      const target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        const offset = 80; // nav height
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+<!-- ═══ AI TOOLS NZ DEMO CHAT WIDGET ═══ -->
+<script
+  src="https://demo.aitools.co.nz/widget/esperion-inline-chat.js"
+  data-container="#demo-chat"
+  data-agent="sales"
+  data-theme="business"
+  data-company="AI Tools NZ"
+  data-tagline="AI Tools NZ — Ask me anything"
+  data-calendly="https://calendly.com/hello-esperion/30min"
+  data-cap="15"
+  defer
+></script>
+<!-- ═══ END DEMO CHAT WIDGET ═══ -->
+
+<!-- ═══ CALENDLY POPUP WIDGET ═══ -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<script>
+function openCalendly(e) {
+  if (e) e.preventDefault();
+  Calendly.initPopupWidget({url: 'https://calendly.com/hello-esperion/30min'});
+  return false;
+}
+// Convert all Calendly links to popup on DOM ready
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href*="calendly.com"]').forEach(function(el) {
+    el.removeAttribute('target');
+    el.removeAttribute('rel');
+    el.addEventListener('click', openCalendly);
+  });
+});
+</script>
+<!-- ═══ END CALENDLY POPUP WIDGET ═══ -->
+</body>
+</html>
